@@ -1,6 +1,6 @@
 #/bin/bash
 
-selected=$(ls -d ~/Notes/bachelor-3/semester-2/*/ | cut -c41-100 | rofi -dmenu -p "select your current class")
+selected=$(ls -d ~/Notes/bachelor-3/semester-2/*/ | cut -c41-100 | rofi -dmenu -p "Select your current class:" -theme nord -i -no-fixed-num-lines -location 2)
 
 if [ -z "$selected" ]
 then 
