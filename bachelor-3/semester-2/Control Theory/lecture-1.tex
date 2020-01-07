@@ -1,0 +1,86 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath, amssymb}
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+	\def\svgwidth{\columnwidth}
+	\import{./figures/}{#1.pdf_tex}
+}
+
+\pdfsuppresswarningpagegroup=1
+
+\usepackage{fancyhdr}
+	\fancyhead{}  		% Clears all page headers and footers
+	\pagestyle{fancy}
+	\lhead{MTHE 332} 	% TODO: Add automatic context switching, auto complete current class
+	\rhead{Joe Grosso}
+	\chead{Lesson 1}	% TODO: Smart class auto complete
+	\cfoot{ 2020-01-06 }
+
+\begin{document}
+	\begin{itemize}
+		\item No required textbook
+		\item Supplemental lecture notes: a list of additional references have been notes.
+		\item No tutorial week 1!		
+	\end{itemize}	
+	
+	\section{Introduction}
+	In MTHE 237, 
+	\[
+		\frac{dx}{dt} = f(x)
+	.\] 
+	Equations like this have explicit solution (existence/uniqueness implies an explicit solution).
+
+	\begin{itemize}
+		\item stability of solutions \implies $\lim_{n \to \infty} |x(t)|$
+	\end{itemize}
+
+	In many applications, we also have the liberty of including a variable, called a control variable, to shape the behavior of the equation/system. 
+	\[
+		\frac{dx}{dt} = f(x,u)
+	.\] 	
+	In this case $u$ is our control variable. 
+
+	Control Theory studies the problem of selecting a "$u$" subject to design, information and objective constraints. 
+
+	Simple example: How do we control a circuit? 
+	
+	% Insert diagram here % 
+	\[
+	i(t) = {\frac{dQ}{dt}}=C \frac{dV_{C}}{dt}\\
+
+	Q = CV_{C}, \\
+	
+	Ri(t) + V_{C}(t) = e(t)\\
+
+
+	RC \frac{dV_{C}(t)}{dt} + V_{C}(t) = e(t)\\
+
+	\frac{dV_{C}(t)}{dt} = -\frac{1}{RC} V_{C}(t) + \frac{e(t)}{RC}\\
+	
+	.\] 
+	
+	\end{align}
+
+	Exercise:
+
+	\[
+		\frac{d}{dt}e^{}
+	.\] 
+
+	In the discussion so far, the input, $u(t)$ or $e(t)$, did not depend on the past behavior/readings of the system. That is, $u$ (or $e$ ) was external/open loop. 
+
+	
+\end{document}
+
+
