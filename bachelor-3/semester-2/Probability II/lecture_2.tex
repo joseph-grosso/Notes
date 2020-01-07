@@ -1,0 +1,70 @@
+\lecture{2}{2020-01-07}{PDF and CDF}
+
+$P$ is a probability measure, meaning it satisfies the axioms of probability:
+
+\begin{enumerate}
+	\item $P(A) \ge 0$ for $A \subset S$ 
+	\item $P(S) = 1$ (These are just standardization conditions, to ensure that $P(A) \in [0,1]$)
+	\item If $A_{1}$, $A_{2}$, \ldots is a sequence of mutually disjoint subsets of $S$, ie $A_{i} \cap  A_{j} &=  \O  \forall   i \neq j$ then
+		\[
+			P(\cup _{i=1}^\infty A_{i}) = \sum_{i=1}^{\infty} P(A_{i})
+		.\] 
+
+% Missed a lot of content
+\end{enumerate}
+
+Since $A \cup A ^{c} = S$ and $A$ and $A ^{c}$ are disjoint then 
+
+\[
+	P(S) = P(A \cup A ^{c}) = P(A) + P(A ^{c})
+.\] \[
+P(A^{c}) = P(S) - P(A) = 1 - P(A)
+.\] 
+
+\subsection{Random Variables}
+
+A random variable $X$ is a real valued function on $ S$
+\[
+X : S \to \mathbb{R}
+.\] 
+
+\begin{definition}
+	The distribution of $X$ is the probability measure on \R associated with $X$ and induced by $P$ : for $A \subset \R$ :
+	\[
+		P_{X}(A) = P(\{X \in A\}) = P(\{s \in  S  \mid X(S) \in  A\})
+	.\] 
+
+\end{definition}
+How do we describe the distribution of $ X$?
+
+\begin{description}
+	\item [Cumulative Distribution Function] (denoted $F_{x}$ and abbreviated to cdf)
+
+		\[
+	\begin{align*}
+		F_{X}: \R &\longrightarrow [0,1] \\
+		&\longmapsto F_{X}(x) = P(X\le x) \text{for}	x \in  \R
+	.\end{align*}	
+		.\] 
+% Insert graph of cdf 
+
+	Cumulative distribution functions are continuous from the right. 
+\end{description}
+
+
+	If $X$ is discrete then we usually describe the distribution of $X$ by its probability mass function (pmf)
+\begin{description}
+	\item[Probability Distribution Function] 
+		\begin{align*}
+		p_{X}: \R &\longrightarrow [0,1] \\
+		x &\longmapsto p_{X}(x) = P(X = x)  \forall x \in  \R
+	.\end{align*}
+	.
+
+	The set $\{ x \in  \R  \mid  p_{X}(x) > 0\}$ is called the support of the distribution of $X$. 
+%
+\end{description}	\[
+%	\item[Probability Distribution Function]		
+
+
+
