@@ -1,0 +1,52 @@
+\lecture{1}{Wed 08 Jan 2020 12:57}{Syllabus & Intro}
+
+        \begin{itemize} 
+                \item No required textbook 
+                \item Supplemental lecture notes: a list of additional references have been notes. 
+                \item No tutorial week 1!                
+        \end{itemize}    
+         
+        \section{Introduction} 
+        In MTHE 237,  
+        \[ 
+                \frac{dx}{dt} = f(x) 
+        .\]  
+        Equations like this have explicit solution (existence/uniqueness implies an explicit solution). 
+ 
+        \begin{itemize} 
+                \item stability of solutions \implies $\lim_{n \to \infty} |x(t)|$ 
+        \end{itemize} 
+ 
+        In many applications, we also have the liberty of including a variable, called a control variable, to     shape the behavior of the equation/system.  
+        \[ 
+                 \frac{dx}{dt} = f(x,u) 
+        .\]      
+        In this case $u$ is our control variable.  
+ 
+        Control Theory studies the problem of selecting a "$u$" subject to design, information and objective      constraints.  
+ 
+        Simple example: How do we control a circuit?  
+         
+        % Insert diagram here %  
+        \[ 
+        i(t) = {\frac{dQ}{dt}}=C \frac{dV_{C}}{dt}\\ 
+ 
+        Q = CV_{C}, \\ 
+         
+        Ri(t) + V_{C}(t) = e(t)\\ 
+ 
+ 
+        RC \frac{dV_{C}(t)}{dt} + V_{C}(t) = e(t)\\ 
+ 
+        \frac{dV_{C}(t)}{dt} = -\frac{1}{RC} V_{C}(t) + \frac{e(t)}{RC}\\ 
+         
+        .\]  
+         
+        \end{align} 
+ 
+        Exercise: 
+        \[ 
+                \frac{d}{dt}e^{} 
+        .\]  
+ 
+        In the discussion so far, the input, $u(t)$ or $e(t)$, did not depend on the past behavior/readings       of the system. That is, $u$ (or $e$ ) was external/open loop.  

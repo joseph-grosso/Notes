@@ -1,0 +1,63 @@
+\lecture{01}{Mon 06 Jan 2020 8:39}{Intro}
+	
+	\section{Introduction}
+	\subsection{Marking Scheme}
+	\begin{description}
+		\item[Quizzes] 40\% in tutorial in even weeks, drop lowest score
+		\item[Final Exam] 60\%. If final exam grade is <40\%, grade $=min\{final, usual\}$
+	\end{description}
+	
+	Content of quiz 1:
+
+	\begin{itemize}
+		\item system of linear homogeneous equations 
+		\item Scalar linear inhomogeneous differential equations 
+	\end{itemize}
+	
+	This is a system theory course. 
+
+	\subsection{General System Theory}
+	
+	\begin{definition}
+		A general input-output system is a triple $(U, Y, B)$, where
+
+	\begin{enumerate}
+		\item $U$ is a set (the set of inputs)
+		\item $Y$ is a set (the set of outputs)
+		\item $B \subseteq U \times  Y$ (the behaviours).
+	\end{enumerate}
+	\end{definition} 
+	An element of $B$ looks like $(\mu , \eta)$ with $\mu$ an input and $\eta$ an output. If $\mu \in U$ we denote 
+	\[
+		B(\mu) = \{(\mu, \eta) \in B\}
+	.\]
+	This is the set of all behaviors corresponding to $\mu \in U$. 
+
+	\begin{definition}
+		A functional input/output system is a general input/output system $(U, Y, B)$ so that $B$ is the graph of some mapping $ \Phi : u \to y $:
+	\[
+		B = graph(\Phi) = \{(\mu, \Phi (\mu))  \mid \mu \in  U\}
+	.\] 
+	\end{definition}
+
+	\begin{description}
+		\item[States:] Let $U$ be a set of inputs and let $Y$ be a set of outputs. A response function for a system $(U, Y, B)$ is a mapping 	\[
+			 \rho : U \times  X  \to Y 
+			.\] such that \[
+			B = \{(\mu, \rho (\mu, x))  \mid \mu \in  U, x \in  X \}
+			.\]
+		X is called a state object. One should think of $X$ as parameterising the outputs for a fixed input. 
+			
+	\end{description}
+	\begin{definition}
+	A linear general input/output system is a general input/output system $(U, Y, B)$ such that 
+	\begin{enumerate}
+		\item $U$ and $Y$ are vector spaces 
+		\item $B  \subseteq U \oplus Y$ is a subspace
+	\end{enumerate}	
+	\end{definition}
+	One also has linear response functions, meaning that $U$, $Y$ and $X$ are vector spaces, and $ \rho : U \oplus X  \to Y $ is linear. 
+
+	\begin{conclusion}
+		If $(U, Y, B)$ is a linear input/output system it has a linear response function.
+	\end{conclusion}

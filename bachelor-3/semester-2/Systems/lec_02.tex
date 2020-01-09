@@ -1,0 +1,112 @@
+\lecture{2}{Wed 08 Jan 2020 15:30}{General Time Systems}
+
+\section{Time and set-valued functions of time}
+
+\begin{itemize}
+	\item a time-domain $\T$ 
+	\item a set $X$		
+\end{itemize}
+\[
+\implies	X^{\T} = \{f : \T \to X\}
+.\] 
+
+We shall also require " partial functions", denoted by 
+\[
+	X^{\T} = \{f : \T' \to X  \mid \T' \subseteq \T \text{ is a  subinterval} \}
+.\] 
+By a subinterval, we mean $\T' \in  \{(a,b), [a,b), \text{ etc}\}$. 
+
+Why do we need partial functions? 
+
+\begin{example}
+	Consider, an input/output system:
+	\begin{align*}
+		U &= L'(\R; \R) \\
+		Y &= C ^{0}(\R, \R)
+	.\end{align*}
+	Given $\mu \in  U$, the outputs corresponding to this are 
+	\begin{align*}
+		\eta: t &\longrightarrow \eta(t) \\
+		t &\longmapsto \eta(t) = \eta^{2}(t) + \mu	
+	.\end{align*}
+
+	This is a differential equation, which we can solve. 
+\[
+		\frac{dn}{dt}    = n^2 + \mu (t) , u_{0} = u(t) = \text{constant} \,, \quad
+		dn = n^2 dt + u_{0} dt = (n^2 + u_{0}  ) dt \\
+		\int_{x(t_{0}}^{x(t)} \frac{dn}{n ^2 + 1} = \int_{t_{0}}^{t} \\
+		\arctan (x(t)) - \arctan (x(t_{0})) = t - t_{0} \\
+		n(t) = n(t_{0}) + tan(t - t_{0})
+
+.\] 
+	\begin{align*}
+		
+		\frac{dn}{dt}    &= n^2 + \mu (t) , u_{0} = u(t) = \text{constant} \\
+		dn &= n^2 dt + u_{0} dt = (n^2 + u_{0}  ) dt \\
+		\int_{x(t_{0}}^{x(t)} \frac{dn}{n ^2 + 1} = \int_{t_{0}}^{t} \\
+		\arctan (x(t)) - \arctan (x(t_{0})) = t - t_{0} \\
+		n(t) = n(t_{0}) + tan(t - t_{0})
+	.\end{align*}
+
+	\begin{equation}
+		\frac{dn}{dt}    &= n^2 + \mu (t) , u_{0} = u(t) = \text{constant} \\
+		dn &= n^2 dt + u_{0} dt = (n^2 + u_{0}  ) dt \\
+		\int_{x(t_{0}}^{x(t)} \frac{dn}{n ^2 + 1} = \int_{t_{0}}^{t} \\
+		\arctan (x(t)) - \arctan (x(t_{0})) = t - t_{0} \\
+		n(t) = n(t_{0}) + tan(t - t_{0})
+	\end{equation}
+	\begin{conclusion}
+		Even if $\mu$ is nice, it can happen that $n(t)$ blows up in finite-time. 
+	\end{conclusion}
+\end{example}
+
+Moreover, the finite-time when solution blows up depends on $t_{0}$, $x(t_{0})$. Therefore the outputs are only partially defined. 
+
+\begin{definition}
+	A general time-system is $(U, Y, \T, U, Y)$ such that 
+	\begin{enumerate}
+		\item $U$ is a set (the input values)
+		\item $Y$ is a set (the output values)
+		\item $\T$ is a time domain
+		\item $U \subseteq U^{(\T)}$ (the inputs)
+		\item $Y \subseteq Y^{(\T)}$ (the outputs)
+
+		Thus inputs are things like $\mu : \T' \to U, \T' \subseteq \T$ is a subinterval. Similarly, outputs are things like $n : \T' \to \mathbb{Y}$ where $\T' \subseteq \T$ is a subinterval. Points in the input set are $u \in  U$ and points in the output set are $y \in Y$. 
+	\item $B \subseteq U \times  Y$ is such that, if $(\mu , n) \in  B$, then $\mu, n : \T' \to \T$, ie, \mu and $n$ have the same domain. 
+
+	\end{enumerate}
+\end{definition}
+
+\begin{notation}
+	If $ss \in X^{\T}$, ie, $ss : \T \to X$. Suppose we are given a distinguished "starting time" $t_{0 \in  \T}$. If $t \ge t_{0}$ we have $ss_{[t_{0}, t)} = ss  \mid [t_{0}, t)$ and $ss_{[t_{0}, t)} = ss  \mid [t_{0}, t]$
+\end{notation}
+
+
+If $(U, Y, \T, U, Y, B)$ is a general time system, we denote $B_{[t_{0}, t)}$ to be $(\mu _{[t_{0}, t)}, n_{[t_{0}, t)})$ for $(\mu , n) \in  B$. Similarly we have $B_{[t_{0}, t]}$. If $\mu \in U$, then denote $B(\mu ) _{[t_{0}, t)} = \{(\mu _{[t_{0}, t)}, n _{[t_{0}, t)})  \mid (\mu , n) \in  B( \mu ) \}$
+
+
+\begin{definition}
+	Let $(U, Y, \T, U, Y, B)$ be a GTS (General Time System). It is:
+	\begin{enumerate}
+		\item causal from $t_{0} \in  \mathbb{ T}$ if 
+			\[
+				(\mu _{1})_{[t_{0}, t]} = (\mu _{2})_{[t_{0}, t]}
+
+			.\] \[
+				B(\mu _{1})_{[t_{0}, t]} = B(\mu _{2})_{[t_{0}, t]}
+			.\] 
+			"The behaviours for times less than $t$ do not depend on knowing inputs for times larger than $t$ "
+		\item strongly causal from $t_{0} \in  \T$ if 
+			\[
+				(\mu _{1})_{[t_{0}, t)} = (\mu _{2})_{[t_{0}, t)}
+
+			.\] 
+			\[
+				B(\mu _{1})_{[t_{0}, t)} = B(\mu _{2})_{[t_{0}, t)}
+			.\]
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	A GTS $(U, Y, \T, U, Y, B)$ is finitely determined from $\tau \ge t_{0}$ if, for every input $\mu$ and for outputs $n$
+\end{definition}
