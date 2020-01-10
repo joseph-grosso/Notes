@@ -1,0 +1,36 @@
+\lecture{3}{Thu 09 Jan 2020 09:38}{Random Vectors}
+
+If $X$ is a continuous random variable and $\exists $ a function $f_{X}(x) : \mathbb{R} \to [0,\infty)$ satisfying $P(x \in A) = \int_{A} f_{X} (x) dx   \forall   A \subset \R$ (*), then $f_{X}(x)$ is called a probability density function for $X$ (pdf) 
+
+\begin{remark}
+	You can change the value of a pdf at any finite or countable number of points and it will still be a pdf, because it will still satisfy (*)
+\end{remark}
+
+Usually there is a standard version of any pdf that we use in practice. 
+
+\section{Joint Distributions}
+
+Let $X_{1}, \ldots , X_{n}$ be n random variables and let $X = (X_{1}, \ldots , X_{n})^{T}$. Then X is called a random vector. By its construction, $X$is called a random vector. By its construction, $X$ is a function (each $X_{i}$ is a function) from $S \to \mathbb{R}^{n}$ \[
+X : S \to \mathbb{R}^{n}
+.\] 
+The distribution of $X$ is the probability measure on $\R^{n}$, say $P^{X}$, given by: \[
+	P_{X} (A) = P\left( \left\{ X \in  A  \right\}  \right)  = P\left( \left\{ s \in S  \mid X \left( s \right) \in  A \right\}  \right) \forall A \subset \R^{n}
+.\] 
+We define the joint cdf of $X$ as 
+\begin{align*}
+	F_{X}\left( x \right) &= P\left( X_{1} \le x_{1}, \ldots, X_{n}\le x_{n} \right) \text{for} X = (X_{1}, \ldots , X_{n}) \\
+	&= P\left(  X_{1} \le x_{1} \cap  \ldots \cap  X_{n}\le x_{n} \right) 
+.\end{align*}
+
+If all components of $X$ are discrete than the joint pmf of $X$ is \[
+	p_{X}(x) = P(X_{1} = x_{1}, \ldots, X_{n} = x_{n}) \forall x = \left( x_{1}, \ldots , x_{n} \right) 
+.\] 
+The set of points in $\R^{n}$, $\left\{ x \in  \R^{n} \mid p_{X}(x) > 0 \right\} $ is called the support of the distribution of $X$. 
+
+If all components of $X$ are continuous random variables and $\exists $ a function $f_{X}\left( x \right)  : \R^{n} \to [0, \infty)$ satisfying $\int_{A} f_{X}(x) dx$, then $f_{X}(x)$ is called a joint pdf of the distribution of $X$. 
+
+More explicitly: 
+\begin{align*}
+	\int_{A}^{} f_{X} (x) dx &= f_{X} (x_{1}, \ldots, x_{n}) \cdot dx_{1}, \ldots , dx_{n}\\
+				 &= P\left( X \in A \right)  \forall A \subset \R 
+.\end{align*}

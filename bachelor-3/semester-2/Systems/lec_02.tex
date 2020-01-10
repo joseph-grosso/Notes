@@ -31,30 +31,15 @@ Why do we need partial functions?
 	.\end{align*}
 
 	This is a differential equation, which we can solve. 
-\[
-		\frac{dn}{dt}    = n^2 + \mu (t) , u_{0} = u(t) = \text{constant} \,, \quad
-		dn = n^2 dt + u_{0} dt = (n^2 + u_{0}  ) dt \\
-		\int_{x(t_{0}}^{x(t)} \frac{dn}{n ^2 + 1} = \int_{t_{0}}^{t} \\
-		\arctan (x(t)) - \arctan (x(t_{0})) = t - t_{0} \\
-		n(t) = n(t_{0}) + tan(t - t_{0})
-
-.\] 
-	\begin{align*}
-		
-		\frac{dn}{dt}    &= n^2 + \mu (t) , u_{0} = u(t) = \text{constant} \\
-		dn &= n^2 dt + u_{0} dt = (n^2 + u_{0}  ) dt \\
-		\int_{x(t_{0}}^{x(t)} \frac{dn}{n ^2 + 1} = \int_{t_{0}}^{t} \\
-		\arctan (x(t)) - \arctan (x(t_{0})) = t - t_{0} \\
-		n(t) = n(t_{0}) + tan(t - t_{0})
-	.\end{align*}
-
-	\begin{equation}
-		\frac{dn}{dt}    &= n^2 + \mu (t) , u_{0} = u(t) = \text{constant} \\
-		dn &= n^2 dt + u_{0} dt = (n^2 + u_{0}  ) dt \\
-		\int_{x(t_{0}}^{x(t)} \frac{dn}{n ^2 + 1} = \int_{t_{0}}^{t} \\
-		\arctan (x(t)) - \arctan (x(t_{0})) = t - t_{0} \\
-		n(t) = n(t_{0}) + tan(t - t_{0})
-	\end{equation}
+\begin{align*}
+	\frac{dn}{dt}    &=  n^2 + \mu (t) ,  \\
+	u_{0} &= u(t) = \text{constant} \\
+	dn &= n^2 dt + u_{0} dt = (n^2 + u_{0}  ) dt \\
+	\implies \int_{x(t_{0}}^{x(t)} \frac{dn}{n ^2 + 1} &= \int_{t_{0}}^{t}  dt\\
+	\arctan (x(t)) - \arctan (x(t_{0})) &= t - t_{0} \\
+	n(t) &= n(t_{0}) + tan(t - t_{0})
+.\end{align*}
+	
 	\begin{conclusion}
 		Even if $\mu$ is nice, it can happen that $n(t)$ blows up in finite-time. 
 	\end{conclusion}
@@ -62,51 +47,91 @@ Why do we need partial functions?
 
 Moreover, the finite-time when solution blows up depends on $t_{0}$, $x(t_{0})$. Therefore the outputs are only partially defined. 
 
+Hence, we need "partial functions".
+
 \begin{definition}
-	A general time-system is $(U, Y, \T, U, Y)$ such that 
+	A general time-system is $(U, Y, \T, \U, \Y)$ such that 
 	\begin{enumerate}
 		\item $U$ is a set (the input values)
 		\item $Y$ is a set (the output values)
 		\item $\T$ is a time domain
-		\item $U \subseteq U^{(\T)}$ (the inputs)
-		\item $Y \subseteq Y^{(\T)}$ (the outputs)
+		\item $\U \subseteq U^{(\T)}$ (the inputs)
+		\item $\Y \subseteq Y^{(\T)}$ (the outputs)
 
-		Thus inputs are things like $\mu : \T' \to U, \T' \subseteq \T$ is a subinterval. Similarly, outputs are things like $n : \T' \to \mathbb{Y}$ where $\T' \subseteq \T$ is a subinterval. Points in the input set are $u \in  U$ and points in the output set are $y \in Y$. 
-	\item $B \subseteq U \times  Y$ is such that, if $(\mu , n) \in  B$, then $\mu, n : \T' \to \T$, ie, \mu and $n$ have the same domain. 
+		Thus inputs are things like $\mu : \T' \to U, \T' \subseteq \T$ is a subinterval. Similarly, outputs are things like $\eta : \T' \to Y$ where $\T' \subseteq \T$ is a subinterval. Points in the input set are $u \in  U$ and points in the output set are $y \in Y$. 
+	\item $B \subseteq \U \times  \Y$ is such that, if $(\mu , \eta) \in  B$, then $\mu, \eta : \T' \to \T$, ie, $\mu$ and $\eta$ have the same domain. 
 
 	\end{enumerate}
 \end{definition}
 
 \begin{notation}
-	If $ss \in X^{\T}$, ie, $ss : \T \to X$. Suppose we are given a distinguished "starting time" $t_{0 \in  \T}$. If $t \ge t_{0}$ we have $ss_{[t_{0}, t)} = ss  \mid [t_{0}, t)$ and $ss_{[t_{0}, t)} = ss  \mid [t_{0}, t]$
+	If $\xi \in X^{\T}$, ie, $\xi : \T \to X$. Suppose we are given a distinguished "starting time" $t_{0}  \in  \T$. If $t \ge t_{0}$ we have \[
+	\xi_{[t_{0}, t)} = \xi  \mid [t_{0}, t)
+	,\]  
+	and \[
+	\xi_{[t_{0}, t]} = \xi  \mid [t_{0}, t]
+	.\] 
 \end{notation}
 
 
-If $(U, Y, \T, U, Y, B)$ is a general time system, we denote $B_{[t_{0}, t)}$ to be $(\mu _{[t_{0}, t)}, n_{[t_{0}, t)})$ for $(\mu , n) \in  B$. Similarly we have $B_{[t_{0}, t]}$. If $\mu \in U$, then denote $B(\mu ) _{[t_{0}, t)} = \{(\mu _{[t_{0}, t)}, n _{[t_{0}, t)})  \mid (\mu , n) \in  B( \mu ) \}$
+If $(U, Y, \T, \U, \Y)$ is a general time system, we denote $B_{[t_{0}, t)}$ to be $(\mu _{[t_{0}, t)}, \eta_{[t_{0}, t)})$ for $(\mu , \eta) \in  B$. 
+
+Similarly we have $B_{[t_{0}, t]}$. 
+
+If $\mu \in \U$, a fixed input, then denote
+\[
+B(\mu ) _{[t_{0}, t)} = \xi\{(\mu _{[t_{0}, t)}, n _{[t_{0}, t)})  \mid (\mu , \eta) \in  B( \mu ) \}
+.\] 
 
 
 \begin{definition}
-	Let $(U, Y, \T, U, Y, B)$ be a GTS (General Time System). It is:
+	Let $(U, Y, \T, \U, \Y)$ be a GTS (General Time System). It is:
 	\begin{enumerate}
-		\item causal from $t_{0} \in  \mathbb{ T}$ if 
-			\[
-				(\mu _{1})_{[t_{0}, t]} = (\mu _{2})_{[t_{0}, t]}
+		\item causal from $t_{0} \in  \T$ if 
+			\begin{align*}
+				(\mu _{1})_{[t_{0}, t]} &= (\mu _{2})_{[t_{0}, t]} \\
+	\implies	B(\mu _{1})_{[t_{0}, t]} &= B(\mu _{2})_{[t_{0}, t]} \forall  t \ge t_0
+			.\end{align*}
+		The behaviour from times $t_0 - t$ are determined by inputs between $t_0 - t$. 
 
-			.\] \[
-				B(\mu _{1})_{[t_{0}, t]} = B(\mu _{2})_{[t_{0}, t]}
-			.\] 
-			"The behaviours for times less than $t$ do not depend on knowing inputs for times larger than $t$ "
-		\item strongly causal from $t_{0} \in  \T$ if 
-			\[
-				(\mu _{1})_{[t_{0}, t)} = (\mu _{2})_{[t_{0}, t)}
+		"The behaviours for times less than $t$ do not depend on knowing inputs for times larger than $t$ "
 
-			.\] 
-			\[
-				B(\mu _{1})_{[t_{0}, t)} = B(\mu _{2})_{[t_{0}, t)}
-			.\]
+		\item strongly causal for $t_{0} \in  \T$ if 
+	\begin{align*}
+		(\mu _{1})_{[t_{0}, t)} &= (\mu _{2})_{[t_{0}, t)} \\
+\implies		B(\mu _{1})_{[t_{0}, t)} &= B(\mu _{2})_{[t_{0}, t)}
+	.\end{align*}
 	\end{enumerate}
 \end{definition}
 
-\begin{definition}
-	A GTS $(U, Y, \T, U, Y, B)$ is finitely determined from $\tau \ge t_{0}$ if, for every input $\mu$ and for outputs $n$
+\begin{definition}[Finitely Determined]
+	A GTS $(U, Y, \T, \U, \Y)$ is finitely determined from $\tau \ge t_{0}$ if, for every input $\mu$ and for outputs $\eta_{1}, \eta_{2}$ satisfy $\left( \mu, \eta _{1} \right) , \left( \mu, \eta_{2} \right) \in B\left( \mu \}  \right) $ then if: 
+	\begin{align*}
+		\left( \eta_{1} \right) _{[t_0, \tau] } &= \left( \eta  _{2} \right)  _{\left[ t_0, \tau  \right] } \\
+		\implies \left( \eta _{1} \right) _{\ge t_0} &= \left( \eta    _{2} \right)_{\ge t_0} 
+	.\end{align*}
 \end{definition}
+
+
+\begin{definition}
+	Stationarity is "shift-invariance". If we still have start time $t_0$, let $t\ge t_0$. We can shift the signal to the left by $t - t_0$ :
+	 \[
+		 \tau ^{*} _{t_0, t} \xi \left( s \right)  = \xi \left( s - \left( t - t_0 \right)  \right) 	
+	.\] 
+\end{definition}
+
+\begin{definition}
+	A GTS $\left( U, Y, \T, \U, \Y, B \right) $ is 
+	\begin{enumerate}
+		\item stationary if $\tau  ^* _{t_0, t} B \subseteq B$
+		\item strongly stationary if $\tau  ^* _{t_0, t} B = B$
+	\end{enumerate}
+	\begin{itemize}
+		\item Stationary $\implies$ behaviours are shift-invariant
+		\item Strongly stationary $\implies$ shift-invariant and no behaviours are lost by shifting. 
+	\end{itemize}
+\end{definition}
+
+\begin{remark}
+	Shift-invariant implies that if you have a shifted system, you can shift it back and it would be the same. 
+\end{remark}
