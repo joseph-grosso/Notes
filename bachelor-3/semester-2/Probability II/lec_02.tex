@@ -5,7 +5,7 @@ $P$ is a probability measure, meaning it satisfies the axioms of probability:
 \begin{enumerate}
 	\item $P(A) \ge 0$ for $A \subset S$ 
 	\item $P(S) = 1$ (These are just standardization conditions, to ensure that $P(A) \in [0,1]$)
-	\item If $A_{1}$, $A_{2}$, \ldots is a sequence of mutually disjoint subsets of $S$, ie $A_{i} \cap  A_{j} &=  \O  \forall   i \neq j$ then
+	\item If $A_{1}$, $A_{2}$, \ldots is a sequence of mutually disjoint subsets of $S$, ie $A_{i} \cap  A_{j} =  \O  \forall   i \neq j$ then
 		\[
 			P(\cup _{i=1}^\infty A_{i}) = \sum_{i=1}^{\infty} P(A_{i})
 		.\] 
@@ -40,12 +40,10 @@ How do we describe the distribution of $ X$?
 \begin{description}
 	\item [Cumulative Distribution Function] (denoted $F_{x}$ and abbreviated to cdf)
 
-		\[
 	\begin{align*}
 		F_{X}: \R &\longrightarrow [0,1] \\
 		&\longmapsto F_{X}(x) = P(X\le x) \text{for}	x \in  \R
 	.\end{align*}	
-		.\] 
 % Insert graph of cdf 
 
 	Cumulative distribution functions are continuous from the right. 
@@ -62,8 +60,5 @@ How do we describe the distribution of $ X$?
 
 	The set $\{ x \in  \R  \mid  p_{X}(x) > 0\}$ is called the support of the distribution of $X$. 
 %
-\end{description}	\[
+\end{description}	
 %	\item[Probability Distribution Function]		
-
-
-

@@ -1,0 +1,72 @@
+\lecture{3}{Fri 10 Jan 2020 14:28}{Back to Signals}
+
+\begin{example}
+	We take $U = L ^{1 }\left( \R, \R \right) $, $Y = C ^{0}\left( \R, \R \right)$ and define behaviours by pairs $\left( \mu,  \eta  \right) $ satisfying 
+	\begin{align*}
+		\eta \left( t \right)  &=  \mu \left( t \right) \eta \left( t \right) ^2 \\
+		\implies \frac{d\eta }{dt} &= \mu  \left( t \right) \eta ^2 \\
+		\implies \frac{d\eta}{\eta ^2}  &= \mu \left( t \right) dt \\
+		\implies \int_{\eta \left( t_0 \right) }^{\eta \left( t \right) } \frac{d\eta}{\eta ^2}    &= \int_{t_0}^{t}   \mu \left( \tau  \right) d \tau \\
+		\implies -\frac{1}{\eta } | ^{\eta \left( t \right)}  _{\eta (t_0)}	&= \int_{t_0}^{t} \mu  \left( \tau  \right) d \tau  \\
+		\implies \frac{1}{\eta \left( t \right) }&= \frac{1}{\eta \left( t_0 \right) } - \int_{t_0}^{t} \mu \left( \tau  \right) d \tau   \\
+		\eta \left( t \right)  = \frac{1}{\frac{1}{\eta \left( t \right) }&= \frac{1}{\eta \left( t_0 \right) } - \int_{t_0}^{t} \mu \left( \tau  \right) d \tau } \\
+		&=  \frac{\eta \left( t_0 \right)}{1 - \eta  \left( t_0 \right)  \int_{t_0}^{t} \mu  \left( \tau  \right)  d \tau  }	
+	.\end{align*}
+
+	Given any $t_0, \eta  \left( t_0 \right) $ and for any $\epsilon \in  \R_{>0}$, we can choose an input $\mu $ so that $\lim_{t  \to t_0 + \epsilon}  \eta \left( t \right)  = \pm \infty \implies$ even when $\mu $ is defined on all of $\R$, the output $\eta $ may not be. This is why we must work with partial functions.
+\end{example}
+
+We will consider differential equations of the form 
+\[
+	\xi \left( t \right)  = \hat{F} \left( t, \xi \left( t \right)  \right) 
+.\] 
+where $\xi  : \T \to X \subseteq \R^{n}$ and $\hat{F} : \T \times  X  \to \R^{n}$. We will need some conditions on $\hat{F}$ to ensure existence and uniqueness of solutions. In particular, we will allow $t \longmapsto \hat{F}\left( t, x \right) $ to be only measurable. 
+
+\section{Signals (Again)}
+
+We work with continuous time signals on a continuous time domain $\T \subseteq \R$. For $p \in [1, \infty)$, denote by $L^{p}_{loc} \left( \T ; \F \right) $.
+
+\begin{example}
+	\begin{enumerate}
+		\item $\T = (0, 1]$, $f\left( t \right)  = \frac{1}{t}$, $f \in  L^{p}\left( (0, 1], \R \right) $ for which $p$? For no $p$ ! 
+
+		However, $f \in  L^{p}_{loc} \left( (0, 1], \R \right) $ for every $p \in  [1, \infty)$. Let $\mathbb{K} \subseteq (0, 1]$ be compact $\implies \mathbb{K} = \left[ a, b \right] $ for $0<a<b\le 1$. Thus, since f is continuous and $\mathbb{K}$ is compact:
+			\[
+				f  \mid \mathbb{K} \in  L^{p} \left( \mathbb{K}; \R \right) 
+			.\] 
+
+		\item Let $\T = \R $ and take 
+			\[f\left( t \right)  =
+				\begin{cases}
+					\frac{1}{t} & t > 0 \\
+					0 & t \le  0
+			\end{cases}	 
+			.\] 
+			For which $p$'s is $f \in  L^{p}_{loc}\left( \R; \F \right) $? Indeed, if $\mathbb{K} \subseteq \R$ is compact and if $0 \in  int\left( \mathbb{K} \right) $, then $f  \mid  \mathbb{K} \not\in L^{p}\left( \mathbb{K}; \R \right) $.
+	\end{enumerate}
+\end{example}
+
+
+In the spaces $L ^{p}_{loc}\left( \T; \F \right) $, we have a notion of convergence. 
+
+\begin{definition}
+	Let $\left( f_{j} \right) _{j \in  \Z_{>0}}$ be the sequence in $L^{p}_{loc}\left( \R; \R \right)$	given by: 
+
+		\[
+		graphs go here 
+		.\] 
+
+		Claim that $\left( f_{j} \right) _{j}$ converges to $f\left( t \right)  = 0$ in $L^{p}_{loc}\left( \R; \R \right) $. Let $\mathbb{K}\subseteq \R$ be a compact subinterval. Choose $N \in  \Z _{>0}$ be sufficiently large that $\mathbb{K} \in  \left[ -\left( N - 1 \right) , N - 1 \right] $. Then noting that:
+		\[
+			\left( insert another graph here  \right) 
+		.\] 
+		
+		Thus, for every $j \ge  N$, $f_{j}  \mid \mathbb{K} = 0$. 
+		$\implies \left( f_{j} \mid \mathbb{K} \right) _{j \in  \Z_{>0}}$ converges to $0 \mid \mathbb{K}$. 
+\end{definition}
+
+Similarly, we can consider $C^{0} \left( \T; \F \right) $ and talk about convergence. 
+
+\begin{definition}
+	A sequence $\left( f_{j} \right) _{j \in  \Z_{>0}}$ in $C ^{0}\left( \T; \F \right) $ converges to $f \in  C^{0}\left( \T; \F \right) $ if, for every compact interval $\mathbb{K} \subseteq \T$, $\left( f_{j} \mid \mathbb{K} \right) _{j \in  \Z_{>0}}$ converges to $f \mid \mathbb{K}$ in $C^{0} \left( \mathbb{K}; \F \right) $ using the $\infty$-norm.
+\end{definition}
