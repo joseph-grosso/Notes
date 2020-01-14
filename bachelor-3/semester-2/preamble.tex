@@ -24,6 +24,7 @@
 
 % Math stuff
 \usepackage{amsmath, amsfonts, mathtools, amsthm, amssymb}
+% \usepackage{physics}
 % Fancy script capitals
 \usepackage{mathrsfs}
 \usepackage{cancel}
@@ -41,6 +42,7 @@
 \newcommand\Y{\ensuremath{\mathscr{Y}}}
 \newcommand\F{\ensuremath{\mathbb{F}}}
 
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
 % Put x \to \infty below \lim
 \let\svlim\lim\def\lim{\svlim\limits}
@@ -189,11 +191,11 @@
 ]}{\end{tcolorbox}}
 
 % Note -- Same as 'correction' but color of box is different
-\newenvironment{note}[1]{\begin{tcolorbox}[
+\newenvironment{note}{\begin{tcolorbox}[
     arc=0mm,
     colback=white,
     colframe=white!60!black,
-    title=#1,
+    title=Note,
     fonttitle=\sffamily,
     breakable
 ]}{\end{tcolorbox}}

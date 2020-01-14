@@ -1,0 +1,91 @@
+\lecture{4}{Mon 13 Jan 2020 08:34}{Guest Lecture}
+
+
+Let $\left( X_{1}, \ldots, X_{n} \right) $ be a set of random variables, and let $P_{X_{1}, \ldots, X_{n}} \left( x_1, \ldots, x_{n} \right) $ be a joint pmf. We have 
+\[
+	\left( X_{i_{1}}, \ldots, X_{i_{k}} \right) , \left\{ i_{1}, \ldots, i_{k} \right\} \subset \left\{ 1, \ldots, n \right\} 
+.\] 
+
+\begin{align*}
+	P_{X_{i_{1}}, \ldots , X _{i_{k}}} \left( x_{i_{1}}, \ldots , i _{i_{k}} \right) &= P\left( X_{i_{1}} = x_{i_{1}}, \ldots , X _{i_{k}} = x_{i_{k}}\right)  \\
+											 &= P\left( X_{i_{1}} = x_{i_{1}}, \ldots, X _{i_{k}} = x _{i_{k}}, X _{j_{1}} \in \R, \ldots X _{j_{n-k}} \in \R \right)  \\
+	\text{where  } \left\{ j _{1} , \ldots, j _{n-k}	\right\} &= \left\{ 1 , \ldots, n \right\} \{\}  \left\{ i_{1}, \ldots, i_{k} \right\} \\
+									 &= \sum_{X_{j_{1}}}^{} \cdots \sum_{X_{j_{n-k}}}^{} P_{X_{1, \ldots, X_{n}}} \left( x_{1}, \ldots, x_{n} \right)  \\
+.\end{align*}
+
+\begin{example}
+	Consider the joint PMF:
+	\begin{align*}
+		P_{X, Y, Z} \left( x, y, z \right)  &= \frac{1}{203} \left( x ^2 + y ^2 + yz \right)  \\
+		x &=  0, 1, 2 \\
+		y &= 2,3\\
+		z &= 3, 4
+	.\end{align*}
+
+	Find the joint PMF of $Y$ and $Z$. 
+\begin{align*}
+	P_{Y, Z}\left( y, z \right)  &= \sum_{x=0}^{2} P_{X, Y, Z} \left( x, y, z \right)  \\
+				     &= \sum_{x=0}^{2} \frac{1}{203} \left( x^2 + y^2 + yz \right) \\ 
+				     &= \frac{1}{203} \left( 3y^2 + 3yz + 1 + 4  \right)  \\	
+				     &= \frac{1}{203} \left( 3y^2 + 3yz + 5 \right)  \\
+	P_{Z} &=  \sum_{y=2}^{3} \frac{1}{203}\left( 3y^2 + 3yz + 5 \right)  \\
+	      &= \frac{1}{203} \left( \left[ (3\left( 4 \right)  + 3\left( 2 \right) z + 5 ) 
+	      + \left( 3\left( 9 \right)  + 3\left( 3 \right) 2  + 5 \right)\right]  \right)  
+.\end{align*}
+
+Consider an urn with N objects.
+\begin{align*}
+	n_{1} \text{  are of type 1} \\
+	n_{2} \text{  are of type 2} \\
+	\vdots \\
+	n_{r} \text{  are of type r} \\
+	n_{1} + \cdots + n _{r} &= N 
+.\end{align*}
+
+K objects are drawn at random without replacement. Let $X _{i} =$ number of type $i$ objects drawn, $1 \le i \le r$. 
+Find the joint pmf of $X_{1}, \ldots, X_{r}$ and the marginal of each $X _{i}$. 
+
+\begin{align}
+	p_{ X_{1} , \ldots , X_{r} } \left( x_{1}, \ldots , x_{r} \right) 
+	&= \frac{ \binom{n_{1}}{x_1} \cdots \binom{n_{r}}{x_{r}} }{ \binom{N}{k} } \\
+\text{for  } x_{1} + \cdots + x_{r} &= k \\ 
+P_{X_{1}}\left( x_1 \right)  &=  \sum_{x_{2}}^{} \cdots \sum_{x_{r}}^{} \frac{ \binom{n_{1}}{x_1} \cdots \binom{n_{r}}{x_{r}}}{\binom{N}{k}} \\
+			     &= \frac{\binom{n_{1}}{x_1}}{\binom{N}{k} } \sum_{x_{2}} \cdots \sum_{x_{r}}  \binom{n_{1}}{x_1}  \cdots \binom{n_{r}}{x_r} \\
+     &= \frac{\binom{n_{1}}{x_1}\binom{N - n_{1}}{k - x_1}  }{\binom{N}{k} } \\
+max \left\{ 0, k - \left( N - n_{1} \right)  \right\} &\le  x_1 \le min\left\{ k, n \right\} 		
+.\end{align}
+\end{example}
+
+\begin{definition}[Marginal PDF]
+	Let $\left( x_1, \ldots , x_{n} \right) $ be jointly continuous with pdf $f_X \left( x \right) = f$. Let $\left\{ i_1, \ldots, i_{n} \right\} \subset \left\{ 1, \ldots, n \right\} $ and $\left\{ j, \ldots, j_{n - k} \right\}  = \left\{ 1, \ldots , n \right\} \setminus \left\{ i_{1}, \ldots, i_{k}\right\}$. Let $B \in  \R^{k}$: 
+	\begin{align*}
+		P\left( \left( x_{i_{1}}, \ldots,  x_{i_{k}}\right) \in B \right)  
+		&= P \left( \left( x_{i_{1}}, \ldots, x_{i_{k}}  \right) \in B, x _{j_{1}} \in  \R, \ldots, x_{j_{n-k}} \in  \R \right)  \\
+		&= \int_{B} \cdots \int \left[ \int \cdots \int_{\R^{n - k}} P \left( x_1, \ldots, x_{n} \right) dx_{n} \ldots dx_{j - k} \right] \\
+		f_{X_{i_{1}}, \ldots, X_{i_{k}}} \left( x_{i_{1}}, \ldots, x_{i_{k}} \right) 
+		&= \int \cdots \int_{\R ^{n - k}} f\left( x_{1}, \ldots, x_{n} \right)  dx_{j_{1}}, \ldots, dx_{j_{n-k}}
+	.\end{align*}
+\end{definition}
+
+\begin{example}
+	Let $\left( x_1, x_2, x_3 \right) $ be jointly continuous with jPDF 
+	\[
+		f_{X_1, X_2, X_3} \left( x_1, x_2, x_3 \right) =
+		\begin{cases}
+			e^{x_3} & 0 \le x_1\le x_2\le  x_3\le  \infty \\
+			0 & \text{otherwise}
+		\end{cases}		
+	.\]  
+	Find a marginal PDF of $X_1$. 
+	\begin{align*}
+		f_{X_1} \left( x_1 \right)  &= \int \int_{\R^2} f_{X_1, X_2, X_3} \left( x_1, x_2, x_3 \right) \\
+		&= \int_{x_1}^{\infty} \int_{x_2}^{\infty}  e^{-X_3}dx_3 dx_2 \\
+		&= \int_{x_1}^{\infty} \left[ -e^{-x} \right] _{x_2}^{\infty} dx_2 \\
+		&= e^{-x_1} \\
+		f_{X_1}\left( x_1 \right)  &=
+		\begin{cases}
+			e^{-x_1} & x_1 \ge   0 \\
+			0 & \text{otherwise}
+		\end{cases}
+	.\end{align*}
+\end{example}

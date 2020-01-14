@@ -1,0 +1,90 @@
+\lecture{4}{Mon 13 Jan 2020 16:27}{Discrete Time Analogues}
+
+Last time: Continuous-time signal spaces $C^{0}\left( \T;\F \right) $ and $L^{p}_{loc}\left( \T; \F \right) $. 
+
+Discrete-time analogs: Let $\T \subseteq \Z\left( \Delta \right) $ be a discrete time-domain. Denote: 
+\[
+	l_{loc}\left( \T; \F \right)   = \F ^{\T}
+.\] 
+
+\begin{definition}[Convergence]	
+	 A sequence $\left( f_{j} \right) _{j \in  \Z_{>0}}$ in $l _{loc}\left( \T;\F \right) $ converges to $f$ in $l_{loc}\left( \T; \F \right)$ if, for every finite $\mathbb{K} \subseteq \T$, the sequence $\left( f_{j}  \mid \mathbb{K} \right) _{j \in  \Z_{>0}}$ converges to $f  \mid \mathbb{K}$. 
+
+\end{definition}
+
+Convergence in $l_{loc}\left( \T; \F \right) $ is really just pointwise convergence. 
+\begin{note}
+	 In all of the above cases, convergence is not, generally, norm convergence. It is norm convergence when $\T$ is compact (in the continuous case) or finite (in the discrete time case). The convergence is with respect to semi norms. The semi norms are:
+	\begin{itemize}
+		\item $L_{loc}^{p} \left( \T; \F \right) $ : $\norm{f}_{\mathbb{K}, p} = \|f \mid \mathbb{K}\|, \mathbb{K} \subseteq \T$ compact 
+		\item $C^{0} \left( \T; \F \right) $: $\|f\|_{\mathbb{K}, \infty} =  \|f \mid \mathbb{K}\| _{\infty}, \mathbb{K}\subseteq\T$ compact
+		\item $l _{loc}\left( \T;\F \right) $: $\|f\|_{\mathbb{K}, p} = \|f \mid \mathbb{K}\|_{p}, \mathbb{K}\subseteq \T$ finite, and convergence is independent of $p$.
+	\end{itemize}
+\end{note}
+
+Convergence in these spaces in equivalent to convergence in each of the seminorms. One can also talk about continuity of functions to or from these spaces by $f$ is continuous iff $\lim_{j \to \infty} f\left( x_{j} \right) = f\left( x \right) \forall \left( x_{j} \right) _{j \in \Z_{>0}}$ converging to x. 
+
+\section{Differential and Difference Equations (Ordinary)}
+
+In your past life: 
+\[
+	\dot{x}  = F(t, x)
+.\] 
+This is not really a differential equation.
+
+%% Todo: fix xdot and | switch to double bar  | |
+
+\begin{definition}[Differential as a Mapping]
+	Let $X \subseteq \R^{n}$ be open and let $\T\subseteq \R$ be a continuous time-domain. A differential equation with state space $X$ and time-domain $\T$ is a mapping $\hat{F}: \T \times X \to \R^{n}$. 
+\end{definition}
+
+\begin{definition}[Absolute Continuity]	
+	A mapping $f : \T \to \R$ is locally absolutely continuous if there exists $t \in \T$ and $g \in  L^{1}_{loc}\left( \T; \R \right) $ such that 
+	\[
+		f\left( t \right) = f\left( t_0 \right) + \int_{t_0}^{t} g\left( \tau  \right) d\tau  
+	.\] 
+
+	Properties of $f : \T \to \R$ :
+	\begin{enumerate}
+		\item $f$ is differentiable almost everywhere
+		\item $f\left( t \right)   = g\left( t \right) $ for almost very $t \in  \R$.
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	Let $\hat{F} : \T \times X \to \R ^{n}$ be a differential equation. A solution to $\hat{F}$ is an absolutely continuous $\xi  : \T' \to X$ where $\T' \subseteq \T$ is a subinterval and where 
+	\[
+		\dot{\xi } \left( t \right)  = \hat{F}\left( t, \xi \left( t \right)  \right) 
+	.\] 
+	for almost every $t \in  \T'$. 
+\end{definition}
+
+\subsection{Conditions on $\hat{F}$ to ensure existence and uniqueness of solutions} 
+
+\begin{definition}
+	Let $X \subseteq \R^{n}$ be open and let $f : X \to \R^{m}$. Say that $f$ is Lipschitz if $\exists    L \in  \R_{>0}$ (called a Lipshitz constant) such that $|f\left( x_1 \right)  - f\left( x_2 \right) | \le L|x_1 - x_2|$. Say that $f$ is locally Lipshitz if, for every compact $K \subseteq X$, $f|K$ is Lipshitz. 
+\end{definition}
+
+\begin{property}
+	\begin{enumerate}
+		\item If $f$ is locally Lipshitz, it is continuous. 
+		\item If $f$ is continuously differentiable, it is locally Lipschitz. 
+	\end{enumerate}
+\end{property}
+
+\begin{example}
+	\begin{enumerate}
+		\item $f : \R \to \R$ is $f\left( x \right)  = \sqrt{|x|} $. 
+
+			%%Insert graph here
+			In this example, $f$ is continuous but not locally Lipschitz. 
+		\item $f : \R \to \R$, $f\left( x \right)  = |x|$. 
+			%%Insert graph here (absolute value fun)
+
+			We have:
+			\[
+				|f\left( x_1 \right) - f\left( x_2 \right) | \le  |x_1 - x_2|
+			.\] 
+			$f$ is locally Lipschitz, but is not continuously differentiable. 
+	\end{enumerate}
+\end{example}
