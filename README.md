@@ -4,9 +4,11 @@ This git repo serves as a backup for my notes taken in my math classes.
 
 This project was inspired by this series of articles - if you are interested in vim, LaTeX or just being a faster developer I highly recommend reading them. 
 
+https://castel.dev/post/lecture-notes-1/
+
 # Usage 
 
-To compile these notes, I use the command line tool pdflatex to compile the file master.tex:
+To compile these notes, I use the command line tool `pdflatex` to compile the file master.tex:
 
    pdflatex master.tex
 
@@ -22,7 +24,7 @@ The body of each master.tex file looks like this:
         % end lectures
    \end{document}
 
-To make the master.tex files compile the lectures that you want to see in the output add in the names of those lectures using the <\input> command:
+To make the master.tex files compile the lectures that you want to see in the output add in the names of those lectures using the `\input` command:
 
     \begin{document}
         \maketitle
@@ -34,4 +36,4 @@ To make the master.tex files compile the lectures that you want to see in the ou
         \input{lec_04.tex}
         \input{lec_05.tex}
         % end lectures
-   \end{document}
+    \end{document}
