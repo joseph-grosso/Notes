@@ -1,13 +1,12 @@
-\lecture{4}{Mon 13 Jan 2020 08:34}{Guest Lecture}
+\lecture{4}{Mon 13 Jan 2020 08:34}{Marginal PDFs (Guest Lecture)}
 
 
 Let $\left( X_{1}, \ldots, X_{n} \right) $ be a set of random variables, and let $P_{X_{1}, \ldots, X_{n}} \left( x_1, \ldots, x_{n} \right) $ be a joint pmf. We have 
 \[
 	\left( X_{i_{1}}, \ldots, X_{i_{k}} \right) , \left\{ i_{1}, \ldots, i_{k} \right\} \subset \left\{ 1, \ldots, n \right\} 
 .\] 
-
 \begin{align*}
-	P_{X_{i_{1}}, \ldots , X _{i_{k}}} \left( x_{i_{1}}, \ldots , i _{i_{k}} \right) &= P\left( X_{i_{1}} = x_{i_{1}}, \ldots , X _{i_{k}} = x_{i_{k}}\right)  \\
+\implies	P_{X_{i_{1}}, \ldots , X _{i_{k}}} \left( x_{i_{1}}, \ldots , i _{i_{k}} \right) &= P\left( X_{i_{1}} = x_{i_{1}}, \ldots , X _{i_{k}} = x_{i_{k}}\right)  \\
 											 &= P\left( X_{i_{1}} = x_{i_{1}}, \ldots, X _{i_{k}} = x _{i_{k}}, X _{j_{1}} \in \R, \ldots X _{j_{n-k}} \in \R \right)  \\
 	\text{where  } \left\{ j _{1} , \ldots, j _{n-k}	\right\} &= \left\{ 1 , \ldots, n \right\} \{\}  \left\{ i_{1}, \ldots, i_{k} \right\} \\
 									 &= \sum_{X_{j_{1}}}^{} \cdots \sum_{X_{j_{n-k}}}^{} P_{X_{1, \ldots, X_{n}}} \left( x_{1}, \ldots, x_{n} \right)  \\

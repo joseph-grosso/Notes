@@ -1,0 +1,45 @@
+\lecture{5}{Tue 14 Jan 2020 10:26}{Addendum to guest lecture}
+
+\begin{remark}[Limits of $x_{i}$ in the Multivariate Hypergeometric distribution]
+	The constraints that Michael (guest lecturer) wrote are: 
+	\begin{align*}
+		x_1 + \ldots+ x_{r} &=  k \\
+		max(0, k - \left( N - n_i \right) ) &\le x_{i} \le min\left( n_{i}, k \right) \\
+		i &= 1, \ldots, r
+	.\end{align*}
+	There is an additional constraint: $x_{i} $ is an integer, $i = 1, \ldots, r$.
+
+	Alternatively, we can set the constraints to be 
+	\begin{align*}
+		x_1 + \ldots + x_r &= k \\
+		x_{i} &\in  \left\{ 0, 1, \ldots, n_{i} \right\} , i = 1, \ldots, r
+	.\end{align*}
+\end{remark}
+
+An alternative way to describe the distribution of $\left( X_1, \ldots, X_{r} \right) $ is to describe the distribution of $\left( X_1, \ldots, X_{r-1} \right) $ and use the constraint $X_1 + \ldots + X_{r} = k$. 
+
+We have:
+\begin{align*}
+	P\left( X_1 = x_1, \ldots, X_{r-1} = x_{r-1} \right) &= P\left( X_1= x_1, \ldots, 
+	X_{r-1} = x_{r-1}, X_r = k - x_1-\ldots-x_{r-1} \right)  \\
+							     &=\frac{\binom{n_1}{x_1} \binom{n_2}{x_2} \cdots \binom{n_{r-1}}{x_{r-1}}  \binom{n_{r}}{k-x_1-\ldots-x_{r-1}}}{\binom{N}{k}}
+.\end{align*}
+for:
+\begin{align*}
+	0 &\le x_1 + \ldots + x_{r-1} \le k \\
+	x_i &= 0, \ldots, n_{i} \\
+	max&\left( 0, k-\left( N - n_{i} \right)  \right) \le x_{i}\\
+	i &= 1, \ldots, r-1 
+.\end{align*}
+We can write the marginal distribution of $\left( X_{i_{i}}, \ldots, X_{i_{d}} \right) $, $\left\{ i_{1}, \ldots, i_{d} \right\}  \subset \left\{ 1, \ldots, r \right\} $ by relabelling the objects in the population as types $i_{1}, \ldots, i_{d}$,and "other". 
+
+There are $N - n_{i_{1}} - \ldots - n_{i_{d}}$ objects of type other.
+
+Using the second version of the Multivariate Hypergeometric distribution, we have that the joint pmf of $\left( X_{i_{1}}, \ldots, X_{i_{d}} \right) $ is 
+\begin{align*}
+	P\left( X_{i_{1}}= x_{i_{1}}, \ldots, X_{i_{d}} = x_{i_{d}} \right) 
+	&= \frac{\binom{n_{i_{1}}}{x_{i_{1}}}  \cdots \binom{n_{i_{d}}}{x_{i_{d}}}  \binom{N - n_{i_{1}} - \ldots - n _{i_{d}}}{k-x_{i_{1}}-\ldots-x_{i_{d}}}}{\binom{N}{k}}
+ \\
+	0 &\le x_{i_{1}} + \ldots + x_{i_{d}} \le  k \\
+	max\left( 0, k- \left( N - n_{ij} \right)  \right) &\le x_{ij}, \quad x_{ij} \text{ an integer}
+.\end{align*}
