@@ -22,7 +22,7 @@ The body of each master.tex file looks like this:
         % start lectures
         \input{lec_01.tex}
         % end lectures
-   \end{document}
+    \end{document}
 
 To make the master.tex files compile the lectures that you want to see in the output add in the names of those lectures using the `\input` command. For example, if I wanted to see the first 5 lectures in pdf form I would write:
 
