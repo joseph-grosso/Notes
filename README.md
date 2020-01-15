@@ -10,7 +10,7 @@ https://castel.dev/post/lecture-notes-1/
 
 To compile these notes, I use the command line tool `pdflatex` to compile the file master.tex:
 
-   pdflatex master.tex
+    pdflatex master.tex
 
 I haven't tried compiling in a full development environment but I'm sure there is some equivalent thing you can do in a LaTeX editor like TexLive or TexMaker.
 
