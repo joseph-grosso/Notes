@@ -1,0 +1,2 @@
+# Notes
+Commiting Latex notes. 
