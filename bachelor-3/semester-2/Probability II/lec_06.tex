@@ -1,0 +1,52 @@
+\lecture{6}{Thu 16 Jan 2020 09:35}{}
+
+Limits of integration when doing multiple integrals. Say $\left( x_1, \ldots, x_{n} \right) : \R^{n} \to \R $ is a real-valued function on $\R^{n}$ (joint pdf, non-negative, $A \subseteq \R^{n}$. 
+
+We want 
+\[
+	\int \ldots \int_{A} f\left( x_1, \ldots, x_{n} \right) dx_1 \ldots dx_{n}
+.\] 
+\begin{figure}[ht]
+    \centering
+    \incfig{xonextwograph}
+    \caption{Graph of an example of the probability distributions of $x_1$ and $x_2$}
+    \label{fig:xonextwograph}
+\end{figure}
+
+
+In general the limits of integration for $x_1$ will depend on $x_2$. 
+
+\subsection{General Approach}
+
+\begin{enumerate}
+	\item Pick an order in which to do the 1-dimensional integrals wisely (i.e., try to make the integrations simpler as opposed to more complicated. 
+	\item Figure out the limits of integration: 
+		\begin{enumerate}
+			\item start with the outer integral - vary $(x_1, \ldots, x_{n})$ over A, then all the possible values of $x_{n}$ give the limits for the outer integral. 
+			\item Next, consider the limits of the second outermost (i.e., $x_{n-1}$ integral. To do this, for each fixed $x_{n}$ you vary $\left( x_1, \ldots, x_{n-1} \right) $ over $A$ (with $x_{n}$ fixed) and note all the possible values of $x_{n-1}$. This will give the limits for $x_{n-1}$ (which may depend on $x_{n}$).
+			\item Continue in this way. For variable $x_{j}$ you fix $x_{j+1}, \ldots, x_{n}$, let $x_1, \ldots, x_{j}$ vary over $A$. This gives limits for $x_{j}$ (which may depend on $x_{j + 1}, \ldots, x_{n}$). 
+		\end{enumerate}
+\end{enumerate}
+
+\begin{example}
+	Suppose $\left( X_1, X_2, X_3 \right) $ are jointly continuous and have joint pdf 
+	\[
+		f_{X}\left( x_1, x_2, x_3 \right)  = \begin{cases}
+			1 & \text{for } 0 \le x_1, x_2, x_3 \le 1\\
+			0 & \text{ otherwise}
+		\end{cases}
+	.\] 
+
+	What is the probability that the quadratic equation $X_1 y^{2} + X_2 y + X_3 $ has real roots?
+
+	Let $A = \left\{ \left( x_1, x_2, x_3 \right) \in  \left[ 0,1 \right] ^3 \mid x_1 y^{2} + x_2 y + x_3 \text{  has real roots} \right\}$. The quadratic equation $x_1 y^2 + x_2 y + x_3$ has real roots if and only if $x_2^2 - 4x_1 x_3 \ge 0$. 
+
+	So $A = \left\{ \left( x_1, x_2, x_3 \right) \in  \left[ 0,1 \right] ^3 \mid x_2 ^2 - 4 x_1 x_3 \ge 0 \right\}$. Then:
+	\begin{align*}
+		P\left( A  \right) &= \int\int\int_{A} \left( 1 \right) dx_2 dx_1 dx_3  \\
+				   &= \int_{0}^{1} \int_{x_1}\int_{x_2} \left( 1 \right) dx_2 dx_1 dx_3 \\
+				   &= \int_{0}^{\frac{1}{4}} \int_{0}^{1} \int_{\sqrt{4 x_1 x_3} }^{1} \left( 1 \right) dx_2 dx_1 dx_3     \\
+				   &+ \int_{\frac{1}{4}}^{1} \int_{0}^{\frac{1}{4x_3}} \int_{\sqrt{4 x_1 x_3} }^{1} \left( 1 \right) dx_2 dx_1 dx_3 \\
+				   &= \text{Solve this on your own time} 
+	.\end{align*}
+\end{example}

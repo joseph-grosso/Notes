@@ -1,17 +1,17 @@
 \lecture{3}{Fri 10 Jan 2020 14:28}{Back to Signals}
 
 \begin{example}
-	We take $U = L ^{1 }\left( \R, \R \right) $, $Y = C ^{0}\left( \R, \R \right)$ and define behaviours by pairs $\left( \mu,  \eta  \right) $ satisfying 
+	We take $U = L ^{1}\left( \R, \R \right) $, $Y = C ^{0}\left( \R, \R \right)$ and define behaviours by pairs $\left( \mu,  \eta  \right) $ satisfying 
 	\begin{align*}
 		\eta \left( t \right)  &=  \mu \left( t \right) \eta \left( t \right) ^2 \\
 		\implies \frac{d\eta }{dt} &= \mu  \left( t \right) \eta ^2 \\
 		\implies \frac{d\eta}{\eta ^2}  &= \mu \left( t \right) dt \\
-		\implies \int_{\eta \left( t_0 \right) }^{\eta \left( t \right) } \frac{d\eta}{\eta ^2}    &= \int_{t_0}^{t}   \mu \left( \tau  \right) d \tau \\
-		\implies -\frac{1}{\eta } | ^{\eta \left( t \right)}  _{\eta (t_0)}	&= \int_{t_0}^{t} \mu  \left( \tau  \right) d \tau  \\
-		\implies \frac{1}{\eta \left( t \right) }&= \frac{1}{\eta \left( t_0 \right) } - \int_{t_0}^{t} \mu \left( \tau  \right) d \tau   \\
-		\eta \left( t \right)  = \frac{1}{\frac{1}{\eta \left( t \right) }&= \frac{1}{\eta \left( t_0 \right) } - \int_{t_0}^{t} \mu \left( \tau  \right) d \tau } \\
-		&=  \frac{\eta \left( t_0 \right)}
-		{1 - \eta  \left( t_0 \right)  \int_{t_0}^{t} \mu  \left( \tau  \right)  d \tau  }	
+		\implies \int_{\eta \left( t_0 \right) } ^{\eta \left( t \right) } \frac{d\eta}{\eta ^2}    &= \int_{t_0}^{t}   \mu \left( \tau  \right) d \tau \\
+		\implies -\frac{1}{\eta }  |  ^{\eta \left( t \right)}  _{\eta (t_0)}	&= \int_{t_0}^{t} \mu  \left( \tau  \right) d \tau  \\
+		\implies \frac{1}{\eta \left( t \right) } &= \frac{1}{\eta \left( t_0 \right) } - \int_{t_0}^{t} \mu \left( \tau  \right) d \tau   \\
+		\eta \left( t \right)  &= \frac{1}{\frac{1}{\eta \left( t \right) }} \\
+			&= \frac{1}{\eta \left( t_0 \right) } - \int_{t_0}^{t} \mu \left( \tau  \right) d \tau  \\
+		&=  \frac{\eta \left( t_0 \right)}{1 - \eta  \left( t_0 \right)  \int_{t_0}^{t} \mu  \left( \tau  \right)  d \tau  }	
 	.\end{align*}
 	Given any $t_0, \eta  \left( t_0 \right) $ and for any $\epsilon \in  \R_{>0}$, we can choose an input $\mu $ so that $\lim_{t  \to t_0 + \epsilon}  \eta \left( t \right)  = \pm \infty \implies$ even when $\mu $ is defined on all of $\R$, the output $\eta $ may not be. This is why we must work with partial functions.
 \end{example}

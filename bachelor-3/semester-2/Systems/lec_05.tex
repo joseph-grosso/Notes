@@ -1,0 +1,64 @@
+\lecture{5}{Wed 15 Jan 2020 15:28}{Existence of Solution to ODE's}
+
+Last Class: ODE: $\hat{F} : \T \times X \to \R^{n}$
+
+Solution: $\xi \left( t \right)  = \hat{F}\left( t, \xi \left( t \right)  \right) $
+
+\begin{theorem}[Existence and uniqueness of solution to ODE's]
+	Let $\T \subseteq \R$ be a continuous time-domain, let  $X \subseteq \R^{n}$ be open, and let $\hat{F} : \T\times X \to \R^{n}$ be an ODE. Let $\left( t_0, x_0 \right) \in  \T \times  X$. Suppose that
+	\begin{enumerate}
+		\item For every $t \in  \T$, the function $x \to \hat{F}\left( t, x \right)  $ is locally Lipschitz. 
+		\item For every $x \in  X $, the mapping $t \to \hat{F}\left( t,x \right) $ is locally integrable
+		\item For every $\left( t, x  \right) \in  \T \times  T$, there exists $r, \rho \in \R_{>0}$ and $g_0, g_1 \in \\ L^{1}\left( t - \rho, t + \rho, \R _{\ge 0} \right) $ such that 
+			\begin{enumerate}
+				\item $\|\hat{F}\left( t', x' \right) \| \le g_{1 }\left( t' \right) \forall \left( t', x' \right) \in \left[ t - \rho, t + \rho \right] \times B\left( r, x \right) $ 
+				\item $\|\hat{F}\left( t', x_1  \right) - \hat{F}\left( t', x_2 \right) \| \le g_{1}\left( t' \right)  \|x_1 - x_2\| \forall  t' \in \left[ t - \rho, t + \rho \right] , \\ x_1, x_2 \in  B\left( r, x \right) $
+			\end{enumerate}
+	\end{enumerate}
+
+	Then there exists a solution $\xi  : \T' \to X$ for $\hat{F}$, ie, 
+	\[
+		\dot{\xi } \left( t \right)  = \hat{F}\left( t, \xi \left( t \right)  \right)  \text{ almost everywhere } t \in  \T'
+	.\] 
+	with $t_{0}\in \T'$ and $\xi \left( t_0 \right)  = x_0$. Moreover, if $\widetilde{\xi }  : \T'' \to X$ is another solution satisfying $\widetilde{\xi }\left( t_0 \right)  = x_0$, then 
+	\[
+		\xi \left( t \right)  = \widetilde{\xi }\left( t \right) , \quad t \in  \T' \cap  \T''	.\] 
+\end{theorem}
+
+For each $\left( t_0, x_0 \right) \in  \T \times  X$, let $I  _{\hat{F}}\left( t_0, x_0 \right) \subseteq \T$ be the largest interval on which a solution exists satisfying 
+		\[
+			\dot{\xi }\left( t \right)  = \hat{F}\left( t, \xi \left( t \right)  \right) , \quad \xi \left( t_0 \right)  = x_0
+		.\] 
+		Then define $D_{\hat{F}} = \left\{ \left( t, t_0, x_0 \right)  \in \T\times \T\times X  \mid t \in  I_{\hat{F}}\left( t_0, x_0 \right)  \right\} $
+
+		Then define $\Phi ^{\hat{F}} : D_{\hat{F}} \to X$ by requiring 
+			\[
+				t \to \Phi ^{\hat{F}}\left( t, t_{0}, x_0 \right) 
+			.\] 
+			is the solution to $\hat{F}$ with the inital condition $x\left( t_0 \right)  = x_0$, $t_0 = t$. 
+
+			Thus:
+\[
+	\frac{d}{dt}\Phi ^{\hat{F}}\left( t, t_0, x_0 \right)  = \hat{F}\left( t, \Phi ^{\hat{F}}\left( t, t_0, x_0 \right)  \right) 
+.\] 
+This is the flow of $\hat{F}$, and encodes all solutions of the differential equation. 
+
+
+\subsection{Linear ordinary differential equations}
+
+Here we take the sate space $X$ to be an n-dimensional $\R$-vector space. 
+
+\begin{definition}[Linear ordinary differential equations]
+	A linear ordinary differential equation is a mapping $\hat{F} : \T \times  X \to X$ where $\T \subseteq \R $ is a continuous time-domain, X is an n-dimensional vector space, and $\hat{F}\left( t, x \right) = A\left( t \right) x$ where $A : \T \to L\left( X;X \right) $ (linear maps from X to X) is locally integrable. A solution to the linear oda is a locally absolutely continuous $\xi  : \T \to X$ satisfying 
+	\[
+		\dot{\xi  } \left( t \right)  = A\left( t \right) \xi  \left( t \right) 
+	.\] 
+	
+\end{definition}
+\begin{fact}
+	$D_{\hat{F}} = \T \times  \T \times  X$ if $\hat{F}$ is linear. Also solutions are linear in inital condition. Thus we can write the flow as
+	\[
+		\Phi ^{\hat{F}}\left( t, t_0, x_0 \right)  = \Phi _{A} \left( t, t_0 \right) x_0
+	.\] 
+	where $\Phi _{A} : \T\times \T \to L\left( X;X \right) $. 
+\end{fact}
