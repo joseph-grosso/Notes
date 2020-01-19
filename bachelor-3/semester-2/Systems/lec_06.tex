@@ -1,1 +1,47 @@
 \lecture{6}{Fri 17 Jan 2020 15:55}{}
+
+Last time: $\hat{F} : \T \times X  \to \R^{n}$ 
+
+Solution: $\dot{\xi} \left( t \right) = \hat{F}\left( t, \xi \left( t \right)  \right) $, almost everywhere $t \in  \T' \subseteq \T$. 
+
+Domain:
+\[
+D_{\hat{F}} = \left\{ \left( t, t_0, x_0 \right) \in \T\times \T\times X \\
+\mid \text{ solution exists at time }t, w \text{ initial conclusion }x_0 \text{ at initial time } t_0\right\} 
+.\] 
+
+Flow: $\Phi ^{\hat{F}} : D_{\hat{F}} \to X$ satisfies 
+\[
+	\frac{d}{dt}\Phi ^{\hat{F}}\left( t, t_0, x_0 \right)  = \hat{F}\left( t, \Phi ^{\hat{F}}\left( t, t_0, x_0 \right)  \right) , \quad \Phi ^{\hat{F}}\left( t_0, t_0, x_0 \right)  = x_0
+.\] 
+\begin{example}
+	$\T = \R$, $X = \R$, $\hat{F}\left( t, x \right) = x^2$. Solution with initial condition $x_0$ at time $t_0$ satisfies 
+	\begin{align*}
+		\dot{\xi }\left( t \right)  &=  \xi \left( t \right) ^2 \\
+		\xi \left( t_0 \right) &= x_0 \\
+		\dot{x} &= x^2 \\
+		\frac{dx}{x^2} &= dt \\
+		\implies x\left( t \right) &= \frac{x_0}{1 - x_0\left( t - t_0 \right) } 
+	.\end{align*}
+
+	\[
+		D_{\hat{F}} = \left\{ \left( t, t_0, x_0 \right)  \mid \begin{cases}
+				t \in \left( -\infty, t_0 + \frac{1}{x_0} \right) & x_0 > 0 \\
+				t \in  \left( t_0 + \frac{1}{x_0}, \infty \right) & x_0 < 0 \\
+				t \in  \left( -\infty, \infty \right)  & x = 0
+		\end{cases} \right\} 
+	.\] 
+	\begin{align*}
+		\Phi ^{\hat{F}}: D_{\hat{F}} &\longrightarrow \R \\
+		\left( t, t_0, x_0 \right)  &\longmapsto \Phi ^{\hat{F}}(\left( t, t_0, x_0 \right) ) = \frac{x_0}{1 - x_0\left( t - t_0 \right) }
+	.\end{align*}
+\end{example}
+
+For linear equations, there are no restrictions on the times for which solutions exist.
+\[
+\implies D_{\hat{F}} = \T \times  \T \times  X 
+.\] 
+
+\subsection{Autonomous ODE's (independent of time)}
+
+An ODE $\hat{F} : \T \times  R  \to \R ^{n} $ is autonomous if $\exists  \hat{F}_{0} : X  \to \R^{n}$ so that $\hat{F}\left( t, x \right) = \hat{F} _{0}\left( x \right) $. This just captures the idea of independence of time. 
