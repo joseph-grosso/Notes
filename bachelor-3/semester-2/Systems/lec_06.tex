@@ -44,4 +44,76 @@ For linear equations, there are no restrictions on the times for which solutions
 
 \subsection{Autonomous ODE's (independent of time)}
 
-An ODE $\hat{F} : \T \times  R  \to \R ^{n} $ is autonomous if $\exists  \hat{F}_{0} : X  \to \R^{n}$ so that $\hat{F}\left( t, x \right) = \hat{F} _{0}\left( x \right) $. This just captures the idea of independence of time. 
+An ODE $\hat{F} : \T \times  X  \to \R ^{n} $ is autonomous if $\exists  \hat{F}_{0} : X  \to \R^{n}$ so that $\hat{F}\left( t, x \right) = \hat{F} _{0}\left( x \right) $. This just captures the idea of independence of time. 
+
+The flow of an autonomous ODE has the following property:
+\[
+	\Phi ^{\hat{F}}\left( t, t_0, x_0 \right)  = \psi^{\hat{F}}\left( t - t_1, x_0 \right) 
+.\] 
+for some $\psi^{\hat{F}} : \T \times  X \to X$. 
+
+For autonomous equations, one often gives initial conditions at $t_0 = 0 $. 
+
+\subsection{Autonomous Linear ODE's}
+
+\begin{itemize}
+	\item Linear means $\hat{F}\left( t, x \right)  = A\left( t \right) \cdot x$. Therefore linear and autonomous means: 
+		 \[
+			 \hat{F}\left( t, x \right)  = Ax \quad \text{for} \quad A \in  L\left( X;X \right) 
+		.\] 
+	\item For arbitrary (ie not autonomous) linear ODE's
+		 \[
+			 \Phi^{\hat{F}}\left( t, t_0, x_0 \right)  = \Phi_{A}\left( t, t_0 \right) \cdot x_0
+		.\] 
+		where $\Phi_{A} : \T \times \T \to L\left( X, X \right) $ is the state transition map. 
+
+	\item In the autonomous case we can calculate the state transition map in terms of the operator exponential of $A in L\left( X, X \right) $. 
+
+		First, if $L \in  L\left( X, X \right) $ 
+		\[
+		e^{L} = I + \sum_{n=1}^{\infty} \frac{L^{n}}{n!} 
+		.\] 
+
+	\item Consider the initial value problem
+		\begin{align*}
+			\dot{\xi}\left( t \right) &= A \xi\left( t \right)  \\
+			\xi\left( t_0 \right) &= x_0 \\
+			\implies \text{Solution is } \xi\left( t \right)  &= e^{A\left( t - t_0 \right) }x_0
+		.\end{align*}
+		Thus $\Phi_{A}\left( t, t_0 \right) = e^{A\left( t - t_0 \right) }$ and $\Phi^{\hat{F}}\left( t, t_0, x_0 \right) = e^{A\left( t - t_0 \right) }\cdot x_0$. 
+
+	\item For linear ODE's autonomous means constant coefficients. 
+\end{itemize}
+
+\section{Difference Equations}
+
+\begin{definition}
+	Let $\T \subseteq \Z\left( \Delta\right) $ be a discrete time-domain and let $X \subseteq \R^{n}$ be open. A difference equation with time-domain $\T$ and state space $X$ is a mapping $\hat{F} : \T \times  X \to X$. A solution is a mapping $\xi : \T  \to  X $ satisfying
+	\[
+		\xi\left( t + \Delta \right)  = \hat{F} \left( t, \xi\left( t \right)  \right) 
+	.\] 
+\end{definition}
+
+If we have an initial condition $\xi\left( t_0 \right)  = x_0$, then $\xi\left( t_0 + \Delta \right)  = \hat{F}\left( t, x_0 \right) $, $\xi\left( t_0 + 2 \Delta \right)  = \hat{F}\left( t, \hat{F}\left( t, x_0 \right)  \right)$, $\ldots$
+
+What is $\xi\left( t_0 - \Delta \right) $? The final equation should satisfy 
+ \[
+	 \xi\left( t_0 \right)  = \hat{F}\left( t, \xi\left( t_0 - \Delta \right)  \right) 
+.\] 
+Generally, this expression cannot be saved for $\xi\left( t_0 - \Delta \right) $. Difference equations are meant to "Go forward". If we can go backwards we say the system is invertible. 
+
+\begin{example}
+	$\T = \Z$, $X = \R$, and $\hat{F}\left( t, x \right)  = 0$.
+	\[
+		\implies \xi\left( t + k\Delta \right)  = 0 \quad \forall  k \in \Z_{>0}
+	.\] 
+	With $\xi$ we do not have uniqueness of solutions. 
+
+	Nevertheless we define flows of difference equations, by 
+	\[
+		\Phi^{\hat{F}}\left\{ \left( t, t_0, x_0 \right) \in  \T \times  \T \times  X  \mid  t \ge t_0 \right\} \to X
+	.\] 
+	defined by $\Phi^{\hat{F}}\left( t + \Delta, t_0, x_0 \right) =\hat{F}\left( t, \Phi^{\hat{F}}\left( t, t_0, x_0 \right)  \right) $, $\Phi^{\hat{F}}\left( t_0, t_0, x_0 \right) = x_0$.
+	
+	We can talk about linear and autonomous difference equations, and the statements for differential equations have analogues for difference equations. 
+\end{example}
