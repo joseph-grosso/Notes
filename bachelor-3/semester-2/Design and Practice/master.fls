@@ -1,9 +1,9 @@
-PWD /home/joegr/Desktop/OneDrive_QueensU/School/Notes/bachelor-3/semester-2/Probability II
+PWD /home/joegr/Desktop/OneDrive_QueensU/School/Notes/bachelor-3/semester-2/Design and Practice
 INPUT /etc/texmf/web2c/texmf.cnf
 INPUT /usr/share/texmf/web2c/texmf.cnf
 INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/latex.fmt
-INPUT /home/joegr/Desktop/OneDrive_QueensU/School/Notes/bachelor-3/semester-2/Probability II/master.tex
+INPUT /home/joegr/Desktop/OneDrive_QueensU/School/Notes/bachelor-3/semester-2/Design and Practice/master.tex
 OUTPUT master.log
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/report.cls
@@ -386,14 +386,17 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stmaryrd/stmary10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stmaryrd/stmary8.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/stmaryrd/stmary6.tfm
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1200.tfm
 OUTPUT master.dvi
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm2488.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx2488.tfm
 INPUT master.toc
 INPUT master.toc
 OUTPUT master.toc
-INPUT lec_01.tex
-INPUT lec_01.tex
+INPUT lec_03.tex
+INPUT lec_03.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm0900.tfm
 INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
@@ -401,20 +404,3 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecss0900.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1440.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1440.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1000.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm0700.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm0500.tfm
-INPUT lec_02.tex
-INPUT lec_02.tex
-INPUT lec_03.tex
-INPUT lec_03.tex
-INPUT lec_04.tex
-INPUT lec_04.tex
-INPUT lec_05.tex
-INPUT lec_05.tex
-INPUT lec_06.tex
-INPUT lec_06.tex
-INPUT ./figures/xonextwograph.pdf_tex
-INPUT ./figures/xonextwograph.pdf_tex
-INPUT ./figures/xonextwograph.pdf
-INPUT ./figures/xonextwograph.pdf

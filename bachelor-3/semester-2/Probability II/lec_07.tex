@@ -1,0 +1,61 @@
+\lecture{7}{Mon 20 Jan 2020 08:39}{Marginal CDF's}
+
+\begin{definition}
+	Let $X_1, \ldots, X_{n}$ have joint cdf $F_{x}\left( x_1, \ldots, x_{n} \right)  = P \left( X_{1} \le x_1, \ldots, X_{n}\le x_{n} \right) $. 
+
+	Let $\left\{ i_1, \ldots, i_{k} \right\} \subset \left\{ 1,\ldots,n \right\} $ and 
+	\[
+	\left\{ j_1, \ldots, j_{n-k} \right\} = \left\{ 1, \ldots, n \right\} \ \left\{ i_1, \ldots, i_{k} \right\} 
+	.\] 
+	where $i_1, \ldots, i_{k}$ are distinct. 
+
+	The joint marginal CDF of  $\left( X_{i_1} ,\ldots, X_{i_{k}} \right) $ is 
+	\begin{align*}
+		F_{X_{i_1}, \ldots, X_{i_{k}}}\left( x_{i_{1}}, \ldots, x_{i_{k}} \right) 
+		&= P\left( X_{i_{1}} \le  x_{i_{1}}, \ldots, X_{i_{k}} \le  x _{i_{k}} \right) \\ 
+		&= P\left( X_{i_{1}} \le  x_{i_{i}} ,\ldots, X_{i_{k}} \le X_{i_{k}} \le x_{i_{k}}, \
+		X_{j_{1}} < \infty, \ldots, X _{j_{n-k}} < \infty \right)  \\
+	        &=  \lim_{x_{j_{1}} \to \infty, \ldots , x_{j_{n - k}} \to \infty} P\left( X_{i_{1}} \le  x_{i_{i}} ,\ldots, X_{i_{k}} \le X_{i_{k}} \le x_{i_{k}}, X_{j_{1}} < \infty, \ldots, X _{j_{n-k}} < \infty \right) 
+	.\end{align*}
+
+	In other words, take the full joint CDF and let elements $j_1, \ldots, j_{n - k} \to \infty$. 
+\end{definition}
+
+\section{Independence of Multiple Random Variables}
+
+First, let us look at $n$ events $A_1, \ldots, A_{n}$. What do we mean for them to be mutually independent?
+
+For $n = 2$: Intuitively (and mathematically), we want $P\left( A_1  \mid A_2\right) = P\left( A_1 \right) $ where $P\left( A_1 \mid A_2 \right) $ is the conditional probability of $A_1$ given $A_2$. 
+
+\begin{figure}[ht]
+    \centering
+    \incfig{venn-diagram-of-$-and-$}
+    \caption{Venn Diagram of $A_{1}$ and $A_2$}
+    \label{fig:venn-diagram-of-$-and-$ }
+\end{figure}
+
+In the new probability space above, the crossed lines implies that $A_1$ happened given $A_2$ occurred. Then
+ \[
+	 P\left( A_1 \mid A_2 \right)  = \frac{P\left( A_1 \cap A_2 \right) }{P\left( A_2 \right) }
+.\]
+So if $A_1$ and $A_2$ are independent, then we have 
+\begin{align*}
+	\frac{P\left( A_1 \cap A_2 \right) }{P\left( A_2 \right) } &= P\left( A_1 \right)  \\
+	\implies P\left( A_1 \cap A_2 \right)  &= P\left( A_1 \right) P\left(A_2 \right) 
+.\end{align*}
+
+Now consider n events $A_1, \ldots, A_n$.
+
+\begin{definition}
+	$A_1, \ldots, A_{n}$ are mutually independent if 
+	\begin{align*}
+		P\left( A_1\cap \ldots \cap A_{n} \right) &= P\left( A_1 \right) \times \ldots \times P\left( A_{n} \right) \\
+	P\left( A_{i_{1}}\cap \ldots\cap A_{i_{k}}\right)  &= P\left( A_{i_1} \right) \times  \ldots \times  P\left( A_{i_{k}} \right) \quad \forall \left\{i_1,\ldots, i_{k} \right\} \subset  \left\{ 1, \ldots, n \right\} 
+	.\end{align*}
+\end{definition}
+\begin{remark}
+	Pairwise independence $\not\implies$  mutual independence. 
+	\begin{example}
+		Three 
+	\end{example}
+\end{remark}

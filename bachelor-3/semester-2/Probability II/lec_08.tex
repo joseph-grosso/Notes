@@ -1,0 +1,55 @@
+\lecture{8}{Tue 21 Jan 2020 10:35}{Independence of Random Variables}
+
+\begin{definition}
+	We say that $n$ random variables $X_{1} , \ldots , X_{n}$ are mutually independent if 
+	\[
+		P\left( X_1 \in A_1, \ldots, X_{n} \in  A_{n} \right) = P\left( X_1 \in  A_1 \right) \times \ldots\times P\left( X_{n}\in A_{n} \right) 
+	.\] 
+	for any $A_{1} , \ldots , A_{n} \subset \R$ (any reasonable set).
+
+	Note that we can take any of the $A_{i}$ to be $\R$, so if we take $\left\{ i_{1} , \ldots , i_{k} \right\} \subset \left\{ 1, \ldots , n \right\} $ and $\left\{ j_{1} , \ldots , j_{n-k} \right\}  = \left\{ 1, \ldots, n \right\}  \ \left\{ i_{1} , \ldots , i_{k} \right\} $ , then
+	\begin{align*}
+		P\left( X_{i_{j}} \in A_{i_{1}}, \ldots, X_{i_{k}} \in  A_{i_{k}} \right) &= P\left( X_{i_{1}} \in  A_{i_1}, \ldots, X_{i_{k}} \in A_{i_{k}}, X_{j_1} \in  A_{j_1} \in  \R, \ldots, X_{j_{n-k}} \in \R \right)  \\
+											  &= P\left( X_{i_1} \in A_{i_1} \right) \ldots P\left( X_{i_{k}} \in  A_{i_{k}} \right) \left( 1 \right) \ldots \left( 1 \right)  \\
+											  &= P\left( X_{i_1} \in A_{i_1} \right) \ldots P\left( X_{i_{k}} \in  A_{i_{k}} \right) 
+	.\end{align*}
+	So any subset of $X_{1} , \ldots , X_{n}$ are mutually independent if $X_{1} , \ldots , X_{n}$ are mutually independent. 
+\end{definition}
+
+\begin{remark}
+	 \begin{enumerate}
+		 \item If $X_{1} , \ldots , X_{n}$ are mutually independent then so are $g_{i}\left( X_1	 \right) , \ldots , g_{n}\left( X_{n} \right) $ where $g_{i} : \R \to \R, i = 1, \ldots, n$.
+		 \item The $X^{ir}_{i}$ in the definition of independence can be any random quantities (eg, random vectors or random matrices). The only change is that the $A^{is}_{i}$ must be in the appropriate range space of $X_{i}$. 
+	\end{enumerate}
+\end{remark}
+
+\begin{theorem}
+	$X_{1} , \ldots , X_{n}$ are mutually independent if and only if $f_{x}\left( x_{1} , \ldots , x_{n} \right) = f_{X_{1}}\left( x_1 \right) \times  \ldots\times f_{X_{n}}\left( x_{n} \right) $ (cts case with marginal pdfs) or 
+	 \[
+		 P_{X}\left( x_{1} , \ldots , x_{n} \right) = P_{X_{1}}\left( x_1 \right) \times \ldots\times P_{X_{n}}\left( x_{n} \right) 
+	.\] 
+	(discrete case with marginal pmfs).
+
+\begin{proof}
+	Suppose the above factoring holds. Let $A_{1} , \ldots , A_{n}\subset \R$ be arbitrary. Then
+	\begin{align*}
+		P\left( X_1 \in  A_1, \ldots, X_{n} \in  A_{n} \right) &= \begin{cases}
+			\int_{A_{n}}^{ } \ldots \int_{A_1}^{ } dx_{1} , \ldots , dx_{n}  & \text{continuous} \\
+			\sum_{X_{n} \in  A_{n}}^{ } \ldots \sum_{x_1 \in  A_{n}}^{ }  P_{X}\left( x_{1} , \ldots , x_{n} \right) & \text{discrete}
+		\end{cases}\\
+		&= \begin{cases}
+			\left( \int_{A_{n}}^{ } f_{X_{n}}\left(x_{n}\right) dx_{n} \right) 	\times \ldots\times \left( \int_{A_{1}}^{ } f_{X_{1}}\left(x_{1}\right) dx_{n} \right) \\
+			\left( \sum_{x_{n} \in  A_{N}}^{ } P_{X_{n}}\left( x_{n} \right)  \right) \times  \ldots \times \left( \sum_{x_1 \in  A_1}^{ } P_{X_1}\left( x_1 \right)  \right) 
+		\end{cases} \\
+		&= P\left( X_{n} \in  A_{n} \right) \times \ldots\times P\left( X_1 \in  A_1 \right) 
+	.\end{align*}
+	Now assume that $X_{1} , \ldots , X_{n}$ are mutually independent:
+	\begin{description}
+		\item[Discrete Case] By independence
+			\begin{align*}
+				P\left( X_{1} = x_1, \ldots, X_{n} = x_{n}\right) &= P\left( X_1 = x_1 \right) \times \ldots\times P\left( X_{n} = x_{n} \right)  \\
+				\implies P_{X}\left( x_{1} , \ldots , x_{n} \right) &= P_{X_1}\left( x_1 \right) \times \ldots\times P_{X_{n}}\left( x_{n} \right) 
+			.\end{align*}
+	\end{description}
+\end{proof}
+\end{theorem}
