@@ -44,7 +44,8 @@
 \newcommand\F{\ensuremath{\mathbb{F}}}
 
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
-
+\let\newforall\forall
+\renewcommand\forall{\;\newforall\;}
 % Put x \to \infty below \lim
 \let\svlim\lim\def\lim{\svlim\limits}
 

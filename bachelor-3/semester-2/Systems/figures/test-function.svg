@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.406257"
-     inkscape:cx="699.89803"
+     inkscape:cx="515.72117"
      inkscape:cy="173.68005"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -83,7 +83,7 @@
          id="tspan14"
          x="81.467743"
          y="192.20201"
-         style="stroke-width:0.26458332">$\phi(t)</tspan></text>
+         style="stroke-width:0.26458332">$\phi(t)$</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 115.33424,219.6715 c -3.9511,0 -3.9511,0 -3.9511,0 v -0.18815 7.14959 h 4.32739"
@@ -126,6 +126,6 @@
          id="tspan30"
          x="113.07648"
          y="207.25378"
-         style="stroke-width:0.26458332">suppose  $supp(\phi) = [a, b]</tspan></text>
+         style="stroke-width:0.26458332">suppose  $supp(\phi) = [a, b]$</tspan></text>
   </g>
 </svg>

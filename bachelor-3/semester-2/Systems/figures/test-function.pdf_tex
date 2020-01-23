@@ -54,10 +54,10 @@
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{test-function.pdf}}%
-    \put(0.33944893,0.43665829){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\phi(t)\end{tabular}}}}%
+    \put(0.33944893,0.43665829){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\phi(t)$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{test-function.pdf}}%
     \put(0.45312115,0.25791849){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}a\end{tabular}}}}%
     \put(0.58874391,0.24929504){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}b\end{tabular}}}}%
-    \put(0.47115199,0.37394257){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}suppose  $supp(\phi) = [a, b]\end{tabular}}}}%
+    \put(0.47115199,0.37394257){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}suppose  $supp(\phi) = [a, b]$\end{tabular}}}}%
   \end{picture}%
 \endgroup%

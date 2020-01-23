@@ -1,4 +1,4 @@
-\lecture{3}{Tue 21 Jan 2020 14:29}{Lab 3: Bode Plots}
+\lecture{3}{Tue 21 Jan 2020 14:29}{Lab 2: Bode Plots}
 
 \section{Introduction}
 In this lab we learned about Bode plots and saw how their theoretical values corresponded with the real world outputs of our motor. 
@@ -37,7 +37,7 @@ In this lab we learned about Bode plots and saw how their theoretical values cor
 
 For the plot of $\omega$, as the frequency increased, the amplitude stayed constant for a while and then began to slowly decrease, which matches the Bode plot. For the phase angle both sinusoids began at a phase angle of 0 degrees. As the frequency increased, the phase angle appears to decrease over time, but we could not quantify this difference because our test ended. 
 
-For the plot of $\theta$, as frequency increased the amplitude decreased, which was predicted by the Bode plot. At very low frequencies, the amplitude tended towards very large values. The phase angle origin began at a trough, which signifies a phase angle of -90 degrees, while the other one began at a phase angle of 0, both predictions following along with our Bode plots.  
+For the plot of $\theta$, as frequency increased the amplitude decreased, which was predicted by the Bode plot. At very low frequencies, the amplitude tended towards very large values. The phase angle between the input and output signals can be seen to be $-90$ degrees, which agrees with our Bode plots.  
 
 \subsection{Tabulated Data}
 
@@ -87,13 +87,15 @@ For the plot of $\theta$, as frequency increased the amplitude decreased, which 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./figures/lab2_experiment_phase.jpg}
-	\caption{Experimental bode plot for phase angle}
+	\caption{Experimental Bode Plot for the Phase Angle of $\theta$}
 	\label{fig:}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\textwidth]{./figures/lab2_experiment_magnitude.jpg}
-	\caption{}
+	\caption{Experimental Bode Plot for Phase Amplitude of $\theta$}
 	\label{fig:}
 \end{figure}
+
+Our experimental bode plot for the amplitude of $\theta$ resembles the shape of the one plotted in MatLab, despite some variance in the individual points. Our plot for the phase angle of $\theta$ is much more varied. We received very different results running the experiment with high frequencies due to measurement error. (Each peak was only recorded as a single data point.) Thus our Bode plot for $\theta$ doesn't resemble the calculated one as closely.
