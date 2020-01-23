@@ -15,11 +15,11 @@
 		&= P\left( X_{i_{1}} \le  x_{i_{1}}, \ldots, X_{i_{k}} \le  x _{i_{k}} \right) \\ 
 		&= P\left( X_{i_{1}} \le  x_{i_{i}} ,\ldots, X_{i_{k}} \le X_{i_{k}} \le x_{i_{k}}, \
 		X_{j_{1}} < \infty, \ldots, X _{j_{n-k}} < \infty \right)  \\
-	        &=  \lim_{x_{j_{1}} \to \infty, \ldots , x_{j_{n - k}} \to \infty} P\left( X_{i_{1}} \le  x_{i_{i}} ,\ldots, X_{i_{k}} \le X_{i_{k}} \le x_{i_{k}}, X_{j_{1}} < \infty, \ldots, X _{j_{n-k}} < \infty \right) 
+		&=  \lim_{\substack{x_{j_{1}} \to \infty\\ \ldots \\ x_{j_{n - k}} \to \infty}} P\left( X_{i_{1}} \le  x_{i_{i}} ,\ldots, X_{i_{k}} \le x_{i_{k}},
+		X_{j_{1}} < \infty, \ldots, X _{j_{n-k}} < \infty \right) 
 	.\end{align*}
-
 	In other words, take the full joint CDF and let elements $j_1, \ldots, j_{n - k} \to \infty$. 
-\end{definition}
+	\end{definition}
 
 \section{Independence of Multiple Random Variables}
 
@@ -27,12 +27,12 @@ First, let us look at $n$ events $A_1, \ldots, A_{n}$. What do we mean for them 
 
 For $n = 2$: Intuitively (and mathematically), we want $P\left( A_1  \mid A_2\right) = P\left( A_1 \right) $ where $P\left( A_1 \mid A_2 \right) $ is the conditional probability of $A_1$ given $A_2$. 
 
-\begin{figure}[ht]
-    \centering
-    \incfig{venn-diagram-of-$-and-$}
-    \caption{Venn Diagram of $A_{1}$ and $A_2$}
-    \label{fig:venn-diagram-of-$-and-$ }
-\end{figure}
+%\begin{figure}[ht]
+%    \centering
+%    \incfig{venn-diagram-of-$-and-$}
+%    \caption{Venn Diagram of $A_{1}$ and $A_2$}
+%    \label{fig:venn-diagram-of-$-and-$ }
+%\end{figure}
 
 In the new probability space above, the crossed lines implies that $A_1$ happened given $A_2$ occurred. Then
  \[
@@ -55,7 +55,7 @@ Now consider n events $A_1, \ldots, A_n$.
 \end{definition}
 \begin{remark}
 	Pairwise independence $\not\implies$  mutual independence. 
-	\begin{example}
-		Three 
-	\end{example}
+%	\begin{example}
+%		Maybe put a diagram in here if you have the time? Some example of pairwise \neq mutual
+%	\end{example}
 \end{remark}

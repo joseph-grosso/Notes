@@ -1,0 +1,66 @@
+\lecture{9}{Thu 23 Jan 2020 09:36}{Expectation and Multiple RVs}
+
+\begin{theorem}
+	$X_{1} , \ldots , X_{n}$ are mutually independent if and only if  
+	\[
+		F_X \left( x_{1} , \ldots , x_{n} \right) = F_{X_1} \left( x_1 \right) \times \ldots \times F_{X_{n}} \left( x_{n} \right) 
+	.\] 
+	where $F_{X}$ is joint cdf and $F_{X_{i}}$ is marginal cdf of $X_{i}$, $i = 1, \ldots, n$. 
+	\begin{proof}
+		Suppose $X_{1} , \ldots , X_{n}$are mutually independent. Then
+		\begin{align*}
+			F_{X}\left( x_{1} , \ldots , x_{n} \right) 
+			&= P\left( X_1 \le x_1, \ldots, X_{n} \le  x_{n} \right)  \\
+			&= P\left( X_1 \le x_1 \right)  \times \ldots\times  P\left( X_{n} \le x_{n} \right)  \\
+			&= F_{X_1} \left( x_1 \right) \times \ldots\times F_{X_{n}}\left( x_{n} \right) 			
+		.\end{align*}
+		Now suppose that 
+		\begin{align*}
+			F_{X}\left( x_{1} , \ldots , x_{n} \right) &= F_{X_1} \left( x_1 \right) \times \ldots\times F_{X_{n}}\left( x_{n} \right) \quad \forall \left( x_{1} , \ldots , x_{n} \right) \in R^{n}
+		.\end{align*}
+		In this case when $X_{1} , \ldots , X_{n}$ are jointly continuous then from proof of previous theorem we get that $f_{X}\left( x_{1} , \ldots , x_{n} \right) = f_{X_1}\left( x_1 \right) \times \ldots\times f_{X_{n}}\left( x_{n} \right) $, which then implies that $X_{1} , \ldots , X_{n}$ are mutually independent.  
+		
+To prove that $F_{X}\left( x_{1} , \ldots , x_{n} \right) = F_{X_1}\left( x_1 \right) \times \ldots \times F_{X_{n}}\left( x_{n} \right) $ implies that $X_{1} , \ldots , X_{n}$ are mutually independent is outside of the scope of this course. 
+	\end{proof}
+\end{theorem}
+
+\section{Expectation Involving Multiple Random Variables}
+
+Expectation is only defined for random variables. If $X = \left( X_{1} , \ldots , X_{n} \right) ^{T}$ is a random vector then we may write $E\left[ X \right] $, which only means
+\[
+\begin{bmatrix} E\left[ X_1 \right] \\ \vdots\\ E\left[ X_n \right]  \end{bmatrix}
+.\] 
+Now, each $E\left[ X_{i} \right] $ is with respect to the marginal distribution of $X_{i}$. However, it is not necessary to compute each marginal distribution.
+
+\begin{theorem}[Law of Unconscious Statistician]
+	If $g\left( x_{1} , \ldots , x_{n} \right) : \R^{n} \to \R$ is a real valued function of $x_{1} , \ldots , x_{n}$, then
+	\begin{align*}
+		E\left[ g\left( X_{1} , \ldots , X_{n} \right)  \right] = \begin{cases}
+			\int \ldots \int_{\R^{n}} g\left( x_{1} , \ldots , x_{n} \right)  f_{X}\left( x_{1} , \ldots , x_{n} \right) dx_{1} , \ldots , dx_{n} & \text{continuous} \\
+			\sum_{x_{n}}^{ }  \ldots \sum_{x_1}^{ } g\left( x_{1} , \ldots , x_{n} \right) p_{X}\left( x_{1} , \ldots , x_{n} \right)  & \text{discrete}
+		\end{cases}
+	.\end{align*}
+	\begin{proof}[Discrete Case]
+		Let $Y = g\left( X_{1} , \ldots , X_{n} \right) $. Then 
+		\begin{align*}
+			E\left[ g\left( x_{1} , \ldots , x_{n} \right)  \right]  == E\left[ Y \right] \\
+			&= \sum_{Y} y P\left( Y = y \right)  \\
+			&= \sum_{y}^{ } y \sum_{x:g\left( x \right)  = y} P\left( X = x \right) , \quad x = ( x_{1} , \ldots , x_{n}) \\
+			&= \sum_{y}^{ } \sum_{x: g\left( x \right) = y} g\left( x \right) P\left( X = x \right)  \\
+			&=\sum_{x} g\left( x \right) P\left( X = x \right)
+		.\end{align*}
+	\end{proof}
+\end{theorem}
+
+\begin{example}
+	Suppose $\left( X_1, X_2 ,X_3  \right) $ have joint pdf 
+	\[
+		f\left( x_1, x_2, x_3 \right) = \frac{1}{\sqrt{2 \pi} }e^{\frac{-\left( x_1 - x_3 \right) ^2}{2 }} \frac{1}{\sqrt{2 \pi} }e^{\frac{-\left( x_2 - x_3 \right) ^2}{2 }}  \frac{1}{\sqrt{2 \pi} }e^{\frac{- x_3  ^2}{2 }} 
+	.\] 
+	Compute $E\left[ X_1 X_2 \right] $. In our heads. 
+	\begin{itemize}
+		\item Integrate with respect to $x_1$ first - only present in one term. Pull everything else out of the integral.
+		\item Same process with $x_2$. 
+		\item Finally do the same with $x_{3}$. You're left with a normal $(0, 1)$ distribution. 
+	\end{itemize}
+\end{example}
