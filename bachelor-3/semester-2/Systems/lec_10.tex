@@ -1,0 +1,87 @@
+\lecture{10}{Mon 27 Jan 2020 16:29}{}
+\begin{example}[Distribution that is not a function]	
+	\begin{fact}
+		$\not\exists f \in  L_{loc}'\left( \R, \R \right) $ such that $\int_{\R}^{ } f\left(  t\right)  \varphi\left( t \right)  = \varphi\left( 0 \right) $ for every $\varphi \in  C^{0}_{cpt}\left( \R, \R \right)$ .  
+\begin{proof}
+	Define $\varphi_{j}\left( t \right)  = $
+	%% insert graph here
+
+	Suppose that 
+	\[
+		\int_{\R}^{} f\left( t  \right) \varphi_{j}\left( t \right) dt = \varphi_{j}\left( 0 \right) = 1  
+	.\] 
+	By DCT: 
+	\[
+		\lim_{j \to \infty} \int_{\R}^{ } f\left( t \right) \varphi_{j}\left( t \right) dt = \int_{\R}^{ } f\left( t  \right) \lim_{j \to \infty} \varphi_{j}\left( t  \right) dt = 0 
+	.\] 
+	But we also have, by assumption
+	\begin{align*}
+		\lim_{j \to \infty} \int_{\R}^{ } f\left( t \right) \varphi_{j}\left( t \right) dt = \lim_{j \to \infty} \varphi_{j}\left( 0 \right) = 1 
+	.\end{align*}
+	$\implies $ Assumption is false.
+\end{proof}	
+
+	\end{fact}
+\end{example}
+This can easily be adapted to $\varphi_{j} \in C^{\infty}_{cpt}\left( \R; \R \right) $, therefore $\delta \neq \theta _{f}$ for any $f \in  L'_{loc}\left( \R; \R \right) $.  
+
+\section{Distributions \& ODE's}
+We are going to study linear ODE's with constant coefficients - other types of ODE's need a lot of weird rules. 
+
+\subsection{Scalar ODE's}
+k-th order linear ordinary differential equations in a single variable and  with constant coefficients. This is represented by  
+\[
+	\hat{F}\left( t, x ,x^{\left( 1 \right) }, x^{\left( 2 \right) }, \ldots, x^{\left( k - 1 \right) } \right) = -a_0 x - a_1 x^{\left( 1 \right) } - a_2 x^{\left( 2 \right) } - \ldots - a_{k -1} x^{\left( k - 1 \right) } , \quad x^{\left(j \right)} \in  \R
+.\] 
+A solution is $\xi : \T \to \R$ satisfying 
+\begin{align*} %% replace partials with normal deltas
+	\frac{d ^{k} \xi}{d  ^{k}} \left( t  \right) = \hat{F}\left( t, \xi\left( t  \right) , \frac{d \xi}{d t} \left( t \right) , \frac{d ^{2}\xi}{d t ^2} \left( t \right) , \ldots, \frac{d \xi^{k - 1}}{d t ^{k - 1}}  \right)\\
+		\implies\frac{d ^{k} \xi}{d t ^{k}} \left( t  \right) + a_{k - 1}\frac{d ^{k - 1}\xi}{d t ^{k -1}}\left( t \right) + \ldots + a_1 \frac{d \xi}{d t} \left( t \right) _ a_0 \xi\left( t \right)  = \beta 
+.\end{align*}
+We consider equations like this, but with distributions on the RHS. We will ask for solutions that are themselves distributions. If the solution is $\theta \in  D ' \left( \R; \R \right) $, then 
+\[
+	\theta ^{\left( k \right) } + a_{k - 1} \theta ^{\left( k - 1 \right) } + \ldots + a_1 \theta ^{\left( 1 \right) } + a_0 \theta = \beta \quad \left( * \right) 
+.\] 
+for $\beta \in  D'\left( \R; \R \right) $. To study this equation initial conditions are not relevant. 
+
+\begin{definition}
+	Let $\theta \in  D'\left( \R; \R \right) $ and let $I \subseteq \R$ be an open interval. Say that $\theta$ annihilates test functions with support in $I$ if 
+	\[
+		\theta\left( \varphi \right) = 0 \forall  \varphi \in  D \left(  \R; \R \right) \text{with} supp\left( \varphi  \right) \subseteq I
+	.\] 
+	The support of $\theta$ is
+	\[
+		supp\left( \theta \right) = \R \setminus   \cup \left\{ I \subseteq \R  \mid \theta \text{ annihilates test functions with with support in }I  \right\} 
+	.\] 
+\end{definition} 
+\begin{eg}
+	\begin{enumerate}
+		\item $supp\left( \theta_{f} \right)  = supp\left( f \right) $, $f \in  L'_{loc}\left(  \R; \R \right) $ 
+		\item $supp\left( \delta \right) $. $\delta \left( \varphi \right) = \varphi \left( 0 \right) $.
+			\begin{align*}
+				\implies \delta \left( \varphi \right) &= 0 \iff supp\left( \varphi \right)  \subset \left( -\infty, 0  \right)  \cup \left( 0, \infty \right) \\
+				\implies supp\left( \delta \right) &= \left\{ 0 \right\} 
+			.\end{align*} 
+	\end{enumerate}
+\end{eg}
+Denote by
+\begin{align*}
+	D'_{+}\left( \R; \R \right) &= \left\{ \theta \in  D'\left( \R; \R \right)  \mid  inf\left( supp\left( \theta \right) > -\infty \right)  \right\} \\
+	D'_{-}\left( \R; \R \right) &= \left\{ \theta \in  D'\left( \R; \R \right)  \mid  sup\left( supp\left( \theta \right) < \infty \right)  \right\}
+.\end{align*}
+
+\begin{theorem}
+	Let $\hat{F}$ be a k-th order scalar linear ODE with constant coefficients and let $\beta \in  D'\left( \R; \R \right) $. Denote by $Sol\left( \hat{F}, \beta \right) $ the set of solutions of $\left( * \right) $:
+	\begin{enumerate}
+		\item $\text{card}\left( Sol\left( \hat{F}, \beta \right)  \right) \ge 2$, 
+		\item if $\beta \in D_{+}\left( \R; \R \right) $, then 
+			\[
+				\text{card}\left( Sol\left( \hat{F}, \beta \right) \cap D_{+}\left( \R; \R \right)  \right)  = 1
+			.\] 
+		\item If $\beta \in  D_{-}\left( \R; \R \right) $, then
+			\[
+				\text{card}\left( Sol\left( \hat{F}, \beta \right) \cap D'_{-}\left( \R; \R \right)  \right) = 1
+			.\] 
+	\end{enumerate}
+	We will prove (2) and (3) of the theorem in the case $\beta = \delta$. It turns out that all other $\beta$'s follow from this.
+\end{theorem}

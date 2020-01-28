@@ -1,0 +1,81 @@
+\lecture{11}{Tue 28 Jan 2020 10:33}{Addendum to Guest Lecture, Round 2}
+
+\section{Functions of Multiple Discrete Random Variables}
+
+Say $X_{1} , \ldots , X_{n}$ are jointly discrete with joint $p_{X}\left( x_{1} , \ldots , x_{n} \right) $. 
+
+Let $Y_{i} = h_{i}\left( x_{1} , \ldots , x_{n} \right)$, $  i = 1, \ldots, n $, $h_{i} : S_{X} \to \R$, $S_{x} = supp\left( X_{1} , \ldots , X_{n} \right) $. 
+
+\begin{note}
+	Each $Y_{i}$ is a discrete random variable. Here. $m$ can be any positive integer.
+\end{note}	
+Let $\left( y_{1} , \ldots , y_{m} \right) $ be a point in the support of $\left( Y_{1} , \ldots , Y_{m} \right) $. Then the joint pmf $p_{Y}\left( y_{1} , \ldots , y_{m} \right) $ is given by
+
+\begin{align*}
+	p_{Y}\left( y_{1} , \ldots , y_{m} \right) &= P\left( Y_1 = y_1, \ldots, Y_m = y_{m} \right)  \\
+						   &= \sum_{\left\{ \left( y_{1} , \ldots , y_{m} \right)  \right\} ^{-1}}^{ } p_{X}\left( x_{1} , \ldots , x_{n} \right) 
+.\end{align*}
+
+where
+\begin{align*}
+	\left\{ \left( y_{1} , \ldots , y_{m} \right)  \right\} ^{-1} &= 
+	\left\{ \left( x_{1} , \ldots , x_{n} \right)  \in  S_{X}  \mid h_1\left( x_{1} , \ldots , x_{n} \right) = y_1, \ldots, h_{m}\left( x_{1} , \ldots , x_{n} \right) = y_{m}\right\} 
+.\end{align*}
+
+\begin{eg}
+	We have 4 boxes numbered $1, \ldots, 4$ and 4 balls numbered $1, \ldots, 4$. Balls are paced in the boxes randomly, one ball per box. 
+	\[
+	X_{i} = \begin{cases}
+		1 & \text{ if ball } i \text{ was placed in box } i \\
+		0 & \text{ otherwise}
+	\end{cases}
+	.\] 
+	Find joint pmf of $\left( X_{1} , \ldots , X_{4} \right) $. 
+
+	First, the support of $\left( X_{1} , \ldots , X_{4} \right) $ is 
+	 \[
+		 \left\{ \left( x_{1} , \ldots , x_{4} \right)   \mid x_{i} = 0 \text{ or } 1, i = 1, \ldots, 4 \text{ and } x_1 + x_2 + x_3 + x_4 \neq  \right\} 
+	.\] 
+	If $\left( x_{1} , \ldots , x_{4} \right) = \left( 1, 0,0,0 \right) $, then there are two permutations that give $\left( 1, 0, 0, 0 \right) $ :
+	\[
+		\left( 1, 4, 2, 3 \right) \text{ and } \left( 1, 3, 4, 2 \right) 
+	.\] 
+	Consider the point $\left( x_{1} , \ldots , x_{4} \right) = \left( 0,0,0,0 \right) $. There are actually 9 permutations that give this outcome.  
+
+	List all permutations and for each permutation, list the value of $x_{1} , \ldots , x_{4}$. Then brute force count to get the joint pmf of $X_{1} , \ldots , X_{4}$.
+\end{eg}
+
+\section{Linearity of Expectation}
+
+Let $\left( X_{1} , \ldots , X_{n} \right) $ have joint pdf $f_{X}\left( x_{1} , \ldots , x_{n} \right) $ and let $a_{1} , \ldots , a_{n}$ be constants. Then
+\[
+E\left[ a_1X_1 + \ldots + a_{n}X_{n} \right] = a_1 E\left[ X_1 \right]  + \ldots + a_n E\left[ X_{n} \right] 
+.\]
+\begin{proof}
+	\begin{align*}
+		E\left[ a_1X_1 + \ldots + a_{n}X_{n} \right] &= \int \ldots \int_{\R^{n}}^{ } \left(  a_1x_1 + \ldots + a_{n}x_{n}\right) f_{X}\left( x_{1} , \ldots , x_{n} \right) dx_{1} , \ldots , dx_{n}  \quad \text{ by LOTUS}\\
+							     &= a_1 \int \ldots \int_{\R^{n}}^{ } x_1 f_{X}\left( x_{1} , \ldots , x_{n} \right) dx_{1} , \ldots , dx_{n}  \\
+							     & +\ldots+ a_{n} \int \int_{\R^{n}}^{ } x_{n}f_{X}\left( x_{1} , \ldots , x_{n} \right) dx_{1} , \ldots , dx_{n}  \\
+							     &= a_1 \int_{\R}^{ } x_1 f_{X_1}\left( x_1 \right) dx_1  + \ldots + a_{n}\int_{\R}^{ } x_{n}f_{X_{n}}\left( x_{n} \right) dx_{n}\\
+							     &= a_1 E\left[ X_1 \right]  + \ldots + a_n E\left[ X_{n} \right] 
+	.\end{align*}
+\end{proof}
+
+\begin{eg}
+	Go back to "matching" problem but with $n$ boxes and $n$ balls. Let $X = $ "number of balls placed in their matching box. Find $E\left[ X \right] $. 
+\[
+	X_{i} = \begin{cases}
+		1 & \text{ if ball } i \text{ was placed in box } i \\
+		0 & \text{ otherwise}
+	\end{cases}
+	.\]
+
+	Then $X = X_1 + \ldots + X_{n}$, and $E\left[ X \right] = E\left[ X_1 \right]  + \ldots + E\left[ X_{n} \right] $. 
+\begin{align*}
+	E\left[ X_{i} \right]  &= P\left( X_{i} = 1 \right)  \\
+			       &= \frac{\left( n - 1 \right) !}{n!} = \frac{1}{n} 
+.\end{align*}	
+	So $E\left[ X \right]  = \frac{1}{n} + \ldots + \frac{1}{n} = 1$
+\end{eg}
+
+

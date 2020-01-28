@@ -1,8 +1,8 @@
 # Fdb version 3
-["latex"] 1579638080 "/home/joegr/Desktop/OneDrive_QueensU/School/Notes/bachelor-3/semester-2/Design and Practice/master.tex" "master.dvi" "master" 1579638080
-  "../preamble.tex" 1579622778 6014 1f0e8e94718f8a2ca946558c3370472c ""
+["latex"] 1580237072 "/home/joegr/Desktop/OneDrive_QueensU/School/Notes/bachelor-3/semester-2/Design and Practice/master.tex" "master.dvi" "master" 1580237072
+  "../preamble.tex" 1579897733 6100 b012e8382efb4c5a06d4d08c11851c90 ""
   "/etc/texmf/web2c/texmf.cnf" 1576114253 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/joegr/Desktop/OneDrive_QueensU/School/Notes/bachelor-3/semester-2/Design and Practice/master.tex" 1579638079 599 86ae5b86b50e1fa3f2c595455ff504ba ""
+  "/home/joegr/Desktop/OneDrive_QueensU/School/Notes/bachelor-3/semester-2/Design and Practice/master.tex" 1580237071 645 20de120287371bf4ef0672fc8393c90a ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1480098696 3584 402da0b29eafbad07963b1224b222f18 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1440.tfm" 1480098696 3584 13049b61b922a28b158a38aeff75ee9b ""
@@ -239,12 +239,13 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1520210507 32485 c64754543d8ac501bea6e75e209ea521 ""
   "/var/lib/texmf/web2c/pdftex/latex.fmt" 1578362844 812254 e86f825d0ec68073c35d254e7a304d7e ""
-  "lec_03.tex" 1579638068 1057 2e3f58eccf5567b1aaa5f509694fc695 ""
-  "master.aux" 1579638080 104 d833244d45c8a19224a4c4fa8a59dbde ""
-  "master.tex" 1579638079 599 86ae5b86b50e1fa3f2c595455ff504ba ""
-  "master.toc" 1579638080 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "figures/theta_plot.jpg" 1579034028 15334 0542fef781091cc8a61196fa462d84ad ""
+  "lec_01.tex" 1579101339 1776 089bc4e572002c04827bd5289cbbaf8f ""
+  "master.aux" 1580237072 104 d833244d45c8a19224a4c4fa8a59dbde ""
+  "master.tex" 1580237071 645 20de120287371bf4ef0672fc8393c90a ""
+  "master.toc" 1580237072 0 d41d8cd98f00b204e9800998ecf8427e ""
   (generated)
-  "master.dvi"
-  "master.toc"
-  "master.log"
   "master.aux"
+  "master.toc"
+  "master.dvi"
+  "master.log"

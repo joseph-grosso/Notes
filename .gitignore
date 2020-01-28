@@ -3,4 +3,6 @@
 *.pdf
 *.swp
 *.toc
-
+*.dvi
+*.fdb_latexmk
+*.fls

@@ -1,0 +1,112 @@
+\lecture{10}{Mon 27 Jan 2020 08:33}{Transformation of Multiple Random Variables}
+
+\begin{itemize}
+	\item continuous multiple r.v's
+	\item single random variables:
+		\begin{align*}
+			X \sim f_{X}, C &= \left\{ x: f\left( x \right) > 0 \right\}  \\
+			&= \text{ "set of all possible values of X"} \\
+			 &= supp\left\{ X \right\}  \\
+		.\end{align*}
+\end{itemize}
+
+Consider: \begin{align*}
+	h : C &\longrightarrow \R \\
+	x &\longmapsto h (x) = Y
+.\end{align*}
+We are interested in finding the pdf of $Y$. $h$ is invertible, its inverse function is $g$. 
+\[
+	f_{Y}\left( y \right) = f_{X}\left( g\left( y \right)  \right)  \|\frac{d}{dy} g\left( y \right) \|
+.\] where $y \in D = \left\{ h\left( x \right)  \mid x \in  C \right\} $. 
+
+Multiple RV $X_{1} , \ldots , X_{n} \sim f_{X}\left( x_{1} , \ldots , x_{n} \right) $ is a joint pdf. 
+\begin{align*}
+	C &= \left\{ x \in  \R^{n} \mid f\left( x  \right) > 0 \right\}  \\
+	h  &: C \to \R^{n}
+.\end{align*}
+$h $ is continuously differentiable with continuously differentiable inverse $g$.
+
+We are interested in finding the pdf of $Y = h\left( X \right) $. 
+\begin{align*}
+Y =  	h\left( x \right) &= \left(h_{1}\left( x_{1} , \ldots  , x_{n} \right)  , \ldots , h_{n}\left( x_{1} , \ldots , x_{n} \right) \right)\\
+	Y_1 &=  h_{1}\left( x_{1} , \ldots  , x_{n} \right)\\
+	    &\vdots\\
+	  Y_{n} &= h_{n}\left( x_{1} , \ldots , x_{n} \right) \\  
+	Y_1 &= X_1 - X_2\\
+	Y_2 &= X_1 + X_2\\
+	\implies X_1 &= \frac{Y_1 + Y_2}{2} = g_1\left( y_1, y_2 \right)  \\
+	X_2 &= \frac{Y_2 - Y_1}{2} = g_2\left( y_1, y_2 \right) 
+.\end{align*}
+
+\begin{theorem}
+\begin{align*}
+	D\left\{ h\left( x \right)  \mid x \in  C \right\} 
+	&= supp\left( Y \right) 
+	\\
+	f_{Y}\left( y_{1} , \ldots , y_{n} \right) &= f_{X}\left( g_{1} , \ldots , g_{n} \right)  \|J_{g}\left( y_{1} , \ldots , y_{n} \right) \|  \\
+	J_{g} &=  \text{ Jacobian transformation of g} \\
+	&= \begin{bmatrix} 
+	\frac{\partial g_1}{\partial y_1} & \ldots & \frac{\partial g_1}{\partial yn} \\
+        \vdots & & vdots \\
+\frac{\partial g_{n}}{\partial y_1}  & \ldots & \frac{\partial g_{n}}{\partial y_{n}} \end{bmatrix} 
+.\end{align*}
+\begin{proof}
+% get the proof later 	
+\end{proof}
+\end{theorem}
+
+\begin{example}
+	Solve the system where $X_1, X_2 \sim Exp\left( 1 \right)  $, independent functions. 
+	\[
+		f_{X_i}\left( x_{i} \right) = e^{-x_{i}}, \quad 0 < x_{i} < \infty
+	.\]
+	
+	\begin{enumerate}
+		\item Find inverse of these distributions. 
+			\begin{align*}
+X_1 &= \frac{Y_1 + Y_2}{2} = g_1\left( y_1, y_2 \right)  \\
+	X_2 &= \frac{Y_2 - Y_1}{2} = g_2\left( y_1, y_2 \right) 
+			.\end{align*}
+		\item Find the Jacobian:
+			\begin{align*}
+				J_{g}\left( y \right) &= \begin{bmatrix} 
+				\frac{\partial g_1}{\partial y_1} & \frac{\partial g_1}{\partial y_2} \\
+			\frac{\partial g_2}{\partial y_1} & \frac{\partial g_2}{\partial y_2} \end{bmatrix}  \\
+							  &= \begin{bmatrix} \frac{1}{2} & \frac{1}{2} \\
+							  -\frac{1}{2} & \frac{1}{2}\end{bmatrix}  \\
+								       &= \left( \frac{1}{2} \right) \left( \frac{1}{2} \right)  - \left( \frac{1}{2} \right) \left( -\frac{1}{2} \right)  \\
+								       &= \frac{1}{2}
+			.\end{align*}
+		\item Find the support of Y. 
+			\begin{align*}
+				0 < x_1 < \infty &, 1 < x_2 < \infty \\
+				\implies 0 < \frac{y_1 + y_2}{2} < \infty, 0 &, 0 <  \frac{y_2 - y_1}{2} < \infty 
+				\implies y_2 < y_1 & , y_1 < y_2 , 0 < \frac{y_2 - y_1}{2} < \infty\\
+				\implies -y_2 < y_1 < y_2
+			.\end{align*}
+
+	\end{enumerate}
+\end{example}
+
+\begin{example}
+	Suppose that $X = \left( X_{1} , \ldots , X_{n} \right) ^{T}$ has a joint pdf $f$, $A$ is an invertible matrix $\left( n \times  n \right) $. Find the pdf of Y. 
+	\begin{align*}
+		Y &= Ax \\
+		h\left( X \right)  &=  AX \\
+		\|\frac{\partial g\left( y \right) }{\partial y} \| &= \|\frac{\partial A^{-1}y}{\partial y}\| = \|A^{-1}\|  \\
+		\frac{\partial By}{\partial y} &= B \\
+		f_X\left( y \right) &= f_{X} \left( A^{-1}y \right) \|get\left( A^{-1} \right) \|\\
+	.\end{align*}
+	Sometimes we are only interested in a  single function of $X_{1} , \ldots , X_{n}$, say $Y_1 = h_1\left( X_1, X_2 \right) $. 
+	\begin{note}
+		\[
+			I\left( c < y_2 < \infty \right) = \begin{cases}
+				1 & 0 < y_2 < \infty\\
+				0 & \text{otherwise}
+			\end{cases}
+		.\] 
+	\end{note}
+
+\end{example}
+ 
+%% Finish these on your own time
