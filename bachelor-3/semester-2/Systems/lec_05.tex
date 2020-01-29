@@ -9,7 +9,7 @@ Solution: $\xi \left( t \right)  = \hat{F}\left( t, \xi \left( t \right)  \right
 	\begin{enumerate}
 		\item For every $t \in  \T$, the function $x \to \hat{F}\left( t, x \right)  $ is locally Lipschitz. 
 		\item For every $x \in  X $, the mapping $t \to \hat{F}\left( t,x \right) $ is locally integrable
-		\item For every $\left( t, x  \right) \in  \T \times  T$, there exists $r, \rho \in \R_{>0}$ and $g_0, g_1 \in \\ L^{1}\left( t - \rho, t + \rho, \R _{\ge 0} \right) $ such that 
+		\item For every $\left( t, x  \right) \in  \T \times  X$, there exists $r, \rho \in \R_{>0}$ and $g_0, g_1 \in \\ L^{1}\left( t - \rho, t + \rho, \R _{\ge 0} \right) $ such that 
 			\begin{enumerate}
 				\item $\|\hat{F}\left( t', x' \right) \| \le g_{1 }\left( t' \right) \forall \left( t', x' \right) \in \left[ t - \rho, t + \rho \right] \times B\left( r, x \right) $ 
 				\item $\|\hat{F}\left( t', x_1  \right) - \hat{F}\left( t', x_2 \right) \| \le g_{1}\left( t' \right)  \|x_1 - x_2\| \forall  t' \in \left[ t - \rho, t + \rho \right] , \\ x_1, x_2 \in  B\left( r, x \right) $
@@ -46,10 +46,10 @@ This is the flow of $\hat{F}$, and encodes all solutions of the differential equ
 
 \subsection{Linear ordinary differential equations}
 
-Here we take the sate space $X$ to be an n-dimensional $\R$-vector space. 
+Here we take the state space $X$ to be an n-dimensional $\R$-vector space. 
 
 \begin{definition}[Linear ordinary differential equations]
-	A linear ordinary differential equation is a mapping $\hat{F} : \T \times  X \to X$ where $\T \subseteq \R $ is a continuous time-domain, X is an n-dimensional vector space, and $\hat{F}\left( t, x \right) = A\left( t \right) x$ where $A : \T \to L\left( X;X \right) $ (linear maps from X to X) is locally integrable. A solution to the linear oda is a locally absolutely continuous $\xi  : \T \to X$ satisfying 
+	A linear ordinary differential equation is a mapping $\hat{F} : \T \times  X \to X$ where $\T \subseteq \R $ is a continuous time-domain, X is an n-dimensional vector space, and $\hat{F}\left( t, x \right) = A\left( t \right) x$ where $A : \T \to L\left( X;X \right) $ (linear maps from X to X) is locally integrable. A solution to the linear ode is a locally absolutely continuous $\xi  : \T \to X$ satisfying 
 	\[
 		\dot{\xi  } \left( t \right)  = A\left( t \right) \xi  \left( t \right) 
 	.\] 
