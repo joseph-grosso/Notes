@@ -1,4 +1,4 @@
-\lecture{10}{Mon 27 Jan 2020 16:29}{}
+\lecture{10}{Mon 27 Jan 2020 16:29}{Distributions and ODEs}
 \begin{example}[Distribution that is not a function]	
 	\begin{fact}
 		$\not\exists f \in  L_{loc}'\left( \R, \R \right) $ such that $\int_{\R}^{ } f\left(  t\right)  \varphi\left( t \right)  = \varphi\left( 0 \right) $ for every $\varphi \in  C^{0}_{cpt}\left( \R, \R \right)$ .  
@@ -36,7 +36,7 @@ k-th order linear ordinary differential equations in a single variable and  with
 A solution is $\xi : \T \to \R$ satisfying 
 \begin{align*} %% replace partials with normal deltas
 	\frac{d ^{k} \xi}{d  ^{k}} \left( t  \right) = \hat{F}\left( t, \xi\left( t  \right) , \frac{d \xi}{d t} \left( t \right) , \frac{d ^{2}\xi}{d t ^2} \left( t \right) , \ldots, \frac{d \xi^{k - 1}}{d t ^{k - 1}}  \right)\\
-		\implies\frac{d ^{k} \xi}{d t ^{k}} \left( t  \right) + a_{k - 1}\frac{d ^{k - 1}\xi}{d t ^{k -1}}\left( t \right) + \ldots + a_1 \frac{d \xi}{d t} \left( t \right) _ a_0 \xi\left( t \right)  = \beta 
+		\implies\frac{d ^{k} \xi}{d t ^{k}} \left( t  \right) + a_{k - 1}\frac{d ^{k - 1}\xi}{d t ^{k -1}}\left( t \right) + \ldots + a_1 \frac{d \xi}{d t} \left( t \right) - a_0 \xi\left( t \right)  = \beta 
 .\end{align*}
 We consider equations like this, but with distributions on the RHS. We will ask for solutions that are themselves distributions. If the solution is $\theta \in  D ' \left( \R; \R \right) $, then 
 \[

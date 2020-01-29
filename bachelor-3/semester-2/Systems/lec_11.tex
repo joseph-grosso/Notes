@@ -1,0 +1,103 @@
+\lecture{11}{Wed 29 Jan 2020 15:31}{Distributions and ODEs (again)}
+
+Last time: 
+\[
+	\theta ^{\left( k \right)  } + a _{k - 1} \theta^{\left( k - 1 \right) } + \ldots + a_1 \theta^{\left( 1 \right) } + a_0 \theta = \beta \quad \left( * \right) 
+.\] 
+for $\beta \in D'\left( \R; \R \right) $. We will produce the unique solution to $\left( * \right) $ in $D_{+}'\left( \R; \R \right) $ where $\beta = \delta$. In this case, we let $\xi : \R \to \R$ be the unique solution to the initial value problem:
+\[
+	\frac{\partial ^{k}\xi}{\partial t ^{k}} \left( t \right)  + a _{k - 1 }\frac{\partial ^{k - 1 }\xi}{\partial t ^{k - 1}} \left( t \right) + \ldots + a_1 \frac{\partial \xi}{\partial t} \left( t \right)  + a_0 \xi \left( t \right)  = 0
+.\] where 
+\[
+	\xi\left( 0 \right) = \frac{\partial \xi}{\partial t} \left( 0 \right)  = \ldots = \frac{\partial ^{k - 2}\xi}{\partial t ^{k - 2}} \left( 0 \right)  = 0 , \quad \frac{\partial ^{k - 1} \xi}{\partial t ^{k - 1 }} \left( 0 \right) = 1
+.\]
+Denote by 
+ \[
+	 1_{\ge 0}\left( t \right)  = \begin{cases}
+		 1 & t \ge  0 \\
+		 0 & t < 0
+	 \end{cases}
+.\] 
+the unit step function. 
+
+\begin{remark}
+	$\theta _{1 _{\ge  0}\xi}$ is the solution in $D'_{+}\left( \R; \R \right) $ to $\left( * \right) $ with $\beta = \delta$. 
+\begin{proof}
+	First note that $\theta _{1 _{\ge  0}\xi} = \xi \theta _{1 _{\ge  0}}$. Indeed, for $\varphi \in  D\left( \R; \R \right) $, 
+	\begin{align*}
+		\theta _{1 _{\ge  0}\xi}\left( \varphi \right)  &= \int_{\R}^{ } 1 _{\ge 0}\left( t  \right) \xi\left( t \right) \varphi\left( t \right)  dt\\
+								&= \theta _{1 _{\ge  0}}\left( \xi\varphi \right)  \\ 
+								&= \xi\theta_{1 _{\ge 0}}\left( \varphi \right) 
+	.\end{align*}
+\begin{fact}
+	If $\theta \in  D'$ and if $f \in C^{\infty}\left( \R; \R \right) $, then 
+	\[
+		\left( f \theta  \right) ^{\left( 1 \right) } = f ^{ \left( 1 \right) } \theta + f \theta ^{ \left( 1 \right) }
+	.\] 
+\end{fact}
+\begin{proof}
+	Note that, for $\varphi \in  D\left( \R; \R \right) $, $\left( f \varphi \right) ^{\left( 1 \right) } = f ^{ \left( 1 \right) } \varphi + f \varphi ^{ \left( 1 \right) }$. Thus 
+	\begin{align*}
+		\left( f \theta \right) ^{\left( 1 \right) } \left( \varphi \right)  &=  - f \theta \left( \varphi ^{\left( 1 \right) } \right)  = -\theta \left( f \varphi^{ \left( 1 \right) } \right)  \\
+										     &= - \theta \left( \left( f \varphi  \right) ^{ \left( 1 \right) } \right)  + \theta\left( f ^{ \left( 1 \right) } \varphi \right)  \\
+										     &= \theta ^{ \left( 1 \right) } \left( f \varphi \right)  + f ^{ \left( 1 \right) }\theta \left( \varphi \right)  \\
+										     &= f \theta ^{ \left( 1 \right) } \left(  \varphi \right)  + f ^{ \left( 1 \right) } \theta \left( \varphi \right)  \\
+										     &= \left( f \theta ^{\left( 1 \right) } + f ^{ \left( 1 \right) } \theta  \right) \left( \varphi \right) 
+	.\end{align*}
+\end{proof}
+
+Then we calculate:
+\begin{align*}
+	\left( \xi\theta _{1 _{\ge  0}} \right) ^{\left( 1 \right) } &=  \xi ^{\left( 1 \right) }\theta _{1 _{\ge 0 }} + \xi\theta ^{\left( 1 \right) }_{1 _{\ge  0}} \\
+								     &= \xi ^{\left( 1 \right) }\theta _{1_{\ge 0}} + \xi \delta
+.\end{align*}
+But 
+\[
+	\left( \xi\delta \right) \left( \varphi \right)  = \delta \left( \xi \varphi \right)  = \xi \left( 0  \right) \varphi \left( 0 \right) = 0 
+.\] 
+Thus $\left( \xi \theta _{1 _{\ge 0}} \right) ^{\left( 1 \right) } = \xi ^{\left( 1 \right) }\theta _{1 _{\ge  0}}$. Then we recursively have 
+\[
+	\left( \xi \theta _{1_{\ge  0}} \right) ^{\left( j \right) } = \xi^{\left( j \right) }\theta _{1 _{\ge  0}}, \quad j \in  \left\{ 0, 1, \ldots, k - 1 \right\} 
+.\] 
+Then 
+\begin{align*}
+	\left( \xi \theta _{1 _{ \ge  0}} \right) ^{\left( k \right) } &=  \xi ^{ \left( k \right) } \theta _{1 _{\ge  0}} + \xi ^{ \left( k - 1 \right) }\theta ^{\left( 1 \right) }_{1 _{\ge 0}} \\
+								       &= \xi ^{ \left( k \right) }\theta _{1 _{ \ge  0}} + \delta
+.\end{align*}
+Thus 
+\begin{align*}
+	\left( \xi \theta _{1 _{\ge  0}} \right) ^{\left( k \right) } + a_{k -1}\left( \xi \theta _{1 _{\ge  0}} \right) ^{\left( k - 1 \right) } + \ldots + a_1 \left( \xi \theta _{1 _{\ge  0}} \right) ^{\left( 1 \right) } + a_0 \xi \theta _{1 _{\ge  0}}
+	&= \left( \xi^{\left( k \right) } + a _{k - 1 }\xi^{\left( k - 1 \right) } + \ldots + a_1 \xi ^{\left( 1 \right) } + a_0 \xi   \right) \theta _{1_{>0 }} + \delta\\
+	&= 0
+.\end{align*}
+Call $\xi \theta _{1 _{\ge 0}}$ the impulse response. 
+\begin{align*}
+	\xi^{\left( k \right) } + a _{k - 1 }\xi^{\left( k - 1 \right) } + \ldots + a_1 \xi ^{\left( 1 \right) } + a_0 \xi  = C_{k - 1}\mu ^{\left( k - 1 \right) } + \ldots + C_1 \mu ^{\left( 1 \right) } + C_0 \mu
+.\end{align*}
+\end{proof}
+\end{remark}
+
+\section{Systems of linear ODE's with constant coefficients and inhomogeneous term being a distribuion}
+
+The ODE is $\hat{F} \left( t, x \right)  = Ax$, $x \in  X = \text{finite dimensional }\R \text{ vector space }$. 
+We look for distributional solutions to 
+\[
+	\theta ^{\left( 1 \right) } = A\left( \theta \right) + \beta
+.\] 
+Many symbols here make no sense. 
+\begin{definition}
+	Let $V$ be a finite dimensional $\R$-vector space. A $ V$-valued distribution is a continuous linear mapping $\theta : D\left( \R; \R \right)  \to V$. Denote the set of these by $D'\left( \R; V \right) $. 
+\end{definition}
+
+\begin{eg}
+	\begin{enumerate}
+		\item Let $v_0 \in  V$ and let $\theta \in  D'\left( \R; \R \right) $. Define $v_0 \otimes \theta \in  D'\left( \R; V \right) $ by 
+			 \[
+				 v_0 \otimes \theta \left( \varphi \right) = \theta \left( \varphi \right) v_0
+			.\] 
+		\item Let $A \in L \left( V; V \right) $ and $\theta \in  D'\left( \R; V \right) $. Define $A\left( \theta \right) \in  D'\left( \R; V\right) $ by 
+			\[
+				A\left( \theta  \right) \left( \varphi \right)  = A\left( \theta\left( \varphi \right)  \right) 
+			.\] 
+	\end{enumerate}
+\end{eg}
