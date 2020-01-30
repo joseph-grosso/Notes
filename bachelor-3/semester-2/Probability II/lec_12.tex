@@ -1,0 +1,60 @@
+\lecture{12}{Thu 30 Jan 2020 09:28}{}
+
+Suppose $X_{1} , \ldots , X_{n}$ are mutually independent and $g_{1} , \ldots , g_{n}$ are arbitrary functions, $g_{i} : \R \to \R$. Then 
+\[
+	E\left[ g_1 \left( X_1 \right)  \times \ldots\times g_{n}\left( X_{n} \right)  \right] = E\left[ g_1 \left( X_1 \right)  \right] \times  \ldots \times E\left[ g_{n}X_{n} \right] 
+.\]
+\begin{proof}
+	\begin{align*}
+		E\left[ g_1 \left( X_1 \right)  \times \ldots\times g_{n}\left( X_{n} \right)  \right] &= 
+		\int_{\R}^{ } \ldots \int_{\infty}^{ }  g_{1}\left( x_1 \right)  , \ldots , g_{n}\left( x_{n} \right)  f_{X_1}\left( x_{1} \right) \ldots f_{X_{n}}\left( x_{n} \right) dx_{1} , \ldots , dx_{n} \\
+												       &= \int_{\R}^{ } g_1 f_{X_1}\left( x_1 \right) dx_1\times  \ldots\times  \int_{\R}^{ } g_{n}f_{X_1}\left( x_{n} \right) dx_{n}    \\
+												       &= E\left[ g_1 \left( X_1 \right)  \right] \times \ldots \times E\left[ g_n \left( X_{n} \right)  \right]  
+	.\end{align*} 
+	If $X_1 , \ldots, X_{n}$ are jointly discrete, replace integrals by sums and pdf's by pmf's.
+\end{proof}
+
+The converse of this proof is in homework 2, question 1. If $E\left[ g_1 \left( X_1 \right)  \times \ldots\times g_{n}\left( X_{n} \right)  \right] = E\left[ g_1 \left( X_1 \right)  \right] \times  \ldots \times E\left[ g_{n}X_{n} \right]$, for any functions $g_{1} , \ldots , g_{n}$, then $X_{1} , \ldots , X_{n}$ are independent. 
+
+Recall, $X_{1} , \ldots , X_{n}$ are independent means 
+\[
+	P\left( X_1 \in  A_1, \ldots, X_{n} \in  A_{n} \right) = P\left( X_{1} \in  A_1  \right), \ldots, P\left( X_{n} \in  A_n \right)  
+.\] 
+for any $A_{1} , \ldots , A_{n} \subset  \R$.
+
+So define:
+\[
+g_{i}\left( X_{i} \right)  = \begin{cases}
+	1 & X_{i} \in  A_{i}\\
+	0 & X_{i }\not \in A_{i}
+\end{cases}
+.\] 
+
+\section{Order Statistics}
+
+Let $X_{1} , \ldots , X_{n}$ be jointly continuous, mutually independent, and identically distributed random variables, with common marginal pdf $f\left( x \right) $. Then the k-th order statistic is 
+\begin{align*}
+	X_{\left( k \right) } &= \text{ k-th smallest of }\left\{ X_{1} , \ldots , X_{n} \right\}  , \quad k = 1, \ldots, n\\
+.\end{align*}
+\begin{remark}
+	Since we are assuming that $X_{1} , \ldots , X_{n}$ are jointly continuous, the probability of any ties among $X_{1} , \ldots , X_{n}$ is zero, IE, we can assume the order statistics are distinct. 
+\end{remark}
+
+\begin{eg}
+	\begin{align*}
+		X_{\left( 1 \right) } &= min\left\{ X_{1} , \ldots , X_{n} \right\} \\
+		X_{\left( n \right) } &= max\left\{ X_{1} , \ldots , X_{n} \right\}  
+	.\end{align*}
+\end{eg}
+\begin{eg}
+	Say a system has n components, whose lifetimes are identically distributed and continuous. The system can handle 2 component failures before failing. Then the system lifetime is $X_{\left( 3 \right) }$, where $X_{1} , \ldots , X_{n}$ are the component lifetimes.
+\end{eg}
+\begin{eg}
+	The range of an identically distributed and continuous sample $X_{1} , \ldots , X_{n}$ is $X_{\left( n \right) } - X_{\left( 1 \right) }$. 
+\end{eg}
+\subsection{Joint pdf of $X_{\left( 1 \right) }, \ldots, X_{\left( n \right) }$ }
+Each $X_{\left( k \right)}$ is a function of $X_{1} , \ldots , X_{n}$. 
+
+The mapping $\left( X_{1} , \ldots , X_{n} \right) \to \left( X_{\left( 1 \right) } ,\ldots, X_{\left( n \right) } \right) $ from $\R^{n}\to \R^{n}$ is neither one-to-one nor differentiable, so we can't use the multivariate change of variable formula. We will take another approach. 
+
+If $X$ is a random variable that is continuous its pdf can be written as:
