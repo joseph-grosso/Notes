@@ -1,0 +1,97 @@
+\lecture{12}{Fri 31 Jan 2020 14:32}{Distributions and ODE's (again again)}
+
+Last time: A system for equations:
+\begin{align*}
+	\left( *  \right) \quad	\theta ^{\left( 1 \right) } &=  A\left( \theta \right) \beta \\
+	\theta &\in D'\left( \R; X \right)   \\
+	\beta &\in D'\left( \R; X \right) \\
+	D'\left( \R; X \right) &= \left\{ \text{continuous linear mappings from }D\left( \R; \R \right) \to X \right\} 
+.\end{align*}
+where $x_0 \in  X$, $\theta \in  D'\left( \R; \R \right) $:
+\begin{align*}
+	x_0 \otimes \theta &\in  D'\left( \R; X \right) \\
+	\left( x_0 \otimes \theta  \right) \left( \varphi \right)  &= \theta \left( \varphi \right) x_0
+.\end{align*}
+if $\theta \in  D'\left( \R; X \right) $ and $A \in  L\left( X; X \right) $, $A\left( \theta  \right) \in  D'\left( \R; X \right) $ 
+\[
+	\left( A\left( \theta  \right)  \right) \left( \varphi \right)  = A\left( \theta \left( \varphi \right)  \right) 
+.\] 
+
+\begin{notation}
+	If $\xi \in  C^{\infty}\left( \R; X \right) $ then we can choose a basis $\left\{ e_{1} , \ldots , e_{n} \right\} $ for $X$ and write 
+	\[
+		\xi\left( t \right)  = \xi_{1}\left( t \right) e_1 + \ldots + \xi_{n}\left( t \right) e_{n}
+	.\] 
+	for $\xi_{1} , \ldots , \xi_{n} \in  C^{\infty}\left( \R; \R \right) $. If $\theta \in  D'\left( \R; \R \right) $, define 
+	\[
+		\xi \otimes \theta \in  D'\left( \R; X \right) 
+	.\] by
+	\[
+		\left( \xi \otimes \theta  \right) \left( \varphi \right)  = \left( \xi _{1} \theta  \right) \left( \varphi \right)  + \ldots + \left( \xi _{n}\theta  \right) \left( \varphi \right) 
+	.\] 
+	Then, if $\xi\left( t \right)  = e^{At}x_0$ then $\theta _{1 _{\ge 0}\xi}$ is the unique solution in $D'_{+}\left( \R; X \right) $ to $\left( * \right) $ with $\beta = x_0 \otimes \delta$. Indeed, 
+	\begin{align*}
+		\theta _{1_{\ge 0 }\xi} &= \xi \otimes \theta _{1 _{\ge 0}} \\
+		\left( \xi \otimes \theta _{1 _{\ge  0}} \right) ^{\left( 1 \right) } &=  \xi ^{\left( 1 \right) } \otimes \theta _{1 _{\ge  0}} + \xi \otimes \theta _{1 _{\ge  0}}^{\left( 1 \right) } \quad\quad  \left(  \theta _{1 _{\ge  0}}^{\left( 1 \right) } = \delta\right) \\
+%		\left\{ \xi \otimes \delta &= \xi\left( 0 \right)  \otimes \delta  \right\} 
+		&= A\xi \otimes \theta _{1 _{\ge 0}} + x_0 \otimes \delta  \\
+		&= A\left( \xi \otimes \theta _{1 _{\ge  0}} \right)  + x_0 \otimes \delta
+	.\end{align*}
+	\begin{punch}
+	One can use distributions with systems of differential equations, but you need notation to set this up.
+	\end{punch}
+\end{notation}
+
+Thus endeth distributions!
+
+\section{Convolution}
+
+\begin{table}[htpb]
+	\centering
+	\caption{Discrete vs Continuous Time Convolutions}
+	\label{tab:convolutions}
+	\begin{tabular}{ || c c || }
+		\hline
+	 Continuous Time & Discrete Time \\
+	 \hline \hline\\ 
+	 $f * g\left( t \right)  = \int_{\R}^{ } f \left( t - s  \right) g\left( s \right) ds $  & $f * g \left( k \Delta \right) = \sum_{j = -\infty}^{\infty} f \left( \left( k - j  \right) \Delta \right) g \left( j\Delta \right) $\\
+	 \\
+	 \hline
+	\end{tabular}
+\end{table}
+
+Both of these are convolutions of $f $ and $g$. We will start with the continuous case first. 
+
+Denote by $D \left( f, g \right)  = \left\{ t \in  \R  \mid  s \longmapsto f \left( t - s  \right) g \left( s \right)  \text{ is in }L^{1}\left( \R; \F \right)  \right\} $. 
+
+Say that $\left( f, g \right)   $ is convolvable if $R \setminus D \left( f, g \right) $ has measure zero. Exact conditions under which $\left( f, g \right)  $ is convolvable are not really meaningful. Instead, one hopes to give conditions on $f $ and $g$ which ensure that $\left( f, g \right) $ is consolable, and which give some properties of $f * g$. 
+
+\begin{eg}
+	Consider:
+	 \[
+		 f\left( t \right)  = \begin{cases}
+			 1 & t \in  \left[ -1, 1 \right]  \\
+			 0 & \text{otherwise}
+		 \end{cases}
+	.\] 
+	Calculate $f * f$. 
+	\begin{align*}
+		f \left( t - s \right) &= \begin{cases}
+			1 & t - s \in \left[ -1, 1 \right] \\
+			0 & \text{ow}
+		\end{cases} \\
+		&= \begin{cases}
+			1 & -s \in \left[ t -1 , t + 1 \right] 
+		\end{cases} \\
+			\implies f * f\left( t \right) &= \int_{R}^{ } f \left( t - s \right) f \left( s \right) d s  \\
+						       &= \int_{-1}^{1} f \left( t - s \right) d s   \\
+						       &= \lambda\left( \left[ -1, 1 \right] \cap \left[ t - 1, t + 1 \right]  \right)  \\
+						       &= \begin{cases}
+							       2 - \left| t \right|  & t \in  \left[ -2, 2 \right] \\
+							       0 & \text{otherwise}
+						       \end{cases}
+	.\end{align*}
+	\begin{punch}
+		Convolutions "smears support" and "smooths" the functions. 
+	\end{punch}
+\end{eg}
