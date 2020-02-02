@@ -14,7 +14,7 @@ Consider: \begin{align*}
 	h : C &\longrightarrow \R \\
 	x &\longmapsto h (x) = Y
 .\end{align*}
-We are interested in finding the pdf of $Y$. $h$ is invertible, its inverse function is $g$. 
+We are interested in finding the pdf of $Y$. Assume $h$ is invertible, with inverse function $g$. 
 \[
 	f_{Y}\left( y \right) = f_{X}\left( g\left( y \right)  \right)  \|\frac{d}{dy} g\left( y \right) \|
 .\] where $y \in D = \left\{ h\left( x \right)  \mid x \in  C \right\} $. 
@@ -24,43 +24,70 @@ Multiple RV $X_{1} , \ldots , X_{n} \sim f_{X}\left( x_{1} , \ldots , x_{n} \rig
 	C &= \left\{ x \in  \R^{n} \mid f\left( x  \right) > 0 \right\}  \\
 	h  &: C \to \R^{n}
 .\end{align*}
-$h $ is continuously differentiable with continuously differentiable inverse $g$.
+Assume $h$ is continuously differentiable with continuously differentiable inverse $g$.
 
 We are interested in finding the pdf of $Y = h\left( X \right) $. 
 \begin{align*}
 Y =  	h\left( x \right) &= \left(h_{1}\left( x_{1} , \ldots  , x_{n} \right)  , \ldots , h_{n}\left( x_{1} , \ldots , x_{n} \right) \right)\\
 	Y_1 &=  h_{1}\left( x_{1} , \ldots  , x_{n} \right)\\
 	    &\vdots\\
-	  Y_{n} &= h_{n}\left( x_{1} , \ldots , x_{n} \right) \\  
-	Y_1 &= X_1 - X_2\\
+	  Y_{n} &= h_{n}\left( x_{1} , \ldots , x_{n} \right) \\
+	  \implies X_1 &= g_1 \left( Y_{1} , \ldots , Y_{n} \right)  \\
+		       &\vdots \\
+		        X_{n} &= g_{n}\left( Y_{1} , \ldots , Y_{n} \right) 
+  \end{align*}
+  \begin{eg}
+	  \begin{align*}
+	  	Y_1 &= X_1 - X_2\\
 	Y_2 &= X_1 + X_2\\
+	h_1\left( x_1, x_2 \right) &= x_1 - x_2 \\
+	h_2 \left( x_1, x_2  \right) &= x_1 + x_2  \\
 	\implies X_1 &= \frac{Y_1 + Y_2}{2} = g_1\left( y_1, y_2 \right)  \\
 	X_2 &= \frac{Y_2 - Y_1}{2} = g_2\left( y_1, y_2 \right) 
-.\end{align*}
+	  \end{align*}
+  \end{eg}
 
 \begin{theorem}
 \begin{align*}
-	D\left\{ h\left( x \right)  \mid x \in  C \right\} 
-	&= supp\left( Y \right) 
-	\\
-	f_{Y}\left( y_{1} , \ldots , y_{n} \right) &= f_{X}\left( g_{1} , \ldots , g_{n} \right)  \|J_{g}\left( y_{1} , \ldots , y_{n} \right) \|  \\
-	J_{g} &=  \text{ Jacobian transformation of g} \\
+	D &= \left\{ h\left( x \right)  \mid x \in  C \right\} \\
+	&= supp\left( Y \right) \\
+	f_{Y}\left( y_{1} , \ldots , y_{n} \right) &= f_{X}\left( g_{1}\left( y_{1} , \ldots , y_{n} \right)  , \ldots , g_{n} \left( y_{1} , \ldots , y_{n} \right) \right)  \left| J_{g}\left( y_{1} , \ldots , y_{n} \right) \right| \\
+	J_{g} &=  \text{ "Jacobian transformation of $g$"} \\
 	&= \begin{bmatrix} 
 	\frac{\partial g_1}{\partial y_1} & \ldots & \frac{\partial g_1}{\partial yn} \\
-        \vdots & & vdots \\
+        \vdots & & \vdots \\
 \frac{\partial g_{n}}{\partial y_1}  & \ldots & \frac{\partial g_{n}}{\partial y_{n}} \end{bmatrix} 
 .\end{align*}
 \begin{proof}
-% get the proof later 	
+	Proof: Let $Y \sim f_{Y}$. 
+	\[
+		P\left( Y \in  B \right) = \int_{B}^{ } f_{Y} \left( y_{1} , \ldots , y_{n} \right)  dy_{1} , \ldots , dy_{n}, \quad B \subset \R^{n}
+	.\] 
+	Now, 
+	\begin{align*}
+		P\left( Y \in  B \right)  &= P\left( h\left( X \right) \in  B \right)  \\
+					  &= P \left( X \in  g\left( B \right)  \right)  \\
+					  &= \int \ldots \int_{ g\left( B \right) }^{ } f_{X}\left(x_{1} , \ldots , x_{n}\right)    dx_{1} , \ldots , dx_{n} \\
+					  &= \int \ldots \int\displaylimits_{ g^{-1}\left(g\left( B \right)\right) = B}^{ } f_{X}\left( g_1 \left( y_{1} , \ldots , y_{n} \right)  , \ldots , g_{n}\left( y_{1} , \ldots , y_{n} \right)  \right)\left| J_{g}\left( y_{1} , \ldots , y_{n} \right) \right| dy_{1} , \ldots , dy_{n}  \\
+	.\end{align*}
+	by multivariate change of variable formula. 
 \end{proof}
+	
 \end{theorem}
 
 \begin{example}
-	Solve the system where $X_1, X_2 \sim Exp\left( 1 \right)  $, independent functions. 
-	\[
-		f_{X_i}\left( x_{i} \right) = e^{-x_{i}}, \quad 0 < x_{i} < \infty
-	.\]
-	
+	Solve the system where $X_1, X_2 \sim Exp\left( 1 \right)  $ are independent distributions
+		\begin{align*}
+			f_{X_i}\left( x_{i} \right) &= e^{-x_{i}}, \quad 0 < x_{i} < \infty \\
+			f_{X_1, X_2}\left( x_1, x_2 \right) &= f_{X_1}\left( x_1 \right) f_{X_2}\left( x_2 \right)  \\
+							    &= e^{-\left( x_1 + x_2 \right) }
+		\end{align*}	
+	and the system is defined by 
+	\begin{align*}
+		Y_1 &= X_1 - X_2  \\
+		Y_2 &= X_1 + X_2 
+	.\end{align*}
+	Find the joint density of $\left( Y_1, Y_2 \right) $. 	
 	\begin{enumerate}
 		\item Find inverse of these distributions. 
 			\begin{align*}
@@ -79,12 +106,17 @@ X_1 &= \frac{Y_1 + Y_2}{2} = g_1\left( y_1, y_2 \right)  \\
 			.\end{align*}
 		\item Find the support of Y. 
 			\begin{align*}
-				0 < x_1 < \infty &, 1 < x_2 < \infty \\
-				\implies 0 < \frac{y_1 + y_2}{2} < \infty, 0 &, 0 <  \frac{y_2 - y_1}{2} < \infty 
-				\implies y_2 < y_1 & , y_1 < y_2 , 0 < \frac{y_2 - y_1}{2} < \infty\\
-				\implies -y_2 < y_1 < y_2
+				& \quad0 < x_1 < \infty , 1 < x_2 < \infty \\
+				\implies \quad & 0 < \frac{y_1 + y_2}{2} < \infty , 0 <  \frac{y_2 - y_1}{2} < \infty \\
+				\implies \quad& -y_2 < y_1  , y_1 < y_2 , 0 < y_2  < \infty \\
+				\implies \quad& -y_2 < y_1 < y_2, 0 < y_2 < \infty
 			.\end{align*}
-
+		Then
+		\begin{align*}
+			f_{Y}\left( y_{1} , \ldots , y_{n} \right)  &= e^{-\frac{\left( y_1 + y_2  \right)}{2} - \frac{\left( y_2 - y_1 \right) }{2} } \left( \frac{1}{2} \right) \\
+			&= \frac{e ^{-y_2}}{2} 
+		.\end{align*}
+		for $y \in D = \left\{ \left( y_1, y_2  \right)  \mid -y_2 < y_1 < y_2, 0 < y_2 < \infty \right\} $
 	\end{enumerate}
 \end{example}
 
