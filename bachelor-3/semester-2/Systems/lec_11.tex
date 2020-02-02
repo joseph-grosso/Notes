@@ -23,11 +23,11 @@ the unit step function.
 \begin{remark}
 	$\theta _{1 _{\ge  0}\xi}$ is the solution in $D'_{+}\left( \R; \R \right) $ to $\left( * \right) $ with $\beta = \delta$. 
 \begin{proof}
-	First note that $\theta _{1 _{\ge  0}\xi} = \xi \theta _{1 _{\ge  0}}$. Indeed, for $\varphi \in  D\left( \R; \R \right) $, 
+	First note that $\theta _{1 _{\ge  0}\xi} = \xi \theta _{1 _{\ge  0}}$. Indeed, for $\phi \in  D\left( \R; \R \right) $, 
 	\begin{align*}
-		\theta _{1 _{\ge  0}\xi}\left( \varphi \right)  &= \int_{\R}^{ } 1 _{\ge 0}\left( t  \right) \xi\left( t \right) \varphi\left( t \right)  dt\\
-								&= \theta _{1 _{\ge  0}}\left( \xi\varphi \right)  \\ 
-								&= \xi\theta_{1 _{\ge 0}}\left( \varphi \right) 
+		\theta _{1 _{\ge  0}\xi}\left( \phi \right)  &= \int_{\R}^{ } 1 _{\ge 0}\left( t  \right) \xi\left( t \right) \phi\left( t \right)  dt\\
+								&= \theta _{1 _{\ge  0}}\left( \xi\phi \right)  \\ 
+								&= \xi\theta_{1 _{\ge 0}}\left( \phi \right) 
 	.\end{align*}
 \begin{fact}
 	If $\theta \in  D'$ and if $f \in C^{\infty}\left( \R; \R \right) $, then 
@@ -36,13 +36,13 @@ the unit step function.
 	.\] 
 \end{fact}
 \begin{proof}
-	Note that, for $\varphi \in  D\left( \R; \R \right) $, $\left( f \varphi \right) ^{\left( 1 \right) } = f ^{ \left( 1 \right) } \varphi + f \varphi ^{ \left( 1 \right) }$. Thus 
+	Note that, for $\phi \in  D\left( \R; \R \right) $, $\left( f \phi \right) ^{\left( 1 \right) } = f ^{ \left( 1 \right) } \phi + f \phi ^{ \left( 1 \right) }$. Thus 
 	\begin{align*}
-		\left( f \theta \right) ^{\left( 1 \right) } \left( \varphi \right)  &=  - f \theta \left( \varphi ^{\left( 1 \right) } \right)  = -\theta \left( f \varphi^{ \left( 1 \right) } \right)  \\
-										     &= - \theta \left( \left( f \varphi  \right) ^{ \left( 1 \right) } \right)  + \theta\left( f ^{ \left( 1 \right) } \varphi \right)  \\
-										     &= \theta ^{ \left( 1 \right) } \left( f \varphi \right)  + f ^{ \left( 1 \right) }\theta \left( \varphi \right)  \\
-										     &= f \theta ^{ \left( 1 \right) } \left(  \varphi \right)  + f ^{ \left( 1 \right) } \theta \left( \varphi \right)  \\
-										     &= \left( f \theta ^{\left( 1 \right) } + f ^{ \left( 1 \right) } \theta  \right) \left( \varphi \right) 
+		\left( f \theta \right) ^{\left( 1 \right) } \left( \phi \right)  &=  - f \theta \left( \phi ^{\left( 1 \right) } \right)  = -\theta \left( f \phi^{ \left( 1 \right) } \right)  \\
+										     &= - \theta \left( \left( f \phi  \right) ^{ \left( 1 \right) } \right)  + \theta\left( f ^{ \left( 1 \right) } \phi \right)  \\
+										     &= \theta ^{ \left( 1 \right) } \left( f \phi \right)  + f ^{ \left( 1 \right) }\theta \left( \phi \right)  \\
+										     &= f \theta ^{ \left( 1 \right) } \left(  \phi \right)  + f ^{ \left( 1 \right) } \theta \left( \phi \right)  \\
+										     &= \left( f \theta ^{\left( 1 \right) } + f ^{ \left( 1 \right) } \theta  \right) \left( \phi \right) 
 	.\end{align*}
 \end{proof}
 
@@ -53,7 +53,7 @@ Then we calculate:
 .\end{align*}
 But 
 \[
-	\left( \xi\delta \right) \left( \varphi \right)  = \delta \left( \xi \varphi \right)  = \xi \left( 0  \right) \varphi \left( 0 \right) = 0 
+	\left( \xi\delta \right) \left( \phi \right)  = \delta \left( \xi \phi \right)  = \xi \left( 0  \right) \phi \left( 0 \right) = 0 
 .\] 
 Thus $\left( \xi \theta _{1 _{\ge 0}} \right) ^{\left( 1 \right) } = \xi ^{\left( 1 \right) }\theta _{1 _{\ge  0}}$. Then we recursively have 
 \[
@@ -93,11 +93,11 @@ Many symbols here make no sense.
 	\begin{enumerate}
 		\item Let $v_0 \in  V$ and let $\theta \in  D'\left( \R; \R \right) $. Define $v_0 \otimes \theta \in  D'\left( \R; V \right) $ by 
 			 \[
-				 v_0 \otimes \theta \left( \varphi \right) = \theta \left( \varphi \right) v_0
+				 v_0 \otimes \theta \left( \phi \right) = \theta \left( \phi \right) v_0
 			.\] 
 		\item Let $A \in L \left( V; V \right) $ and $\theta \in  D'\left( \R; V \right) $. Define $A\left( \theta \right) \in  D'\left( \R; V\right) $ by 
 			\[
-				A\left( \theta  \right) \left( \varphi \right)  = A\left( \theta\left( \varphi \right)  \right) 
+				A\left( \theta  \right) \left( \phi \right)  = A\left( \theta\left( \phi \right)  \right) 
 			.\] 
 	\end{enumerate}
 \end{eg}

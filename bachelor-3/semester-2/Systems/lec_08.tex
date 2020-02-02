@@ -2,9 +2,9 @@
 
 Last time: $D\left( Rr; \F \right) = C^{\infty}_{cpt}\left( \R;\F \right) $ 
 
-Convergence to zero of $\left( \varphi _{j} \right) _{j \in \Z_{>0}}$ in $D\left( Rr; \F \right): \exists K $ such that 
+Convergence to zero of $\left( \phi _{j} \right) _{j \in \Z_{>0}}$ in $D\left( Rr; \F \right): \exists K $ such that 
 \[
-	supp\left( \varphi_{j} \right) \subseteq K, \quad j \in  \Z_{>0}, \quad \left( \varphi_{j}^{\left( k \right) } \right) _{j \in \Z_{>0}}
+	supp\left( \phi_{j} \right) \subseteq K, \quad j \in  \Z_{>0}, \quad \left( \phi_{j}^{\left( k \right) } \right) _{j \in \Z_{>0}}
 .\] converges uniformly to zero for every $k \in  \Z_{\ge 0}$ 
 
 \begin{definition}
@@ -12,10 +12,10 @@ Convergence to zero of $\left( \varphi _{j} \right) _{j \in \Z_{>0}}$ in $D\left
 	\begin{enumerate}
 		\item it is linear: ie, 
 			\begin{align*}
-				\theta \left( \varphi_1 + \varphi_2 \right) &= \theta\left( \varphi_1 \right) \theta\left( \varphi_2 \right)  \\
-				\theta\left( a\varphi \right) &= a \theta\left( \varphi \right) 
+				\theta \left( \phi_1 + \phi_2 \right) &= \theta\left( \phi_1 \right) \theta\left( \phi_2 \right)  \\
+				\theta\left( a\phi \right) &= a \theta\left( \phi \right) 
 			.\end{align*}
-		\item it is continuous: ie, if $\left( \varphi_{j} \right) _{j \in  \Z_{>0}}$ converges to zero in $D\left( \R; \F \right) $, then $\left( \theta\left( \varphi_{j} \right)  \right) _{j \in  \Z_{>0}}$ converges to zero. 
+		\item it is continuous: ie, if $\left( \phi_{j} \right) _{j \in  \Z_{>0}}$ converges to zero in $D\left( \R; \F \right) $, then $\left( \theta\left( \phi_{j} \right)  \right) _{j \in  \Z_{>0}}$ converges to zero. 
 	\end{enumerate}
 \end{definition}
 
@@ -24,85 +24,85 @@ Convergence to zero of $\left( \varphi _{j} \right) _{j \in \Z_{>0}}$ in $D\left
 	\item If $f \in  L'_{loc}\left( \R; \F \right) $ then define 
 		\begin{align*}
 			\theta_{f}: D\left( \R;\F \right)  &\longrightarrow \F \\
-			\varphi &\longmapsto \theta_{f}(\varphi) = \int_{\R}^{ } f\left( t \right) \varphi\left( t \right) dt 
+			\phi &\longmapsto \theta_{f}(\phi) = \int_{\R}^{ } f\left( t \right) \phi\left( t \right) dt 
 		.\end{align*}
 		Claim that $\theta_{f}$ is a distribution. 
 		\begin{description}
 			\item[Step 1] $\theta _{f}$ is well-defined, ie the integral exists. 
 			\item[Proof] 
 				\begin{align*}
-					\int_{\R} |f\left( t \right) \varphi\left( t \right) | dt &= \int_{supp\left( \varphi \right) }^{ } |f\left( t \right) | \dot | \varphi | dt  \\
-												  &\le \|\varphi\|_{\infty} \int_{supp\left( \varphi \right) }^{ } |f\left( t \right) | dt \\
+					\int_{\R} |f\left( t \right) \phi\left( t \right) | dt &= \int_{supp\left( \phi \right) }^{ } |f\left( t \right) | \dot | \phi | dt  \\
+												  &\le \|\phi\|_{\infty} \int_{supp\left( \phi \right) }^{ } |f\left( t \right) | dt \\
 												  &< \infty\text{ because }f \in  L'_{loc} \left( \R; \F \right) 
 				.\end{align*}
 			\item[Step 2] $\theta _{f}$ is linear. 
 			\item[Proof] Linearity of the integral. 
 			\item[Step 3] $\theta _{f}$ is continuous. 
-			\item[Proof] Let $\left( \varphi_{j} \right) _{j \in  \Z_{>0}}$ converge to zero in $D\left( \R; \F \right) $. Let $K \subseteq \R$ be compact and such that $supp\left( \varphi_{j} \right) \subseteq K$, $j \in  \Z_{>0}$. Then 
+			\item[Proof] Let $\left( \phi_{j} \right) _{j \in  \Z_{>0}}$ converge to zero in $D\left( \R; \F \right) $. Let $K \subseteq \R$ be compact and such that $supp\left( \phi_{j} \right) \subseteq K$, $j \in  \Z_{>0}$. Then 
 				\begin{align*}
-					|\theta_{f}\left( \varphi_{j} \right) | &=  |\int_{\R}^{ } f\left( t \right) \varphi_{j}\left( t \right)  dt  \\
-										&\le  \int_{\R}^{ } |f\left( t \right) \varphi_{j} \left( t \right)  | dt \\
-										&= \int_{K}^{ } |  |f\left( t \right) \varphi_{j} \left( t \right)  | dt \\
-										&\le \|\varphi_{j}\|_{\infty} \int_{K}^{ } |f\left( t \right) | dt\\
-										&\le M\|\varphi_{j}\|_{\infty}
+					|\theta_{f}\left( \phi_{j} \right) | &=  |\int_{\R}^{ } f\left( t \right) \phi_{j}\left( t \right)  dt  \\
+										&\le  \int_{\R}^{ } |f\left( t \right) \phi_{j} \left( t \right)  | dt \\
+										&= \int_{K}^{ } |  |f\left( t \right) \phi_{j} \left( t \right)  | dt \\
+										&\le \|\phi_{j}\|_{\infty} \int_{K}^{ } |f\left( t \right) | dt\\
+										&\le M\|\phi_{j}\|_{\infty}
 				.\end{align*}
 		\end{description}
 		Thus, 
 		\[
-			\lim_{j \to \infty} |\theta - \left( \varphi_{j} \right) | \le  \lim_{j \to \infty} M \|\varphi_{j}\|_{\infty} = 0
+			\lim_{j \to \infty} |\theta - \left( \phi_{j} \right) | \le  \lim_{j \to \infty} M \|\phi_{j}\|_{\infty} = 0
 		.\] 
 		Thus, every locally integral function $f$ defines a distribution $\theta _{f}$. 
-	\item Define $\delta : D\left( \R; \F \right)  \to \F$ by $\delta\left( \varphi \right)  = \varphi\left( 0 \right) $. Claim that $\delta$ is a distribution. 
+	\item Define $\delta : D\left( \R; \F \right)  \to \F$ by $\delta\left( \phi \right)  = \phi\left( 0 \right) $. Claim that $\delta$ is a distribution. 
 		\begin{description}
 			\item[Step 1] $\delta $ is linear
 			\item[Proof] Obvious. 
 			\item[Step 2] $\delta$ is continuous. 
-			\item[Proof] Let $\left( \varphi_{j} \right) _{j \in  \Z_{>0}}$ be a sequence converging to zero in $D\left( \R; \F \right) $. Then 
+			\item[Proof] Let $\left( \phi_{j} \right) _{j \in  \Z_{>0}}$ be a sequence converging to zero in $D\left( \R; \F \right) $. Then 
 				\begin{align*}
-					|		\delta\left( \varphi_{j} \right) | &=  |\varphi_{j}\left( 0  \right) | \\
-					\implies \lim_{j \to \infty} \left| \delta\left( \varphi_j \right)  \right|  &= \lim_{j \to \infty} \left| \varphi_{j}\left( 0 \right)  \right|  = 0
+					|		\delta\left( \phi_{j} \right) | &=  |\phi_{j}\left( 0  \right) | \\
+					\implies \lim_{j \to \infty} \left| \delta\left( \phi_j \right)  \right|  &= \lim_{j \to \infty} \left| \phi_{j}\left( 0 \right)  \right|  = 0
 				.\end{align*}
-				We call  $\delta$ the Dirac $\delta$-distribution. Can also define $\delta_{t_0} : D\left( \R; \F \right)  \to \F $ by $\delta_{t_0} \left( \varphi \right) = \varphi\left( t_0 \right) $. 
+				We call  $\delta$ the Dirac $\delta$-distribution. Can also define $\delta_{t_0} : D\left( \R; \F \right)  \to \F $ by $\delta_{t_0} \left( \phi \right) = \phi\left( t_0 \right) $. 
 		\end{description}
 	\item Let $\theta \in  D\left( \R; \F \right) $ be a distribution. The derivative of $\theta$ is the distribution $\theta '$ or $\theta ^{\left( 1 \right) }$ by 
 		\[
-			\theta ^{1}\left( \varphi \right)  = -\theta\left( \varphi^{1} \right) 
+			\theta ^{1}\left( \phi \right)  = -\theta\left( \phi^{1} \right) 
 		.\] 
 		We can define higher-derivatives recursively 
 		\[
-			\theta^{\left( k \right) } \left( \varphi \right)  = \left( -1  \right) ^{k} \theta \left( \varphi^{\left( k \right) } \right) 
+			\theta^{\left( k \right) } \left( \phi \right)  = \left( -1  \right) ^{k} \theta \left( \phi^{\left( k \right) } \right) 
 		.\] 
 		Claim that $\theta^{\left( 1 \right) }$ is a distribution. 
 		\begin{description}
 			\item[Step 1] $\theta^{\left( k \right) }$ is well-defined. 
-			\item[Proof] Must check that $\varphi^{\left( 1 \right) }\in D\left( \R; \F \right) $. This is clear. 
+			\item[Proof] Must check that $\phi^{\left( 1 \right) }\in D\left( \R; \F \right) $. This is clear. 
 			\item[Step 2] $\theta ^{\left( 1 \right) }$ is linear. 
 			\item[Proof] 
 				\begin{align*}
-					\theta^{\left( 1 \right) } \left( \varphi_{1} + \varphi_2 \right) &= - \theta \left( \left( \varphi_1 + \varphi_2 \right) ^{\left( 1 \right) } \right)  \\
-													  &= -\theta \left( \varphi_1^{\left( 1 \right) } + \varphi_2 ^{\left( 1 \right) } \right)  \\
-													  &= \theta^{\left( 1 \right) } \left( \varphi_1 \right)   + \theta^{\left( 1 \right) } \left( \varphi_2 \right) \\
-					\theta\left( a\varphi \right)  &= a \theta^{\left( 1 \right) } \left( \varphi \right) 
+					\theta^{\left( 1 \right) } \left( \phi_{1} + \phi_2 \right) &= - \theta \left( \left( \phi_1 + \phi_2 \right) ^{\left( 1 \right) } \right)  \\
+													  &= -\theta \left( \phi_1^{\left( 1 \right) } + \phi_2 ^{\left( 1 \right) } \right)  \\
+													  &= \theta^{\left( 1 \right) } \left( \phi_1 \right)   + \theta^{\left( 1 \right) } \left( \phi_2 \right) \\
+					\theta\left( a\phi \right)  &= a \theta^{\left( 1 \right) } \left( \phi \right) 
 				.\end{align*}
 			\item[Step 3] $\theta^{\left( 1 \right) }$ is continuous. 
 				
-				Let $\left( \varphi_{j} \right)  _{j \in  \Z_{>0}}$ be a sequence converging to zero in $D\left( \R; \F \right) $. 
+				Let $\left( \phi_{j} \right)  _{j \in  \Z_{>0}}$ be a sequence converging to zero in $D\left( \R; \F \right) $. 
 				\[
-					\left| \theta^{\left( 1 \right) } \left( \varphi_{j} \right)  \right| = \left| \theta \left( \varphi_{j}^{\left( 1 \right) } \right) \right|  
+					\left| \theta^{\left( 1 \right) } \left( \phi_{j} \right)  \right| = \left| \theta \left( \phi_{j}^{\left( 1 \right) } \right) \right|  
 				.\] 
-				Because $\left( \varphi_{j}^{\left( 1 \right) } \right) _{j \in  \Z_{>0}}$ converges to zero in $D\left( \R; \F \right) $ and because $\theta$ is continuous
+				Because $\left( \phi_{j}^{\left( 1 \right) } \right) _{j \in  \Z_{>0}}$ converges to zero in $D\left( \R; \F \right) $ and because $\theta$ is continuous
 	 \[
-		 \lim_{j \to \infty} \left| \theta ^{\left( 1 \right) } \left( \varphi_{j} \right)  \right|  = \lim_{j \to \infty} \left| \theta\left( \varphi^{\left( 1 \right) } \right)  \right|  = 0
+		 \lim_{j \to \infty} \left| \theta ^{\left( 1 \right) } \left( \phi_{j} \right)  \right|  = \lim_{j \to \infty} \left| \theta\left( \phi^{\left( 1 \right) } \right)  \right|  = 0
 	.\] 
 		\end{description}
 \end{enumerate}	
 \end{example}
 
-Why is this the definition? Let $f \in  C'\left( \R; \F \right) $. We claim that $\theta^{\left( 1 \right) }_{f} = \theta_{f^{\left( 1 \right) }}$. Indeed let $\varphi \in  D\left( \R; \F \right) $ and compute
+Why is this the definition? Let $f \in  C'\left( \R; \F \right) $. We claim that $\theta^{\left( 1 \right) }_{f} = \theta_{f^{\left( 1 \right) }}$. Indeed let $\phi \in  D\left( \R; \F \right) $ and compute
 \begin{align*}
-	\theta _{f^{\left( 1 \right) }}\left( \varphi \right)  &=  \int_{\R}^{ } f^{\left( 1 \right) } \left( t \right) \varphi \left( t \right)  dt  \\
-							       &= f\left( t  \right) \varphi\left( t \right) |^{\infty}_{-\infty} - \int_{\R}^{ } f\left( t \right) \varphi^{\left( 1 \right) } \left( t \right) dt  \\
-							       &= -\int_{\R} f\left( t \right)  \varphi^{\left( 1 \right) } \left( t \right)  dt\\
-							       &= -\theta_{f} \left( \varphi^{\left( 1 \right) } \right)  \\
-							       &= \theta_{f}^{\left( 1 \right) } \left( \varphi \right)  
+	\theta _{f^{\left( 1 \right) }}\left( \phi \right)  &=  \int_{\R}^{ } f^{\left( 1 \right) } \left( t \right) \phi \left( t \right)  dt  \\
+							       &= f\left( t  \right) \phi\left( t \right) |^{\infty}_{-\infty} - \int_{\R}^{ } f\left( t \right) \phi^{\left( 1 \right) } \left( t \right) dt  \\
+							       &= -\int_{\R} f\left( t \right)  \phi^{\left( 1 \right) } \left( t \right)  dt\\
+							       &= -\theta_{f} \left( \phi^{\left( 1 \right) } \right)  \\
+							       &= \theta_{f}^{\left( 1 \right) } \left( \phi \right)  
 .\end{align*}

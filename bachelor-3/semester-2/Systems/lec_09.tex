@@ -4,19 +4,19 @@ Last time:
 \begin{itemize}
 	\item Showed that, if $f \in  L_{loc}' \left( \R; \F \right) $, then $\theta_{f} : D\left( \R; \F \right)  \to \F$ : 
 		\[
-			\theta_{f}\left( \varphi \right) = \int_{\R}^{ } f\left( t  \right) \varphi\left( t \right) dt 
+			\theta_{f}\left( \phi \right) = \int_{\R}^{ } f\left( t  \right) \phi\left( t \right) dt 
 		.\] is a distribution. 
 
-Looking at the proof of continuity of $\theta_{f}$, we used, in an essential way, the fact that if $\left( \varphi_{j} \right) _{j \in \Z_{>-0}}$ converges to zero in $D\left( \R; \F \right) $ then $\exists $ compact $K \subseteq \R$ such that $supp\left( \varphi_{j} \right) \subseteq K$. Thus the condition on convergence to zero in $D\left( \R ; \F\right) $ is necessary for $\theta_{f}$ to be a distribution. 
+Looking at the proof of continuity of $\theta_{f}$, we used, in an essential way, the fact that if $\left( \phi_{j} \right) _{j \in \Z_{>-0}}$ converges to zero in $D\left( \R; \F \right) $ then $\exists $ compact $K \subseteq \R$ such that $supp\left( \phi_{j} \right) \subseteq K$. Thus the condition on convergence to zero in $D\left( \R ; \F\right) $ is necessary for $\theta_{f}$ to be a distribution. 
 
 \begin{note}
 	The map $f \longmapsto \theta _{f}$ is injective.
 \end{note}
 \item We also defined, for a distribution $\theta$, its $k_{\text{th}}$ derivative by 
 	\[
-		\theta^{\left( k \right) }\left( \varphi \right)  = \left( -1 \right) ^{k}\theta \left( \varphi^{\left( k \right) } \right) 
+		\theta^{\left( k \right) }\left( \phi \right)  = \left( -1 \right) ^{k}\theta \left( \phi^{\left( k \right) } \right) 
 	.\] 
-	Continuity of $\theta^{\left( k \right) }$ used, in an essential way, the fact that, if $\left( \varphi_{j} \right) _{j \in \Z_{>0}}$ converges to zero in $D\left( \R; \F \right) $, then so does $\left( \varphi_{j}^{\left( k \right) } \right) _{j \in  \Z_{>0}}$. 
+	Continuity of $\theta^{\left( k \right) }$ used, in an essential way, the fact that, if $\left( \phi_{j} \right) _{j \in \Z_{>0}}$ converges to zero in $D\left( \R; \F \right) $, then so does $\left( \phi_{j}^{\left( k \right) } \right) _{j \in  \Z_{>0}}$. 
 	\begin{result}
 		The definition of convergence to zero in $D\left( \R; \F \right) $ is forced upon us by requiring 
 		\begin{enumerate}
@@ -33,7 +33,7 @@ Looking at the proof of continuity of $\theta_{f}$, we used, in an essential way
 What about convergence in $D'\left( \R; \F \right) $?
 
 \begin{definition}
-	A sequence $\left( \theta_{j} \right) _{j \in  \Z_{>0}}$ in $D'\left( \R; \F \right) $ converges to $\theta \in D'\left( \R; \F \right) $ if $\left( \theta_{j}\left(  \varphi   \right)  \right)_{j \in  Z_{>0}} $ converges to $\theta \left( \varphi \right) \forall \varphi \in D\left( \R; \F \right) $. 
+	A sequence $\left( \theta_{j} \right) _{j \in  \Z_{>0}}$ in $D'\left( \R; \F \right) $ converges to $\theta \in D'\left( \R; \F \right) $ if $\left( \theta_{j}\left(  \phi   \right)  \right)_{j \in  Z_{>0}} $ converges to $\theta \left( \phi \right) \forall \phi \in D\left( \R; \F \right) $. 
 \end{definition}
 
 \begin{eg}
@@ -45,23 +45,23 @@ What about convergence in $D'\left( \R; \F \right) $?
 				0 & \text{ otherwise}
 			\end{cases}
 		.\end{align*}
-		Claim that $\left( \theta_{f_{j}} \right) _{j \in  \Z_{>0}}$ converges to $\delta$. Indeed, let $\varphi \in  D\left( \R; \F \right) $. Calculate
+		Claim that $\left( \theta_{f_{j}} \right) _{j \in  \Z_{>0}}$ converges to $\delta$. Indeed, let $\phi \in  D\left( \R; \F \right) $. Calculate
 		\begin{align*}
-			\theta_{f_{j}}\left( \varphi \right)  &= \int_{0}^{\frac{1}{j}} \varphi\left( \tau \right) d \tau  \\
-							      &\approx j \varphi\left( 0 \right)  \times  \frac{1}{j} \\
-							      &= \varphi\left( 0 \right) 
+			\theta_{f_{j}}\left( \phi \right)  &= \int_{0}^{\frac{1}{j}} \phi\left( \tau \right) d \tau  \\
+							      &\approx j \phi\left( 0 \right)  \times  \frac{1}{j} \\
+							      &= \phi\left( 0 \right) 
 		.\end{align*}
 		As $j \to \infty$, 
 		\[
-			\lim_{j \to \infty} \theta_{f_{j}}\left( \varphi \right)  = \varphi\left( 0 \right) = \delta\left( \varphi \right) 
+			\lim_{j \to \infty} \theta_{f_{j}}\left( \phi \right)  = \phi\left( 0 \right) = \delta\left( \phi \right) 
 		.\] 
 	\item Let $\theta \in  D'\left( \R; \F \right) $. Let $f \in C^{\infty}\left( \R; \F \right) $. We can multiply $\theta $ by $f$ as follows.
 		\[
-			\left( f \theta \right)\left( \varphi \right) = \theta \left( f\varphi \right)  
+			\left( f \theta \right)\left( \phi \right) = \theta \left( f\phi \right)  
 		.\]
-This needs to be proved to makes sense. This partly makes sense because $supp\left( f \varphi \right) \subseteq supp\left( \varphi \right) $.  You must also prove that the derivatives of all of these functions converge to zero: 
+This needs to be proved to makes sense. This partly makes sense because $supp\left( f \phi \right) \subseteq supp\left( \phi \right) $.  You must also prove that the derivatives of all of these functions converge to zero: 
 \[
-	\left( f\varphi _{l}\right) ^{\left( k \right) } = \sum_{j=0}^{k} \frac{k!}{j! \left( k-j \right) !} f^{\left( j \right) } \varphi_{l}^{\left( k - j \right) }
+	\left( f\phi _{l}\right) ^{\left( k \right) } = \sum_{j=0}^{k} \frac{k!}{j! \left( k-j \right) !} f^{\left( j \right) } \phi_{l}^{\left( k - j \right) }
 .\]
 Prove this on your own time as an exercise. 
 	\end{enumerate}
@@ -74,14 +74,14 @@ Prove this on your own time as an exercise.
 				0 & t < 0
 		\end{cases}$
 
-		Claim that $\theta\left( 1 \right) _{1} = \delta$. For $\varphi \in  D\left( \R; \F \right) $ 
+		Claim that $\theta\left( 1 \right) _{1} = \delta$. For $\phi \in  D\left( \R; \F \right) $ 
 		\begin{align*}
-			\theta ^{\left( 1 \right) }_{1}\left( \varphi \right) &= -\theta_{1}\left( \varphi^{\left( 1 \right) } \right)  \\
-									      &= -\int_{\R}^{ } 1\left( t \right) \varphi^{\left( 1 \right) } \left( t \right) dt  \\
-									      &= - \int_{0}^{\infty} \varphi^{\left( 1 \right) }\left( t \right) dt \\
-									      &= -\varphi\left( t \right) | _{0}^{\infty} \\
-									      &= \varphi\left( 0 \right)  \\
-									      &= \delta\left( \varphi \right) 
+			\theta ^{\left( 1 \right) }_{1}\left( \phi \right) &= -\theta_{1}\left( \phi^{\left( 1 \right) } \right)  \\
+									      &= -\int_{\R}^{ } 1\left( t \right) \phi^{\left( 1 \right) } \left( t \right) dt  \\
+									      &= - \int_{0}^{\infty} \phi^{\left( 1 \right) }\left( t \right) dt \\
+									      &= -\phi\left( t \right) | _{0}^{\infty} \\
+									      &= \phi\left( 0 \right)  \\
+									      &= \delta\left( \phi \right) 
 		.\end{align*}
 
 
