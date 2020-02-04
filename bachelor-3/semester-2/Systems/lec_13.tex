@@ -1,0 +1,101 @@
+\lecture{13}{Mon 03 Feb 2020 16:29}{Convolutions (cont'd)}
+
+\begin{theorem}[Continuous-time convolution]
+\[
+	f * g\left( t \right) = \int_{\real}^{ } f \left( t -s \right) g \left( s \right)  d s  
+.\] 
+\begin{property}
+	\begin{enumerate}
+		\item If $\left( f, g \right) $ is convolvable, then $\left( g, f \right) $ is convolvable, and $f * g = g * f$. 
+		\item If $\left( f, g \right) $ and $\left( f, h \right) $ are convolvable, then $\left( f, g + h \right) $ are convolvable and $f *  \left( g * h \right) =  f * g  * h$.
+		\item It is not generally true that 
+			\[
+				\left( f * g \right) h = f * \left( g * h \right) 
+			.\] 
+		\item if $\left( f, g \right) $ are convolvable and if $f, g \in  L^{1}_{loc}\left( \real, \F \right) $, then $f * g \in  L^{1}_{loc}\left( \real; \F \right) $. 
+		\item If $f \in  L^{1}_{loc}\left( \real; \F \right) $, denote by 
+			\[
+				\sigma \left( f  \right) = sup \left\{ t \in  \real  \mid f \left( t'  \right) = 0 \text{ for almost every } t' \le t\right\} 
+			.\] 
+			If $f, g \in L^{1}_{loc}\left( \real; \F \right) $ and if $\sigma \left( f \right) , \sigma \left( g \right) > -\infty$, and if $\left( f, g \right) $ are convolvable, then 
+			\[
+				f * g\left( t \right) = \begin{cases}
+					\int_{\sigma \left( g \right) }^{t - \sigma\left( f \right) } f \left( t - s \right) g\left(  \right)  ds , & t \ge  \sigma \left( f  \right) + \sigma \left( g \right) \\
+					0, & \text{otherwise}
+				\end{cases}
+			.\]
+			Indeed, suppose that $t < \sigma \left( f  \right)  + \sigma \left( g \right) $. First consider $s \le  \sigma \left( g \right) $ in which case $f\left( t - s \right) g \left( s \right) = 0$. In the other case with $s \ge \sigma \left( g \right) $, we have 
+			\begin{align*}
+				t - s &< \sigma \left( f  \right)  + \sigma \left( g \right)  - s \le \sigma \left( f \right) \\
+				\implies f \left( t - s  \right) g \left( s \right) &= 0
+			.\end{align*}
+			If $t \ge  \sigma \left( f \right) + \sigma \left( g \right) $,consider $s > t - \sigma \left( f \right) \implies t - s < \sigma \left( f \right) $. 
+			\[
+				\implies f \left( r - s  \right) g \left( s \right)  = 0
+			.\] 
+			If $\sigma \left( f  \right) , \sigma \left( g \right) \ge  0$, this simplifies to 
+			\[
+				f * g \left( t  \right) = \begin{cases}
+					\int_{ 0}^{t} f \left( t - s  \right) g \left( s \right)  d s , & t \ge  0\\
+					0, & t < 0
+				\end{cases}
+			.\] 
+			\begin{observe}
+				Does this look familiar?
+				\[
+					\int_{0 }^{t} e ^{A\left( t - \tau \right) }f \left( \tau \right) d \tau 
+				.\] 
+			\end{observe}
+	\end{enumerate}
+\end{property}
+\end{theorem}
+
+\subsection{Convolvable pairs of signals}
+\begin{theorem}
+	If $f, g \in  L^{1}\left( \real; \F \right) $, then 
+	\begin{enumerate}
+		\item $\left( f, g \right) $ is convolvable 
+		\item $f * g \in L^{1}\left( \real; \F \right) $ 
+		\item $\left( f * g  \right)  * h = f * \left( g * h \right) $
+	\end{enumerate}
+
+\end{theorem}
+	This shows that $L^{1}\left( \real; \F \right) $ is a commutative ring with the convolution product. It is not a terrific ring, however: 
+	\begin{enumerate}
+		\item There is no unit, ie, there is no signal $u \in  L^{1}\left( \real; \F \right) $, such that $u * f = f$ for every $f \in  L^{1}\left( \real; \F \right) $. If there were a unit, what property should it have?
+			\[
+				f * u \left( t  \right) = \int_{ \real}^{ } f \left( t - s  \right) u\left( s\right)d s   = f \left( t  \right) 
+			.\] 
+			Take $t = 0$. 
+			\begin{align*}
+				\int_{ \real}^{ } f \left( -s \right) u \left( s \right) d s &= f\left( 0 \right) 
+			.\end{align*}
+			This looks quite like the dirac delta function, but this is an incorrect comparison.
+		\item There are nonzero $f, g \in  L^{1}\left( \real, \F \right) $ such that $f * g = 0$. (This means that $L^{1}\left( \real; \F \right) $is not an "integral domain".)
+		\item The convolution product is "surjective", ie, if $h \in  L^{1}\left( \real; \F \right) $, then there exists $f, g \in  L^{1}\left( \real; \F \right) $ such that $f * g = h$.
+	\end{enumerate}
+\begin{theorem}
+	If $f, g, h \in L^{1}_{loc}\left( \real_{\ge  0}; \F \right) $, then 
+	\begin{enumerate}
+		\item $\left( f, g \right) $ is convolvable, 
+		\item $\left( f * g \right) \in  L^{1}_{loc}\left( \real_{\ge  0}; \F \right) $
+		\item $\left( f * g \right) * h = f * \left( g * h \right) $.
+	\end{enumerate}
+\end{theorem}
+The ring properties of $L^{1}_{loc}\left( \real_{\ge  0}; \F \right)$ are the same as those of  $L^{1}\left( \real; \F \right)$, except for (2):
+	\begin{enumerate}
+		\item $\left( f, g \right) $ is convolvable, 
+		\item ** $L^{1}_{loc}\left( \real_{\ge  0}; \F \right) $ is an integral domain, ie, if $f * g = 0$, then either $f = 0 $ or $g = 0$. This follows from the Titschmarch Convolution Theorem (very hard to prove).  
+		\item $\left( f * g \right) * h = f * \left( g * h \right) $.
+	\end{enumerate}
+
+\begin{theorem}
+	Let $p, q, r \in  \left[ 1, \infty \right] $ satisfy $\frac{1}{p} + \frac{1}{q} = 1 + \frac{1}{r}$. If $f \in L^{p}\left( \real; \F \right) $, and if $g \in  L^{q}\left( \real; \F \right) $, then $\left( f, g  \right) $ is convolvable and $f * g \in  L ^{r}\left( \real; \F \right) $. [This is called Young's inequality.]	
+\end{theorem}
+
+\subsubsection{Special Cases}
+If $p \in  \left[ 1, \infty \right] $, denote by $p' \in  \left[ 1, \infty \right] $ such that $\frac{1}{p} + \frac{1}{p'} = 1$. Call $p'$ the conjugate index of $p$. 
+\begin{enumerate}
+	\item $p = p$, $q = p'$. Then $r = \infty$. n this case, more is true, namely that $f * g \in  C^{0}_{bdd}\left( \real; \F \right) $ if $f \in L^{p}$ and $g \in  L^{p'}$. 
+	\item $p = p $, $q = 1$. Then $r = p$. 
+\end{enumerate}
