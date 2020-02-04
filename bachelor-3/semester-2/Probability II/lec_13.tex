@@ -1,0 +1,45 @@
+\lecture{13}{Mon 03 Feb 2020 08:37}{}
+
+To derive the joint pdf of the n order statistics $X_{(1)} , \ldots , X_{(n)}$ we make the following observations:
+\begin{enumerate}
+	\item Any point in the support of this joint pdf must satisfy $x_1 < x_2 < \ldots < x_n$. 
+	\item If $Y$ is a single continuous random variable with pdf $f_{Y}\left( y \right) $, and $F_{Y}$ is the cdf of $Y$, then 
+		\begin{align*}
+			f_{Y}\left( y \right) &= \frac{d}{dy}F_{Y}\left( y \right)  \\
+					      &= \lim_{h \to 0} \frac{F_{Y}\left( y + h \right) - F_{Y}\left( y \right)  }{h} \\
+					      &= \lim_{h  \to 0} \frac{P\left( y < Y \le y + h \right) }{h}
+		.\end{align*}
+In $n$ dimensions, if $Y_{1} , \ldots , Y_{n}$ is a jointly continuous random vector with joint odf $f_{Y}\left( y_{1} , \ldots , y_{n} \right) $, then 
+\begin{align*}
+	f_{Y}\left( y_{1} , \ldots , y_{n} \right) &= \frac{d ^{n}}{dy_{1}  \ldots  dy_{n}}F_{Y}\left( y_{1} , \ldots , y_{n} \right)  \\
+						   &= \lim_{h \to 0} \frac{P\left( Y \in  A_{n}\left( y \right)  \right)}{h^{n}},  \quad  Y =  \left( Y_{1} , \ldots , Y_{n} \right) 
+.\end{align*}
+where
+\begin{align*}
+	A_{h}\left( y \right) &= (y_1, y_1 + h] \times  \ldots \times  (y_{n}, y_{n} + h] \\
+			      &= \left\{ \left( z_{1} , \ldots , z_{n} \right) \in \real^{n}  \mid y_1 <  z_1 \le  y_1 + h, \ldots , y_{n} < z_{n}\le  y_{n} + h \right\} 
+.\end{align*}
+\item For $x_1 < x_2 < \ldots < x_n$, choose $h$ small enough so that $x_{i} + h < x_{i + 1} $ for all $i = 1, \ldots, n - 1 $ so that all the intervals $(x_{i}, x_{i} + h]$ are disjoint. Then, if we let $S$ denote the set of all permutations of the set of indices $\left\{ 1, \ldots, n \right\} $ (ie, if $\sigma \in  S$ then $\left\{ \sigma \left( 1 \right) , \ldots , \sigma \left( n \right)  \right\} $ is some permutation of $\left\{ 1, \ldots ,n  \right\} $). Also, for some $\sigma \in  S$, let $X ^{\sigma } = \left( X_{\sigma(1)} , \ldots , X_{\sigma\left( n\right)  } \right)  $. Then if  
+	\[
+		A_{h}\left( y \right) = (y_1, y_1 + h] \times  \ldots \times  (y_{n}, y_{n} + h]
+	.\] 
+	we have 
+	\begin{align*}
+		P\left( X \in  A_{h} \right) \left( x \right) &=  P\left( x_1 <  X_1 \le  x_1 + h, \ldots , x_{n} < X_{n}\le  x_{n} + h \right) \\
+							      &=   P\left( x_1 <  X_{\sigma(1)} \le  x_1 + h, \ldots , x_{n} < X_{\sigma(n)}\le  x_{n} + h \right) \\
+							      &= P\left( X^{\sigma} \in A_{h}\left( x \right)  \right) 
+	.\end{align*}
+	For all permutations $\sigma \in  S$. 
+\end{enumerate}
+
+Let's now derive the joint pdf of the order statistics $X_{(1)} , \ldots , X_{(n)}$. Let $x_1 < \ldots < x_{n}$. We have $f_{1, \ldots , n}\left( x_{1} , \ldots , x_{n} \right) $. The subscripts denote which order statistic we are considering.
+\begin{align*}
+	f_{1, \ldots , n}\left( x_{1} , \ldots , x_{n} \right) &= \lim_{h \to 0} \frac{P\left( x_1 <  X_1 \le  x_1 + h, \ldots , x_{n} < X_{n} \le  x_{n} + h \right)}{h ^{n}}  \\ 
+							       &= \lim_{h \to 0} \frac{1}{h ^{n}} P \underset{\sigma \in  S}{\mathrm{\cup }}  \left\{  x_1 <  X_{\sigma(1)} \le  x_1 + h, \ldots , x_{n} < X_{\sigma(n)}\le  x_{n} + h \right\} \\
+							       &= \lim_{h \to 0} \frac{1}{h ^{n}} \sum_{\sigma \in  S} P  \left\{  x_1 <  X_{\sigma(1)} \le  x_1 + h, \ldots , x_{n} < X_{\sigma(n)}\le  x_{n} + h \right\} \\
+							       &= \lim_{h \to 0} \frac{1}{h ^{n}}\cdot n! \cdot P  \left\{  x_1 <  X_{\sigma(1)} \le  x_1 + h, \ldots , x_{n} < X_{\sigma(n)}\le  x_{n} + h \right\} \\
+							       &= n! \lim_{h \to 0} \frac{1}{h^{n}} P\left( x_1 < X_1 \le  x_1 + h \right) \times  \ldots \times P\left( x_{n} < X_{n} \le x_{n} + h \right)  \\
+							       &= n! \lim_{h \to 0} \frac{1}{h^{n}} \left(F\left( x_1 + h \right) - F\left( x_1 \right) \right) \times  \ldots \times \left(F\left( x_{n} + h \right)  - F\left( x_{n} \right) \right)  \\
+							       &= n! \lim_{h \to 0} \prod_{i=1}^{n} \frac{F\left( x_i + h \right) - F\left( x_i\right) }{h}  \\
+							       &= n! \prod_{i=1}^{n} f\left( x_{i} \right)  
+.\end{align*}
