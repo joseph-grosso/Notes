@@ -56,6 +56,80 @@ As $\alpha$ increases negatively, the rise time of the system decreases. While t
 
 \section{System Type Section}
 
-% we can just toss the values in as a screenshot of the excel docs
+\begin{table}[h]
+\begin{tabular}{|l|l|l|l|l|}
+System & \begin{tabular}[c]{@{}l@{}}Response to \\ Constant Input\end{tabular}                    & \begin{tabular}[c]{@{}l@{}}Response to \\ Linear Input\end{tabular}                      & \begin{tabular}[c]{@{}l@{}}Response to \\ Quadratic Input\end{tabular}                  & Type \\ \hline
+1      & \begin{tabular}[c]{@{}l@{}}Settling Time 0.4s\\ Steady Error \textless 0.01\end{tabular} & \begin{tabular}[c]{@{}l@{}}Settling Time 0.4s\\ Steady Error \textless 0.08\end{tabular} & \begin{tabular}[c]{@{}l@{}}Settling Time 0.4s\\ Steady Error \textless 0.1\end{tabular} & 1    \\
+2      & \begin{tabular}[c]{@{}l@{}}No Steady State\\ Error was Sinusoidal\end{tabular}           & \begin{tabular}[c]{@{}l@{}}No Steady State\\ Error was Sinusoidal\end{tabular}           & \begin{tabular}[c]{@{}l@{}}No Steady State\\ Error was Sinusoidal\end{tabular}          & 0    \\
+3      & \begin{tabular}[c]{@{}l@{}}Settling Time 0.7s\\ Steady Error 8.5\end{tabular}            & \begin{tabular}[c]{@{}l@{}}No Steady State\\ Error was Linear\end{tabular}               & \begin{tabular}[c]{@{}l@{}}No Steady State\\ Error was Quadratic\end{tabular}           & 0
+\end{tabular}
+\end{table}
 
-steady state error for $R_{c} = 5$ : -0.021496
+With a proportional control of \(P = 5\), the response tracked constant input \ref{fig:system1_constant}, linear input \ref{fig:system1_linear}, and constant input \ref{fig:system1_quadratic} all with a rise time of approximately \(0.4 s\) and steady state error of \(< 0.1\) in all cases. However, in the case of linear and quadratic input, the signal did not stabilize within a small error margin of the input signal and the error was not steady, which matches with the prediction that this is a type 1 system.
+
+With a integral control of \(I = 1\), the response did not track any input, and the error was sinusoidal and increasing, or not BIBO stable in all cases. The response is graphed in the constant case \ref{fig:system2_constant}, linear \ref{fig:system2_linear}, and quadratic \ref{fig:system2_quadratic} This aligns with our predictions that System 2 is a Type 0 system.
+
+With a derivative control of \(D = 1\), the response reached a steady state response with constant input \ref{fig:system3_constant}, but with a very large steady state error of \(8.5\) after \(0.7 s\). In the linear \ref{fig:system3_linear} and quadratic \ref{fig:system3_quadratic} cases, the steady state error was linear and quadratic respectively, and increasing. No steady state was reached, and the constant steady state was not acceptable, which agrees with our predictions that System 3 is a Type 0 system.
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{./figures/lab4_fig7-part4-3-3-error-rc5.jpg}
+        \caption{System 1 Response to Constant Input}
+        \label{fig:system1_constant}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{./figures/lab4_fig8-part4-3-3-error-rc5-linear.jpg}
+        \caption{System 1 Response to Linear Input}
+        \label{fig:system1_linear}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{./figures/lab4_fig9-part4-3-3-error-rc5-quadratic.jpg}
+        \caption{System 1 Response to Quadratic Input}
+        \label{fig:system1_quadratic}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{./figures/lab4_fig10-part4-3-3-error-rc-I=1-constant.jpg}
+        \caption{System 2 Response to Constant Input}
+        \label{fig:system2_constant}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{./figures/lab4_fig11-part4-3-3-error-rc-I=1-linear.jpg}
+        \caption{System 2 Response to Linear Input}
+        \label{fig:system2_linear}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{./figures/lab4_fig12-part4-3-3-error-rc-I=1-quadratic.jpg}
+        \caption{System 2 Response to Quadratic Input}
+        \label{fig:system2_quadratic}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{./figures/lab4_fig13-part4-3-3-error-rc-D=1-constant.jpg}
+        \caption{System 3 Response to Constant Input}
+        \label{fig:system3_constant}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{./figures/lab4_fig14-part4-3-3-error-rc-D=1-linear.jpg}
+        \caption{System 3 Response to Linear Input}
+        \label{fig:system3_linear}
+\end{figure}
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{./figures/lab4_fig15-part4-3-3-error-rc-D=1-quadratic.jpg}
+        \caption{System 3 Response to Quadratic Input}
+        \label{fig:system3_quadratic}
+\end{figure}
