@@ -1,4 +1,4 @@
-\lecture{14}{Tue 04 Feb 2020 10:32}{Marginal Distributions for Order Statistics}
+\lecture{14}{Tue 04 Feb 2020 10:32}{Marginal Distributions for Order Statistics} %TODO: Fix "stuff" 
 Let $1 \le k \le  n$. Let us find $f_{k ,\ldots, n}$, the joint pdf of $X_{(1)} , \ldots , X_{(n)}$. So we integrate out $x_{1} , \ldots , x_{n-1}$. Start with $x_1$. 
 \begin{align*}
 	f_{2 ,\ldots,n }\left( x_{2} , \ldots , x_{n} \right) &= \int_{-\infty}^{x_2} n! f\left( x_1 \right) \ldots f\left( x_{n} \right) dx_1  \\
@@ -55,3 +55,4 @@ After doing the integrations over $x_{k+1} , \ldots , x_{r-1}$ ($r - k - 1$ inte
 \begin{align*}
 	f_{k, r}\left( x_{k}, x_{r} \right) = \frac{f!}{\left( k - 1 \right) !}F\left( x_{k} \right) ^{k - 1} \frac{\left( 1 - F\left( x _{r} \right)  \right) ^{n - r}}{\left( n - r \right) !}f\left( x _{k} \right) f\left( x _{r} \right)  \times \frac{\left( F\left( x_{r} \right) - F\left( x_{k} \right)  \right) ^{r - k - 1}}{\left( r - k - 1 \right) !}
 .\end{align*}
+for $x_{k}< x_{r}$. 

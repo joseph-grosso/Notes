@@ -1,0 +1,60 @@
+\lecture{15}{Thu 06 Feb 2020 09:37}{}
+
+For $k = 1$ and $r = n$, we get the joint pdf of $\left( X_{\left( 1 \right) }, X_{\left( m \right) } \right) $ as 
+\[
+	f _{1, n}\left( x_1, x_{n} \right) = n! f\left( x_1  \right)  f \left( x_{n} \right) \frac{\left( F\left( x_{n} \right)  - F\left( x_1 \right)  \right) ^{n - 2}}{\left( n - 2 \right) !}, \quad x_1 < x_{n}
+.\] 
+\begin{eg}
+	If $X_{1} , \ldots , X_{n}$ are independent, identically distributed Uniform(0,1), then 
+	\[
+		f_{1, n}\left( x_1, x_{n} \right) = \begin{cases}
+			n \left( n -1 \right) \left(  x_{n} - x_1\right)^{n-2} & 0 < x_1 < x_{n} < 1 \\
+			0 & otherwise
+		\end{cases} 
+	.\] 
+\end{eg}
+
+\section{Multinomial Distribution}
+
+Consider the experiment which gave rise to the Multivariate, Hypergeometric distribution ($n_{i}$ objects of type $i$,  $i = 1, \ldots, r$, then $n$ objects are drawn without replacement, and $X_{i} = $ "number of objects of type $i$ in sample"). 
+
+Now suppose we sample with replacement. Then each draw is of type  $i$ with probability $p_{i}= \frac{n _{i}}{N}$ where $N = n_1 + \ldots + n_r$, $i = 1, \ldots, r$ and the draws are independent. 
+
+Such draws are called \textbf{multinomial trials}.
+
+If $r = 2$, these draws are also called \textbf{Bernoulli Trials}.
+
+More generally, a multinomial trial is any experiment that has $r$ possible outcomes, $r \ge 2$, and the probability of outcome $i$ is $p_{i}$, $i = 1, \ldots , r$ where $p_1 + \ldots + p_r = 1$.  
+
+If we perform $n$ independent and identically distributed multinomial trials, let $X_{i} = $ "number of trials whose outcome was $i$, $i = 1, \ldots, r$. Then, $X = \left( X_1, \ldots, X_{r} \right) ^{T}$ is said to have a multinomial distribution with parameters $n$ and $p_1, \ldots, p_r$. 
+
+The support of the distribution of X is 
+\begin{align*}
+	\left\{ \left( x_{1} , \ldots , x_{r} \right) \in  R^{r}  \mid  x_{i} \in \left\{ 0, 1, \ldots, n \right\} , i = 1, \ldots , r , \text{ and } x_{1} + \ldots + x_{r} = n \right\} 
+.\end{align*}
+
+Now, let us compute the joint pdf of $X$. For $\left( x_{1} , \ldots , x_{r} \right) \in  S_{X}$,
+\begin{align*}
+	p_{X}\left( x_{1} , \ldots , x_{r} \right)  &=  F\left( X_1 = x_1, \ldots, X_{r} = x_{r} \right)  \\
+	&= p_1 ^{x_1} p_2 ^{x_2}\ldots p_r ^{x_r} \\
+	&\times \text{ \# of trial outcome sequences that have $x_1$ type of outcomes, \ldots, $x_{r}$ type r outcomes} \\
+\end{align*}
+The number of trials term is:
+\begin{align*}
+	\text{\# of trials }&= \binom{n}{x_1}\binom{n - x_1}{x_2}\binom{n - x_1 - x_2}{x_3} \ldots \binom{n - x_1 - \ldots - x_r - 1}{x_{r}} \\
+			    &= \frac{n!}{x_1 ! \left( n - x_1 \right) ! } \times \ldots \times  \frac{\left( n - x_1 - \ldots - x_{r - 1} \right) ! }{x_{r}! 0 !} \\
+			    &= \frac{n!}{x_1 ! \ldots x_{r}!}
+.\end{align*}
+This number is called a multinomial coefficient, and is usually denoted 
+\[
+\binom{n}{x_{1}  \ldots  x_{r}}
+.\] 
+and referred to as "$n$ choose $x_{1} , \ldots , x_{r}$
+
+So
+\begin{align*}
+	p_{X}\left( x_{1} , \ldots , x_{r} \right) = \begin{cases}
+		\binom{n }{x_1 \ldots x_{r}} p_1 ^{x_1} p_2 ^{x_2}\ldots p_r ^{x_r}, & \left( x_{1} , \ldots , x_{r} \right) \in S_{x} \\
+		0, & otherwise
+	\end{cases}
+\end{align*}
