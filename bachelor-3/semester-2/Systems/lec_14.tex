@@ -1,0 +1,99 @@
+\lecture{14}{Wed 05 Feb 2020 15:29}{Continuous-Time Convolution (cont'd)}
+
+We are giving some instances of convolvable pairs of signals. 
+\begin{theorem}
+	Let $p, q, r \in  \left[ 1, \infty \right] $ satisfy $\frac{1}{p} + \frac{1}{q} = 1 + \frac{1}{r}$. If $f \in L^{p}_{loc}\left( \real_{\ge 0}; \F \right) $ and $g \in  L^{q}_{loc}\left( \real_{\ge 0}; \F \right) $, then $\left( f, g \right) $ is convolvable and $f * g \in  L^{r}_{loc}\left( \real_{\ge 0}; \F \right) $.
+\end{theorem}
+
+\subsection{Continuity of convolution}
+One can consider continuity of convolution in at least two ways. 
+\begin{enumerate}
+	\item Fix g. We can then consider continuity of the mapping $f\longmapsto f * g$. 
+	\item We can consider continuity with respect to both $f$ and $g$, ie, of the map $\left( f, g \right) \longmapsto f * g$. 
+\end{enumerate}
+
+We have four cases.
+\begin{itemize}
+	\item $f, g \in  L^{1}\left( \real; \F \right) $. The continuity of the mapping  $\left( f, g \right) \longmapsto f * g$ is then expressed by the inequality 
+		\[
+			\|f * g\|_{1} \le  \|f\|_{1} \cdot \|g\|_{1} 
+		.\] 
+	\item $f \in L^{p}\left( \real; \F \right) $, $g \in  L^{q}\left( \real; \F \right) $, $\frac{1}{p} + \frac{1}{q} = 1 + \frac{1}{r}$. Continuity is expressed by 
+		\[
+			\|f * g\|_{r} \le  \|f\|_{p} \cdot \|g\|_{q} 
+		.\] 
+		This is also know as Young's inequality.
+	\item $f, g \in  L^{1}_{loc}\left( \real_{\ge 0}; \F \right) $. In this case, we do not have norms to describe continuity. Here we note the following (easily proved) fact: 
+
+		$\left( f_{j} \right) _{j \in  \Z_{>0}} \text{ converges in } L^{1}_{loc}\left( \real_{\ge 0}; \F \right) $ if and only if $\left( f_{j}  \mid \left[  0, 1 \right]  \right) _{j \in  \Z_{>0}}$ converges on $\left[ 0, T \right] $ for every $T > 0$. 
+
+		Then continuity of $\left( f, g  \right) \longmapsto f * g$ is expressed by the inequality 
+		\[
+		\|f * g\|_{\left[ 0, T \right] , 1} \le \|f\|_{\left[ 0, T \right] ,1} \cdot \|g\|_{\left[ 0, T \right] ,1}
+		.\] 
+	\item $f \in  L^{p}_{loc}\left( \real _{\ge 0}; \F \right) $ and $g \in L^{q}_{loc}\left( \real_{\ge 0}; \F \right) $. Here continuity is expressed by 
+		\[
+		\|f * g\|_{\left[ 0, T \right] , r} \le \|f\|_{\left[ 0, T \right] ,l} \cdot \|g\|_{\left[ 0, T \right] ,q}
+		.\] 
+\end{itemize}
+\begin{punch}
+	In the four cases we have on convolvable pairs of continuous-time signals, convolution is continuous. 
+\end{punch}
+
+\subsection{Discrete-time convolution}
+Recall what discrete-time convolution is:
+\[
+	f * g \left( k\Delta \right) = \sum_{j = -\infty}^{\infty} f \left( k \Delta - j \Delta \right) g \left( j \Delta \right) 
+.\] 
+\begin{definition}
+	A pair $\left( f, g \right) $, $f, g \in  \F^{\Z\left( \Delta \right) }$, is convolvable if, for eac $k \in \Z$, 
+	\[
+		j \Delta \longmapsto f \left( k \Delta - j \Delta \right) g \left( j \Delta \right) 
+	.\] 
+	is in $l^{1}\left( \Z \left( \Delta; \F \right)  \right) $. 
+\end{definition}
+\begin{property}
+	\begin{enumerate}
+		\item If $\left( f, g \right) $ is convolvable, then $\left( g, f \right) $ is convolvable and $f * g = g * f$.
+		\item It is generally not the case that 
+			\[
+				\left( f * g \right)  * h = f * \left(  g * h \right) 
+			.\] 
+		\item the mapping $f \longmapsto f * g$ is linear 
+		\item There exists $u \in  \F^{\Z\left( \Delta \right) }$ such that 
+			\[
+				u * f = f , \quad f \in  \F^{\Z\left( \Delta \right) }
+			.\] 
+	\end{enumerate}	
+\end{property}
+
+\subsection{Convolvable pairs of signals}
+\begin{theorem}
+	If $f, g \in  l^{1}\left( \Z\left( \Delta \right) ; \F \right) $, then $f * g \in  l ^{1}\left( \Z*\left( \Delta \right) ; \F \right) $. Additionally, 
+	\begin{enumerate}
+		\item  $\left( f * g \right) * h = f * \left( g * h \right) $, $f,g, h \in l^{1}\left( \Z\left( \Delta \right); \F  \right) $ 
+		\item In property (4) above, $u \in  l ^{1}\left( \Z\left( \Delta \right) ; \F \right) $ implies that the ring $l^{1}\left( \Z\left( \Delta \right) ; \F \right) $ has a unit.
+		\item There exist $f, g \in  l ^{1}\left( \Z\left( \Delta \right) ; \F \right) $, both nonzero, such that $f * g = 0 $ (ie, $ l ^{1}\left( \Z\left( \Delta \right) ; \F \right)$ is not an integral domain)
+		\item If $h \in  l^{1}\left( \Z\left( \Delta \right) ; \F \right) $, then there exists $f, g \in   l ^{1}\left( \Z\left( \Delta \right) ; \F \right)$ such that $h = f * g $. 
+	\end{enumerate}
+\end{theorem}
+\begin{theorem}
+	If $p, q, r \in  \left[ 1, \infty \right] $ satisfies $\frac{1}{p} + \frac{1}{q} = 1 + \frac{1}{r}$, if $f \in  l^{p}\left( \Z\left( \Delta \right) ; \F \right) $, and if $g \in  l^{q}\left( \Z\left( \Delta \right) ; \F \right) $, then $f * g \in  l^{r}\left( \Z\left( \Delta \right) ; \F \right)$. 
+\end{theorem}
+\section{Signals with support sounded on the left}
+
+For $f \in  \F^{\Z\left( \Delta \right) }$, write $\sigma \left( f \right) = inf supp\left( f \right) $. If $f, g \in  \F^{\Z\left( \Delta \right) }$ satisfy $\sigma \left( f \right) , \sigma \left( g \right) > -\infty$, then $\left( f, g \right) $ are convolvable and
+\[
+	f * g \left( k \Delta \right) = \begin{cases}
+		\sum_{j =  \frac{ \sigma \left( g \right)   }{\Delta} }^{k - \frac{\sigma\left( f \right) }{\Delta}} f \left( k \Delta - j \Delta \right) g \left( j \Delta \right),  & k \Delta \ge  \sigma \left( f \right) + \sigma \left( g  \right) \\
+		0, & k \Delta <  \sigma \left( f \right) + \sigma \left( g  \right) 
+	\end{cases}
+.\]
+Specialising to the case of $\sigma \left( f  \right) , \sigma\left( g  \right) \ge  0$ 
+\[
+	f * g \left( k \Delta \right) = \begin{cases}
+		\sum_{j =  0 }^{k} f \left( k \Delta - j \Delta \right) g \left( j \Delta \right),  & k  \ge  0\\
+		0, & k < 0
+
+	\end{cases}
+.\] 
