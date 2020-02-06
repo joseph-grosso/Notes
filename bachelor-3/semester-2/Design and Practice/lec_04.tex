@@ -39,28 +39,46 @@ For negative values of $\alpha$, the effect of increasing $\alpha$ is the graph 
 As $\alpha$ increases negatively, the rise time of the system decreases. While there is a large difference between the rise times of $\alpha = -0.1$ and $\alpha = -1$, the difference between $\alpha = -1$ and $\alpha = -10$ is relatively small. Meanwhile, settling time for all negative values of $\alpha$ appear relatively similar with all of the values converging to 10 at just under 10 seconds. All three negative values of $\alpha$ displayed small overshoot with $\alpha = -0.1$ having a slightly larger overshoot than $\alpha =1$ and $\alpha = 10$. The peak time of $\alpha = -0.1$ is slightly longer than the peak times of $\alpha = 1$ and $\alpha = 10$ which had similar peak times.
 % End Maxym Section
 
-\section{Why Are The Plots The Same?}
+\section{Non-minimum Phase System}
+
+The plots with and without the additional zero are the same because the impulse response is scaled by $\frac{\omega^{2}_{0}}{\alpha}$. The initial conditions for the system were $y(0)=0$ and $\dot y=\frac{\omega^{2}_{0}}{\alpha}$ so by adding a RHP zero, the system slows down and introduces potential undershoot. However, the scaling of the impulse response counteracts this undershoot. The plots collected can be seen below.
+
 \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{./figures/lab4_fig3-part4-3-2-positive.jpg} % Put the plots in the figures sub     directory
-        \caption{A one-sentence description of the plot or figure}
-        \label{fig:name} % basically a variable name you can refer to in the text 
+              \centering
+              \includegraphics[width=0.8\textwidth]{./figures/lab4_fig4-part4-3-2-negative.jpg}
+              \caption{A plot of the system step response when varying the negative values of $\alpha$}
+              \label{fig:varying-negative-alpha}
 \end{figure}
 
 \begin{figure}[H]
-        \centering
-        \includegraphics[width=0.8\textwidth]{./figures/lab4_fig4-part4-3-2-negative.jpg} % Put the plots in the figures sub     directory
-        \caption{A one-sentence description of the plot or figure}
-        \label{fig:name} % basically a variable name you can refer to in the text 
+              \centering
+              \includegraphics[width=0.8\textwidth]{./figures/lab4_fig3-part4-3-2-positive.jpg}
+              \caption{A plot of the system step response when varying the positive values of $\alpha$}
+              \label{fig:varying-positive-alpha}
 \end{figure}
+
+\begin{figure}[H]
+              \centering
+              \includegraphics[width=0.8\textwidth]{./figures/lab4_fig6-part4-3-2-matlab-b-negative.jpg}
+              \caption{A plot of the system step and impulse response with positive $\alpha$ values and with impulse response scaled by $\frac{\omega^{2}_{0}}{\alpha}$}
+              \label{fig:stepimpulse-negative-alpha}
+\end{figure}
+
+\begin{figure}[H]
+              \centering
+              \includegraphics[width=0.8\textwidth]{./figures/lab4_fig6-part4-3-2-matlab-b-positive.jpg}
+              \caption{A plot of the system step and impulse response with negative $\alpha$ values and with impulse response scaled by $\frac{\omega^{2}_{0}}{\alpha}$}
+              \label{fig:stepimpulse-positive-alpha}
+\end{figure}
+
 
 \section{System Type Section} %Alex 
 
 \begin{table}[h]
 \begin{tabular}{|l|l|l|l|l|}
-System & \begin{tabular}[c]{@{}l@{}}Response to \\ Constant Input\end{tabular}                    & \begin{tabular}[c]{@{}l@{}}Response to \\ Linear Input\end{tabular}                      & \begin{tabular}[c]{@{}l@{}}Response to \\ Quadratic Input\end{tabular}                  & Type \\ \hline
-1      & \begin{tabular}[c]{@{}l@{}}Settling Time 0.4s\\ Steady Error \textless 0.01\end{tabular} & \begin{tabular}[c]{@{}l@{}}Settling Time 0.4s\\ Steady Error \textless 0.08\end{tabular} & \begin{tabular}[c]{@{}l@{}}Settling Time 0.4s\\ Steady Error \textless 0.1\end{tabular} & 1    \\
-2      & \begin{tabular}[c]{@{}l@{}}No Steady State\\ Error was Sinusoidal\end{tabular}           & \begin{tabular}[c]{@{}l@{}}No Steady State\\ Error was Sinusoidal\end{tabular}           & \begin{tabular}[c]{@{}l@{}}No Steady State\\ Error was Sinusoidal\end{tabular}          & 0    \\
+System & \begin{tabular}[c]{@{}l@{}}Response to \\ Constant Input\end{tabular}                    & \begin{tabular}[c]{@{}l@{}}Response to \\ Linear Input\end{tabular}                      & \begin{tabular}[c]{@{}l@{}}Response to \\ Quadratic Input\end{tabular}                  & Type \\ \hline \hline 
+1      & \begin{tabular}[c]{@{}l@{}}Settling Time 0.4s\\ Steady Error \textless 0.01\end{tabular} & \begin{tabular}[c]{@{}l@{}}Settling Time 0.4s\\ Steady Error \textless 0.08\end{tabular} & \begin{tabular}[c]{@{}l@{}}Settling Time 0.4s\\ Steady Error \textless 0.1\end{tabular} & 1    \\ \hline  
+2      & \begin{tabular}[c]{@{}l@{}}No Steady State\\ Error was Sinusoidal\end{tabular}           & \begin{tabular}[c]{@{}l@{}}No Steady State\\ Error was Sinusoidal\end{tabular}           & \begin{tabular}[c]{@{}l@{}}No Steady State\\ Error was Sinusoidal\end{tabular}          & 0    \\ \hline
 3      & \begin{tabular}[c]{@{}l@{}}Settling Time 0.7s\\ Steady Error 8.5\end{tabular}            & \begin{tabular}[c]{@{}l@{}}No Steady State\\ Error was Linear\end{tabular}               & \begin{tabular}[c]{@{}l@{}}No Steady State\\ Error was Quadratic\end{tabular}           & 0
 \end{tabular}
 \end{table}
