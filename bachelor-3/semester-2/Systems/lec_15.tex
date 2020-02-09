@@ -1,0 +1,73 @@
+\lecture{15}{Fri 07 Feb 2020 14:33}{Discrete-time convolution (cont'd)}
+
+\subsection{Convolvable pairs of signals with support in $\Z _{\ge  0}\left( \Delta \right) = \left\{ k \Delta \in  \Z\left( \Delta \right)  \mid  k \ge  0 \right\} $}	
+
+If $f, g \in  l_{loc} \left( \Z_{\ge 0}\left( \Delta \right) ; \F \right) $, then the pair $\left( f, g \right) $ is convolvable, and $f * g \in  l_{loc}\left( \Z_{\ge  0}\left( \Delta \right) ; \F \right) $. There is no fussing in this case of whether $f$ and $g$ are in $L^{1}_{loc}$ as in the continuous-time case.
+
+\subsection{Continuity of discrete-time convolution}
+
+We shall give a list of inequalities that give continuity of the mapping $\left( f, g \right) \longmapsto f * g$ in four cases:
+\begin{enumerate}
+	\item If $f, g \in  l ^{1}\left( \Z \left( \Delta \right) ; \F \right) $, then 
+		\[
+		 \|f * g\|_{1}\le  \|f\|_{1}\|g \|_{1}
+		.\] 
+	\item $f \in l ^{p}\left( \Z\left( \Delta \right) ; \F \right) $, $g \in  l^{2}\left( \Z\left( \Delta \right) ; \F \right) $, $\frac{1}{p} + \frac{1}{q} = 1 + \frac{1}{r}$:
+		\[
+		\| f * g \|_{r} \le  \| f \|_{p}\| g \|_{q}
+		.\] 
+		For $f \in  l _{loc}\left( Z_{\ge 0}\left( \Delta \right) ; \F \right) $, define 
+		\[
+			\| f \|_{N, p} = \left( \sum_{j = 0}^{N} \left| f \left( j \Delta \right)  \right| ^{p} \right) ^{\frac{1}{p}}
+		.\] 
+		Then we can show that $\left( f _{j} \right) _{j \in  \Z_{\ge 0}}$ converges to zero in the $p$-seminorms for $l _{loc} \left( \Z_{\ge  0}\left( \Delta \right) : \F \right) $ if and only if $\lim_{j \to \infty} \|f _{j}\|_{N, p} = 0 $for every $N \in  \Z_{\ge  0}$.
+	\item $f, g \in  l_{loc}\left( \Z_{\ge 0}\left( \Delta \right) ; \F \right) $ then 
+		\[
+		\| f * g\|_{N, 1}\le  \| f\|_{N, 1} \| g\|_{N, 1}
+		.\] 
+	\item $f, g \in  l_{loc}\left( \Z_{\ge 0}\left( \Delta \right) ; \F \right) $, $\frac{1}{p} + \frac{1}{q} = 1 + \frac{1}{r}$, 
+		\[
+		\| f * g\|_{N, r} \le  \| f\|_{N, p}\| g\|_{N, q}
+		.\] 
+\end{enumerate}
+
+\section{System Theory}
+
+We will talk about eight kinds of systems about eight kinds of systems. These are 
+\[
+\left\{ \text{systems, linear systems} \right\} \times  \left\{ \text{state-space, input/output} \right\} \times  \left\{ \text{cts-time, disc-time} \right\} 
+.\] 
+\section{Continuous-time states space systems (CTSSS)}
+\begin{definition}
+	Let $X \subseteq \real ^{n}$ be open (the state space). Let $U \subseteq \real ^{m}$ (the control-value space), let $\tdomain \subseteq \real$ be continuous time-domain (the time-domain), let $\U \subseteq U^{\tdomain}$ (inputs or controls), let $f : \tdomain \times  X \times  U \to \real^{n}$ (the dynamics), and let  $h  : \tdomain \times  X \times  U  \to \real ^{k}$ (the output map). The sextuple $\left( X, U, \tdomain, \U, f, h \right) $ is a continuous-time state space system. 
+\end{definition}
+
+\begin{definition}
+	A controlled trajectory of a CTSSS $\sum = \left( X, U, \tdomain, \U, f, h \right)  $ is a pair $\left( \xi , \mu \right) $ where $\mu \in  \U$ is defined on $\tdomain ' \subseteq \tdomain$ and where $\xi : \tdomain '  \to X$ is locally absolutely continuous and satisfies 
+	\[
+		\hat{\xi}\left( t \right) = f\left( t, \xi\left( t \right) , \mu\left( t \right)  \right) 
+	.\] 
+\end{definition}
+
+\begin{definition}
+	A controlled output for $\sum$ is a pair $\left( \eta, \mu \right) $ where $\mu \in  \U$ is defined on $\tdomain ' \subseteq \tdomain$ and $\eta$ satisfies 
+	\[
+		\eta\left( t \right) = h \left( t, \xi\left( t \right) , \mu\left( t \right)  \right) 
+	.\] 
+	where $\left( \xi, \mu \right) $ is a controlled trajectory. Thus a controlled output $ \left( \eta, \mu \right) $ satisfies 
+	\begin{align*}
+		\dot{\xi} \left( t \right) &= f\left( t, \xi\left( t \right) , \mu\left( t \right)  \right)  \\
+		\eta\left( t \right) &= h \left( t, \xi\left( t \right) , \mu\left( t \right)  \right) 
+	.\end{align*}
+\end{definition}
+
+
+\begin{question}
+	\begin{enumerate}
+		\item What properties should the set $\U$ of inputs have?
+		\item Given properties of $\U$, what properties should $f $ have so that controlled trajectories exist?
+		\item CTSS are examples of general time systems. As general time systems, what properties do they have? 
+		\item We will care about continuity of the map $\mu \longmapsto \eta$. 
+
+	\end{enumerate}
+\end{question}

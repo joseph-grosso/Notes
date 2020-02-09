@@ -4,7 +4,7 @@ Let $1 \le k \le  n$. Let us find $f_{k ,\ldots, n}$, the joint pdf of $X_{(1)} 
 	f_{2 ,\ldots,n }\left( x_{2} , \ldots , x_{n} \right) &= \int_{-\infty}^{x_2} n! f\left( x_1 \right) \ldots f\left( x_{n} \right) dx_1  \\
 							      &= n! F\left( x_2 \right) f\left( x_2  \right) \ldots f\left( x_{n} \right) 
 .\end{align*}
-Next, integrate out x2: 
+Next, integrate out $x_2$: 
 \begin{align*}
 	f_{3, \ldots, n}\left( x_{3} , \ldots , x_{n} \right) &= \int_{-\infty}^{x_{3}} n! F\left( x_2 \right) f\left( x_2 \right) f\left( x_3 \right) \ldots f\left( x_{n} \right) dx_{2}  \\
 							      &= n! \frac{F\left( x_3 \right) ^2}{2}f\left( x_3 \right) \ldots f\left( x_{n} \right)
