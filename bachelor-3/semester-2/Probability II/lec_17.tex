@@ -1,0 +1,123 @@
+\lecture{17}{Tue 11 Feb 2020 10:36}{The Gamma Distribution}
+
+Verify that Gamma$\left( r, \lambda \right)$ pdf is a proper pdf (let $x = \frac{1}{\lambda}y$, $\frac{dx}{dy} = \frac{1}{\lambda}$, $dx = \frac{1}{\lambda}dy$).
+\begin{align*}
+	\int_{0}^{\infty} \frac{\lambda^{r}}{\Gamma \left( r \right) }x ^{r - 1} e ^{-\lambda x } dx &= \int_{0}^{\infty} \frac{\lambda ^{r}}{\Gamma \left( r \right) } \left( \frac{y}{\lambda} \right) ^{r - 1} e ^{-y } \frac{1}{\lambda}dy  \\
+												     &= \frac{1}{\Gamma \left( r \right) } \int_{0}^{\infty} y ^{r - 1} e ^{-y} dy   \\
+												     &= \frac{\Gamma \left( r \right) }{\Gamma \left( r \right) } = 1
+.\end{align*}
+
+Therefore this is a proper pdf. 
+
+\begin{property}
+\begin{enumerate}
+	\item $\Gamma \left( 1 \right)  = \int_{0}^{\infty} e ^{-y} dy = 1 $ 
+	\item $\Gamma \left( \frac{1}{2} \right)  = \int_{0}^{\infty} y ^{ -\frac{1}{2}}e ^{ -y } dy$. letting $y = \frac{u ^2 }{2}$, $dy = u du$ :
+		\begin{align*}
+			\Gamma\left( \frac{1}{2} \right) &=  \int_{0}^{\infty} \frac{\sqrt{2} }{u}e ^{-\frac{u ^2}{2}} u \cdot du  \\
+			&= \sqrt{2} \int_{0}^{\infty} e ^{- \frac{u ^2 }{2}} du \\
+			&= \sqrt{2 \pi} \sqrt{2} \int_{0}^{\infty} \frac{1}{\sqrt{2 \pi} }e ^{- \frac{u ^2 }{2}} du  \\
+			&= \sqrt{2 \pi } \sqrt{2} \left( \frac{1}{2} \right) = \sqrt{\pi} 
+		.\end{align*}
+	\item For $r > 1$:
+		\[
+			\Gamma\left( r \right) = \int_{0}^{\infty} y ^{r - 1}e ^{ -y}dy 
+		.\] 
+		Using integration by parts:
+		\begin{align*}
+			u = y ^{r - 1} &\quad dv = e ^{-y }dy \\
+			du = \left( r - 1 \right) y ^{r - 2 }dy  & \quad v = -e ^{-y}
+		\end{align*}
+		we have 
+		\begin{align*}
+			\Gamma \left( r  \right) &= -y ^{r - 1}e ^{ -y} | ^{\infty}_{0} + \int_{0}^{\infty} e ^{ -y}\left( r - 1 \right) y ^{ r - 2}dy  \\
+						 &= \left( r - 1 \right) \int_{0}^{\infty} y ^{r - 2}e ^{ -y}dy  \\
+						 &= \left( r - 1 \right) \Gamma\left( r - 1 \right)
+		.\end{align*}
+		So the gamma function has a recursive property that 
+		\[
+			\Gamma\left( r  \right) = \left( r - 1 \right) \Gamma \left( r - 1 \right) , \quad \text{for }r > 1
+		.\] 
+		If $r$ is an integer greater than 1, then 
+		\begin{align*}
+			\Gamma \left( r  \right) &= \left( r - 1 \right) \Gamma \left( r - 1 \right)  \\
+						 &= \left( r - 1 \right) \left( r - 2 \right) \Gamma\left( r - 2 \right)  \\
+						 &\ldots\\
+						 &= \left( r - 1 \right) !
+		.\end{align*}
+\end{enumerate}
+\end{property}
+
+\subsection{Moments of the Gamma$\left( r, \lambda \right) $ distribution}
+
+\begin{align*}
+	E\left[ X^{k} \right] &= \int_{0}^{\infty} x^{k}\frac{\lambda^{n}}{\Gamma\left( r \right) }x ^{r - 1}e ^{-\lambda x } dx  \\
+			      &= \frac{\lambda^{n}}{\Gamma\left( r \right) } \cdot \frac{\Gamma\left( r + k \right)  }{\lambda ^{k + r}}\int_{0}^{\infty} \frac{\lambda^{k + r}}{\Gamma\left( k + r \right) } x ^{ k + r - 1} e ^{ -\lambda x } \cdot dx  \\
+			      &= 1
+.\end{align*}
+Now, 
+\begin{align*}
+	\Gamma\left( k + r \right)  &= \left( k + r - 1 \right) \Gamma \left( k + r - 1 \right) \\
+				    &= \left( k + r - 1 \right)  \left( k + r - 2 \right) \Gamma \left( k + r - 2 \right)  \\
+				    &\ldots \\
+				    &= \left( k + r - 1 \right) \ldots r  \Gamma\left( r \right) 
+.\end{align*}
+
+So,
+ \[
+	 E\left[ X^{k} \right] = \frac{\left( k + r - 1 \right) \ldots \left( r \right) }{\lambda^{k}}
+.\] 
+Therefore:
+\begin{align*}
+	k &= 1: \quad E \left[ X \right]  = \frac{r}{\lambda} \\
+	k &= 2: \quad E\left[ X^{2} \right] = \frac{\left( r + 1 \right) r}{\lambda^2}
+.\end{align*}
+Thus, 
+\begin{align*}
+	Var\left( X \right) &= E\left[ X^{2} \right] - E \left[ X \right] ^2 \\
+	&= \frac{r^2 + r }{\lambda^2} - \frac{r ^2}{\lambda^2} \\
+	&= \frac{r}{\lambda^2}
+.\end{align*} 
+\subsection{Special cases}
+\begin{enumerate}
+	\item If $r = 1$, then Gamma $\left( 1, \lambda \right) $ pdf is 
+		\[
+		\begin{cases}
+			\lambda e ^{ -\lambda}, & x > 0 \\
+			0, & x \le  0
+		\end{cases}
+		.\] 
+		which is the Exponential pdf.
+	\item If $r = n$ and $\lambda = \frac{1}{2}$, then the Gamma $\left( \frac{n}{2}, \frac{1}{2} \right) $ pdf is 
+		\[
+			f\left( x \right) = \begin{cases}
+				\frac{\left( \frac{1}{2} \right) ^{\frac{n}{2}}}{\Gamma\left( \frac{n}{2} \right) }x ^{ \frac{n}{2} - 1}e ^{ -\frac{x}{2}}, \quad x > 0 \\
+				0, & \quad x \le  0
+			\end{cases}
+		.\] 
+		where n is a positive integer.
+
+		This is called the chi-squared distribution with n-degrees of freedom, usually denoted $X^2_{n}$.
+\end{enumerate}
+
+Let $Z$ have $N\left( 0, 1 \right) $ distribution and let $X = Z^2$. The support of $X = \left( 0, \infty \right) $. The cdf of $X$ is, for $x > 0$ 
+\begin{align*}
+	F_{X}\left( x \right)  = P\left( X\le  x \right) \\
+	&= P\left( Z^2 \le  x \right)  \\
+	&= P\left( -\sqrt{x} \le  Z \le  \sqrt{x}  \right)\\
+	&= \Phi\left( \sqrt{x}  \right)  - \Phi\left( -\sqrt{x}  \right) 
+\end{align*}
+where $\Phi\left( \cdot \right) $ is the standard normal cdf. 
+
+Then the pdf of $X$ is 
+\begin{align*}
+	f _{X}\left( x \right)  = \Phi ' \left( \sqrt{x}  \right) \frac{1}{2 \sqrt{x} } + \Phi ' \left( -\sqrt{x}  \right) \frac{1}{2 \sqrt{x} }\\
+	&= \phi \left( \sqrt{x}  \right) \frac{1}{2 \sqrt{x} } + \phi\left( -\sqrt{x}  \right) \frac{1}{2} \sqrt{x} 
+.\end{align*}
+where $\phi$ is the $N\left( 0, 1 \right) $ pdf. By symmetry:
+\begin{align*}
+	&= 2 \phi\left( \sqrt{x}  \right) \frac{1}{2\sqrt{x} } \\
+	&= \phi\left( \sqrt{x}  \right) \frac{1}{\sqrt{x} } \\
+	&= \frac{1}{\sqrt{2 \pi} }e ^{-\frac{x}{2}} x ^{-\frac{1}{2}}
+\end{align*}
+for $x > 0$. 
