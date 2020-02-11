@@ -1,0 +1,97 @@
+\lecture{16}{Tue 11 Feb 2020 11:40}{}
+
+Last time: CTSSS. 
+\begin{align*}
+	\sum &= \left( X, U, \tdomain, \U, f, h \right) \\
+	\dot{\xi}\left( t \right) &= f\left( t, \xi\left( t \right) , \mu\left( t \right)  \right)  \\
+	\eta	\left(t \right) &= h \left( t, \xi\left( t \right) , \mu\left( t \right)  \right)  \\
+	C_{\text{traj}}\left( \sum \right) &= \left\{ \left( \xi, \mu \right)  \right\} \\
+	C_{\text{out}}\left( \sum\right) &= \left\{ \left( \eta, \mu \right)  \right\} 
+.\end{align*} 
+\begin{definition}
+	Let $\sum $ be a CTSSS. It is 
+	\begin{description}
+		\item[dynamically autonomous] if $f$ is independent of  $t$, ie there exists $f_0 : X \times U \to \real^{n}$ such that $f\left( t, x, u \right) = f_0 \left( x, u \right) $, 
+		\item[output autonomous] if $h$ is independent of time, 
+		\item[autonomous] if both dynamically and output autonomous, and 
+		\item[proper] if $h$ is independent of input, ie, there exists $h_0  : \tdomain \times  X  \to \real^{k}$ such that $h\left( t, x, u \right) = h_0 \left( t, x \right) $.
+	\end{description}
+\end{definition}
+\subsection{Inputs of CTSSS's}
+Let $\U \subseteq U^{\left( \tdomain \right) }$. 
+
+The typical thing we look for from inputs are if we substitute $\mu$ into $f$, ie $\left( t, x \right) \longmapsto F\left( t, x, \mu\left( t \right)  \right)$, then for fixed $x$, the mapping $t \longmapsto F\left( t, x, \mu\left( t \right)  \right) $ should be locally integrable, continuous functions, conditions for existence and uniqueness for ODE's. To guarantee this, it is not enough to ask $\mu$ to be locally integrable. 
+\begin{eg}
+	$X = \real$, $U = \real$, $\tdomain = \real$, $f\left( t, x u  \right) = u^2$. 
+
+	If we take 
+	\[
+		\mu\left( t \right) = \begin{cases}
+			\frac{1}{\sqrt{t} }, & t > 0 \\
+			0, & \text{otherwise}
+		\end{cases}
+	\] 
+	then $\mu \in  L^{1}_{loc}\left( \real; \real \right) $, but $\mu^2 \not \in L^{1}_{loc}\left( \real; \real \right) $. However, if we take $\U \subseteq L^{\infty}_{loc}\left( \tdomain; U \right) $ then this will work!
+\end{eg}
+
+\subsection{Conditions for existence and uniqueness of trajectories}
+
+We want conditions on $f$ so that, if  $\mu \in  L^{\infty}_{loc}\left( \tdomain ' ; U \right) $, then 
+\[
+	\left( t, x  \right) \longmapsto f\left( t, x, \mu\left( t \right)  \right) 
+.\] 
+satisfies the conditions for existence and uniqueness for ODE's.
+
+\begin{theorem}
+	Let $\sum $ be a CTSSS and suppose that 
+	\begin{enumerate}
+		\item $\U \subseteq L^{\infty}_{loc}\left( \left( \tdomain \right) ; u \right) = \left\{ \text{partially defined locally bdd U values systems} \right\}  $ (brackets around $\tdomain$ denote subinterval of $\tdomain$), 
+		\item For fixed $\left( x, u \right)  \in  X \times  U$, $t \longmapsto f \left( t, x , u \right) $ is locally integrable. 
+		\item for fixed $\left( t, u  \right) \in  \tdomain \times  U$, $x \longmapsto f\left( t, x, u \right) $ is locally Lipshitz, 
+		\item for fixed $t \in  \tdomain$, $\left( X, U \right)  \longmapsto f \left( t, x, u \right) $ is continuous, and 
+		\item for $\left( t_0, x_0, u_0 \right) \in  \tdomain \times  X \times  U$, there exists $\rho, r_1, r_2 \in \real_{>0}$ and $g_1, g_2, \in  L^{1}\left( \left[ t_0 - \rho, t_0 + \rho \right] ; \real_{\ge  0} \right) $ such that 
+			\begin{enumerate}
+				\item $\|f\left( t, x, u \right) \|\le  g_1 \left( t \right) $ for all $t \in  \left[ t_0 - \rho, t_0 + \rho \right] $, for all $x \in  \beta \left( r_1, x_0 \right) $ and for all $u \in  \beta \left( r_2, u_0 \right) \cap U$, and 
+				\item $\|f\left( t, x_1, u \right) - f\left( t, x_2, u \right) \|\le  x_2 \left( t \right) \|x_1 - x_2\|$, $t \in  \left[ t_0 - \rho, t_0 + \rho \right] $, $x \in  \beta \left( r_1, x_0 \right) $, $u \in  \beta \left( r_2, u_0 \right) \cap  U$, 
+			\end{enumerate}
+	\end{enumerate}
+	then if $\mu \in \U$, the mapping $\left( t, x \right) \longmapsto f \left( t, x, \mu\left( t \right)  \right) $ satisfies the conditions for existence and uniqueness for solutions of ODE's. 
+\end{theorem}
+
+Thus if the conditions for the theorem are satisfied for all $\left( t_0, x_0  \right) \in  \tdomain \times  X$ and $\mu \in  \U$, there is a solution to the initial value problem
+\[
+	\dot{\xi}\left( t \right) = f\left( t , \xi\left( t \right) , \mu\left( t \right)  \right) , \quad \xi\left( t_0 \right) = x_0 \quad \left( * \right) 
+\] 
+defined for $t$ near $t_0$. 
+
+If $t_0 \in  \tdomain$, $x_0 \in  X$, $\mu \in  U$, with  $t_0 \in  domain\left( \mu \right) $, we have a largest subinterval $I_{\sum }\left( t_0, x_0, \mu \right) $ on which solutions of the IVP $\left( * \right) $ are defined. 
+
+The domain of $\sum $ is 
+\[
+	D_{\sum } = \left\{ \left( t, t_0, x_0, \mu \right)  \mid t \in  I _{\sum }\left( t_0, x_0, \mu \right)  \right\} 
+.\] 
+The flow for $\sum $ is $\Phi ^{\sum} : D_{\sum } \to X$ is defined by 
+\[
+	\frac{d}{dt}\Phi^{\sum }\left( t, t_0, x_0, \mu \right) = f\left( t, \Phi^{\sum }\left( t, t_0, x_0, \mu \right) , \mu\left( t \right) \right) 
+\] 
+where $\xi\left( t \right) = \Phi^{\sum }\left( t, t_0, x_0, \mu \right) $. This shows that there is a single thing $\Phi^{\sum }$ that encodes all of the trajectory. 
+
+Notes that there are no conditions required for h to give the same output
+\[
+	\eta\left( t \right)  = h \left( t , \Phi^{\sum }\left( t, t_0, x_0, \mu \right) , \mu\left( t \right)  \right) 
+.\] 
+But, when we consider the continuity of the input/output map we will need conditions on $h$.
+
+Note that CTSSS's are general time systems. We can consider causality, for example: we consider causality from $t_0$. Suppose that $\mu_1  \mid  \left[ t_0, t \right] = \mu_2  \mid  \left[ t_0, t \right] $. 
+
+Then since
+\begin{align*}
+	\dot{\xi} \left( t \right) &= f\left( t, \xi\left( t \right) , \mu\left( t \right)  \right)  \\
+	\implies\xi\left( t \right) &=  \xi\left( t_0 \right) + \int_{t_0}^{t} f\left( \tau, \xi\left( \tau \right) , \mu\left( \tau \right)  \right) d\tau
+\end{align*}
+if $\xi_1$ and $\xi_2$ correspond to  $\mu_1$ and $\mu_2$, then 
+\begin{align*}
+	\xi_{1}\left( t \right) &=  \xi_1 \left( t_0 \right) + \int_{t_0}^{t} f\left( \tau, \xi_1\left( \tau \right) , \mu_1 \left( \tau \right)  \right) d\tau \\
+	\xi_{2}\left( t \right) &=  \xi_2 \left( t_0 \right) + \int_{t_0}^{t} f\left( \tau, \xi_2\left( \tau \right) , \mu_2 \left( \tau \right)  \right) d\tau \\
+\end{align*}
+Therefore the trajectories depend only on $\mu  \mid \left[ t_0, t \right] $, and we have causality.
