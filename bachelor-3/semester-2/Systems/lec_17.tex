@@ -1,0 +1,71 @@
+\lecture{17}{Wed 12 Feb 2020 15:30}{CTSSS's (cont'd)}
+
+Last time
+\begin{align*}
+	\dot{\xi} \left( t \right) &= f\left( t, \xi\left( t \right) , \mu\left( t \right)  \right)  \\
+	\implies \xi\left( t \right) &=  \xi\left( t_0 \right)  + \int_{t_0}^{t} f\left( \tau, \xi\left( \tau \right) , \mu\left( \tau \right)  \right) d \tau
+.\end{align*}
+$\xi\left( t \right) $ depends only in $\mu \mid \left[ t_0, t \right] $. 
+
+$\eta\left( t \right) = h\left( t, \xi\left( t \right) , \mu\left( t \right)  \right) $. Therefore, $\eta\left( t \right) $ depends only on $\mu \mid \left[ t_0, t \right] $. Therefore, we have causality.
+
+In fact, $\eta\left( t \right) $ only depends on $\mu  \mid [t_0, t )$, and if $\Sigma$ is proper (ie,  $h$ independent of $u$) then $\eta\left( t \right) $ only depends on $\mu \mid [t_0, t)$.
+
+Therefore, proper CTSSS's are strongly causal.
+
+\subsection{Stationarity}
+
+For stationarity of a CTSSS, we must have $\tau_{t_0, s}^{*} \mu \in \U$ for every $\mu \in  \U$. Define:
+\[
+	\tau^{*}_{t_0, s}\mu\left( t_0 \right)  = \mu\left( t - \left( t_0 - s \right)  \right) 
+.\] 
+We have 
+\[
+	\dot{\xi}\left( t \right) = f\left( t, \xi\left( t \right) , \mu\left( t \right)  \right) 
+.\] 
+If we replace $t$ with $t - \left( t_0 - s \right) $ is $ \mu$, 
+\[
+	\dot{\xi}\left( t \right) = f\left( t, \xi\left( t \right) , \mu\left( t - \left( t_0 - s \right)  \right)  \right) 
+.\] 
+We need to have $f$ independent of $t$ for $\tau^{*}_{t_0, x}\xi$ to be the trajectory corresponding to $\tau^{*}_{t_0, x}\mu$. We conclude that if $\Sigma$ is autonomous, then it is stationary. For CTSSS's, because flows go backwards in time, they are strongly stationary.
+
+\subsection{Finitely Determined}
+
+If we fix an input $\mu$, an initial time  $t_0$, and any $\tau> t_0$, then the controlled trajectory at $\left( \xi\left( \tau \right) , \mu\left( \tau \right)  \right) $ is uniquely determined by $\mu$ and $\xi\left( t_0 \right) $. But, if we know $\mu$ and $\xi\left( t_0 \right) $, then we know $\xi\left( t \right) $ for all $t \in I_{\Sigma}\left( t_0, \xi\left( t_0 \right) , \mu \right) $.
+
+Therefore, $\Sigma$ is finitely determined from  $\tau$ for every $\tau > t_0$. (I is the interval on which the solution exists, for initial time $t_0$, initial conditions $\xi\left( t_0 \right) $, and input $\mu$)
+
+\subsection{Control-affine CTSSS's}
+
+\begin{definition}
+	A CTSSS $\Sigma = \left( X, U, \tdomain, \U , f, h \right) $ is control-affine if 
+	\begin{enumerate}
+		\item $f\left( t, x, u \right) = f_0 \left( t, x \right) + \sum_{a = 1}^{m} u _a f_a \left( t, x \right)  $
+		\item $h\left( t, x, u \right) = h_0 \left( t, x  \right) + \sum_{a=1}^{m} u_{a}h_{a}\left( t, x \right) $
+	\end{enumerate}
+	ie, $f$ and $h$ are affine in $u$, meaning that they are of the form "linear plus constant".
+\end{definition}
+
+The equations for a controlled trajectory $\left( \xi, \mu \right) $ and a controlled output $\left( \eta, \mu \right) $ are 
+\begin{align*}
+	\dot{\xi}\left( t \right)  &=  f_0 \left( t, \xi\left( t \right)  \right) + \sum_{a=1}^{m} \mu_{a}\left( t \right) f_{a}\left( t, \xi\left( t \right)  \right)  \\
+	\eta\left( t \right) &= h_0 \left( t, \xi\left( t \right)  \right)  + \sum_{a=1}^{m} \mu_{a}\left( t \right) h_{a}\left( t, \xi\left( t \right)  \right) 
+.\end{align*}
+
+The 'drift dynamics' of the system are  $f_0$, and the 'input vectors' are $f_a$. 
+
+The conditions on $f_0, f_{1} , \ldots , f_{m}$ to give existence and uniqueness of trajectories are the same as the conditions on $\hat{F}$ for ODE's.
+
+In the dynamically autonomous case, one can enlarge the inputs from $\U \subseteq L ^{\infty} _{loc}\left( \left( \tdomain \right) ; U \right) $ to 
+\[
+L^{1}_{loc}\left( \left( \tdomain \right) ; U \right)  = \left\{ \mu : \tdomain' \to U  \mid \tdomain' \subseteq \tdomain, \mu \in  L^{1}_{loc}\left( \tdomain' ; U \right)  \right\} 
+.\] 
+This is because all we need is for $t \longmapsto f_0 \left( x  \right) + \sum_{a=1}^{m} \mu_{a}\left( t \right) f_{a}\left( x \right) $ to be locally integrable. This happens if and only if $\mu $ is locally integrable.
+\begin{note}
+	Linear systems are control-affine, and autonomous linear systems are 
+	\begin{align*}
+		\dot{\xi}\left( t \right)  &= A \cdot \xi\left( t \right)  + B \cdot \mu\left( t \right) \\
+		\eta\left( t \right) &= C\cdot \xi\left( t \right) + D \cdot \mu \left( t \right) 
+	.\end{align*}
+\end{note}
+
