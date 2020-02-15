@@ -1,0 +1,68 @@
+\lecture{18}{Thu 13 Feb 2020 09:36}{}
+
+Next, we will show that if $X_1 \sim Gamma\left( r_1, \lambda \right) $ and $X_2 \sim Gamma\left( r_2, \lambda \right) $ (note same $\lambda$), and $X_1$ and $X_2$ are independent, then $X_1 + X_2 \sim Gamma\left( r_1 + r_2 , \lambda \right) $.
+
+Let 
+\begin{align*}
+	U &= X_1 + X_2 \\
+	V &= \frac{X_1}{X_1 + X_2}
+.\end{align*}
+The inverse is 
+\begin{align*}
+	X_1 &= UV \\
+	X_2 &= U\left( 1 - v \right) 
+.\end{align*}
+The support of $\left( U, V \right) ^{T}$ is 
+\[
+	\left\{ \left( u, v \right) \in  \real ^2  \mid \ u > 0 ,\ 0 < v < 1 \right\} 
+.\] 
+Next we compute the Jacobian. 
+\begin{align*}
+	J &= \text{det}\begin{bmatrix} 
+	V & U \\
+1 - V & -U \end{bmatrix}  \\
+      &= \left( -UV - U\left( 1 - V \right)  \right)  \\
+      &= -U 
+.\end{align*}
+The joint pdf of $\left( X_1, X_2 \right) ^{T}$ is 
+\begin{align*}
+	f_{X}\left( x_1, x_2 \right) &= \sum_{i=1}^{2} \frac{\lambda^{r_i}}{\Gamma\left( r_i \right) }x_i^{r_i - 1}e^{-\lambda x_i} \\
+.\end{align*}
+for $u>0$ and $0<v<1$.
+
+Then the joint pdf of $\left( U, V \right) ^{T}$ is 
+\begin{align*}
+	f_{U, V}\left( u, v \right) &= \frac{\lambda^{r_1 + r_2}}{\Gamma\left( r_1 \right) \Gamma\left( r_2 \right) }\left( uv \right) ^{r_1 - 1}e ^{-\lambda uv} \left[ \left( u \right) \left( -1-v \right)  \right] ^{r_2 - 1} e ^{-\lambda u \left( 1 - v \right) } \cdot u \\
+				    &= \frac{\lambda^{r_1 + r_2}}{\Gamma\left( r_1 \right) \Gamma\left( r_2 \right) } u ^{r_1 + r_2 - 1}e ^{-\lambda u}  v  ^{r_1 - 1} \left( 1 - v \right) ^{r_2 - 1} \\
+				    &= \frac{\lambda^{r_1 + r_2}}{\Gamma\left( r_1 + r_2 \right)  } u ^{r_1 + r_2 - 1}e ^{-\lambda u} \cdot \frac{\Gamma\left( r_1 + r_2 \right) }{\Gamma\left( r_1 \right) \Gamma\left( r_2 \right) }v  ^{r_1 - 1} \left( 1 - v \right) ^{r_2 - 1} 
+.\end{align*}
+We can see that the first term here is the pdf of $Gamma\left( r_1 + r_2, \lambda \right) $, and the second term must be a proper pdf for $V$.
+
+We can conclude a couple things from this.
+\begin{enumerate}
+	\item The marginal pdf of $U$ is $Gamma\left( r_1 + r_2, \lambda \right) $, ie, $X_1 + X_2 \sim Gamma\left( r_1 + r_2, \lambda \right) $. If we let $X_i \sim Gamma\left( r_i , \lambda \right) $, for $i = 1, \ldots, n $ and $X_{1} , \ldots , X_{n}$ are mutually independent, then 
+		\[
+			X_1 + X_2 + X_3 + \ldots + X_{n} \sim Gamma\left( \sum_{i=1}^{n} r_{i}, \lambda \right) 
+		.\]
+		Special cases of this:
+		\begin{enumerate}
+			\item If $X_{i} \sim Exp\left( \lambda \right) $ and $X_{1} , \ldots , X_{n}$ are independent, then 
+				\[
+					X_1 + \ldots + X_{n} \sim Gamma\left( n, \lambda \right) 
+				.\] 
+			\item If $X_{i}\sim N\left( 0, 1 \right) $ and $X_{1} , \ldots , X_{n}$ are independent, then
+				\[
+					X_1 ^{2} + \ldots + X_{n}^{2} \sim Gamma\left( \frac{n}{2}, \frac{1}{2} \right) 
+				,\] 
+				which is the $\chi ^{2}_{n}$ distribution. This is useful because the sum of squares is essentially the sample variance from a random sample. In fact, we can show that $\overline{X}$ and $S^2$ are independent if the $X_{1} , \ldots , X_{n}$ are Gaussian.
+		\end{enumerate}
+	\item The pdf for $V$ is the pdf of the Beta distribution with parameters $r_1 > 0$ and $r_2 > 0$. The support of this distribution is the interval $\left( 0,1 \right) $. A special case of this is when $r_1 = r_2 = 1$, which gives the Uniform$\left( 0, 1 \right)$ distribution.
+
+		The pdf of the $Beta\left( r_1, r_2 \right) $ involves the Beta function, defined as
+		\begin{align*}
+			B\left( r_1, r_2 \right) &= \int_{0}^{1} x^{r_1 - 1}dx \\
+						 &= \frac{\Gamma\left( r_1 \right) \Gamma\left( r_2 \right) }{\Gamma\left( r_1 + r_2 \right) } \\
+		.\end{align*}
+		This equivalency is given by our pdf of the $Beta\left( r_1, r_2 \right) $ we defined.
+\end{enumerate}
+
