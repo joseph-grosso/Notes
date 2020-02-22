@@ -1,0 +1,17 @@
+Midterm will be on the Monday after reading week (Feb. 24th) during your tutorial session.
+
+Preparation materials are listed as follows:
+
+1- Lecture slides (please go over all the slides in the MP's Lecture Slide folder)
+
+2- There will be three questions from:
+
+     I. Semiconductors, particularly from Section 3.3 (Current Flow in Semiconductors), Section 3.4 (The pn Junction).
+
+     II.  Diodes, particularly from Section 4.1 (The Ideal Diodes), 4.2 (Terminal Characteristics of Junction Diodes), 4.3 (Modeling the Diode), 4.4 (The Small-Signal Model), 4.6 (Rectifier Circuits)
+
+    III. MOSFETs, particularly from Section 5.1. (Device Structure), 5.2 (Current-Voltage Characteristics),  5.3 (MOSFET Circuits at DC)
+
+Please note that these sections are referred from the 8th Edition of the textbook (I will try to post some relevant materials on OnQ in a folder called Midterm).
+
+MP
