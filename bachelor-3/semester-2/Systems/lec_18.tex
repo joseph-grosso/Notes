@@ -1,0 +1,78 @@
+\lecture{18}{Sat 22 Feb 2020 14:29}{Continuous-Time I/O Systems (CTIOS)}
+
+\section{Continuous-Time I/O Systems (CTIOS)}
+
+We take inputs form some class $\mu$ of partially defined signals to some class $\Y$. We want the I/O map to be continuous. To define continuity, we use, convergent sequences. 
+
+Let  $\mu \subseteq U^{\left( \tdomain \right) }$ be a collection of partially defined signals with values in $U \subseteq \real ^{ m}$, and defined on a subinterval $\tdomain '\subseteq \tdomain$. If $\mathbb{S}\subseteq \tdomain$ is a subinterval, we denote:
+\[
+	\mu\left( \mathbb{S} \right)  = \left\{ \mu \in  \U  \mid \text{dom}\left( \mu \right) = \mathbb{S} \right\} 
+.\] 
+
+A sequence $\left( \mu_j \right)_{j \in \Z_{>0}} $ converges if 
+\begin{enumerate}
+	\item $\text{dom}\left( \mu_{j} \right) $ is independent of $j$, or
+	\item $\left( \mu_j \right) _{j \in  \Z_{>0}}$ converges in one of our familiar spaces, $C^{0}\left( \mathbb{S}; U \right) $, $L^{p}_{loc}\left( \mathbb{S}; U \right) $, $p \in  \left[ 1, \infty \right] $.
+\end{enumerate}
+
+\begin{definition}
+	A continuous-time I/O system (CTIOS) is $\Sigma\left( U, \tdomain, \U, \Y, g \right)$ with 
+	\begin{enumerate}
+		\item $U \subseteq \real^{m}$, 
+		\item $\tdomain \subseteq \real$ a continuous time domain, 
+		\item $\U$ is a subset of $U^{\left( \tdomain \right) }$ equipped with a notion of convergence as above,
+		\item $\Y \subseteq \left( \real^{k} \right) ^{\left( \tdomain \right) }$ is equipped with a notion of convergence as above, 
+		\item $g : \U \to \Y$ satisfies 
+			\begin{enumerate}
+				\item if $\mathbb{S}\subseteq \tdomain$ is a subinterval and if $g_{\mathbb{S}} = g  \mid \U\left( \mathbb{S} \right) $, then $g_{\mathbb{S}}\left( \U \right) \in \Y\left( \mathbb{S} \right)  $,
+				\item if $\mathbb{S}' \subseteq \mathbb{S}$, then $g_{\mathbb{S}}\left( \U \right)  \mid \mathbb{S}' = g_{\mathbb{S}' }\left( \mu  \mid \mathbb{S} \right) $ for $\mu \in  \U\left( \mathbb{S} \right) $, and 
+				\item $g_{\mathbb{S}} : \U\left( \mathbb{S} \right)  \to \Y\left( \mathbb{S} \right) $ is continuous, ie, it maps convergent sequences to convergent sequences. 
+			\end{enumerate}
+	\end{enumerate}
+\end{definition}
+
+It is very common to consider CTIOS's for which $\U \left( \mathbb{S} \right)  = \O $ unless $\mathbb{S} = \tdomain$. In these cases, conditions 5.a and 5.b don't matter.
+
+\subsection{Importance of Continuity}
+
+\begin{description}
+	\item[Steering Problems] - suppose one wants to steer the output from value $y_0$ at time $t_0$ to $y_1$ at time $t_1$. If this problem is solved, we would like for the imput to change only slightly if we change $y_1$ to $y_1 '$ nearby. 
+	\item[Stabilization] - suppose one wants to design inputs that, as time goes to $\infty$, steers all outputs to some fixed $y_0$. If we change the system a little, or if we don't know the system exactly, we would still like to use the same inputs to get close to $y_0$. 
+	\item[Optimal Control] - suppose one accomplishes some task while minimizing some cost, one would like the optimal input to change slightly if the task changes slightly. 
+\end{description}
+
+\subsection{CTIOS's as general systems}
+
+Because CTIOS are so general, they will not generally have attributes like causality or stationarity.
+
+\begin{eg}[Non-Causal System]
+	Let $U = \real$, $\tdomain = \real$, $\U = C^0 \left( \real; \real \right) $, note we don't have partially defined inputs. Define $g \left( \mu \right) \left( t \right) = \mu\left( -t \right) $, $\mu\left( t + 1 \right) $, etc. 
+\end{eg}
+
+\begin{eg}[Non-Stationary System] 
+        Let $U = \real$, $\tdomain = \real$, $\U = L' \left( \real; \real \right) $. Define $g$ by
+	\[
+		g\left( \mu \right) \left( t \right) = \int_{-\infty}^{t} \sin\left( \tau \right) \mu\left( \tau\right) d \tau
+	.\] 
+	For CTIOS's we don't have an initial time $t_0$ that we use to specify initial conditions.
+\end{eg}
+
+\begin{definition}[Causal CTIOS]
+	A CTIOS $\Sigma = \left( U, \tdomain, \U, \Y, g \right) $ is causal if $\mu_1, \mu_2 \in \U$ satisfy
+	 \[
+		 \mu_1  \mid \left( \tdomain\le t \cap \text{dom}\left(\mu_1 \right)  \right) = 		 \mu_2  \mid \left( \tdomain\le t \cap \text{dom}\left(\mu_2 \right)  \right) 
+	.\] 
+	Therefore,
+	\[
+	g(\mu_1)  \mid \left( \tdomain\le t \cap \text{dom}\left(\mu_1 \right)  \right) = 		 g(\mu_2) \mid \left( \tdomain\le t \cap \text{dom}\left(\mu_2 \right)  \right) 
+	.\] 
+	A CTIOS is strongly causal if the condition above is satisfied when $\le  $ is replaced by $<$.
+\end{definition}
+
+\begin{definition}[Stationarity of CTIOS]
+	A CTIOS $\Sigma = \left( U, \tdomain, \U, \Y, g \right) $ is stationary if 
+	\[
+		g\left( \tau_{a}*\mu \right) = \tau_{a}*g\left( \mu \right) \forall a \subseteq \real
+	\] 
+	and is strongly stationary if it is stationary and if for every $\mu \in  \U $ and $a \in  \real$, there exists $\mu' \in  \U$ such that $g\left( \mu \right) = g\left( \tau_{a}* \mu' \right) $ (ie, every behaviour can be obtained by shifting another behaviour).
+\end{definition}
