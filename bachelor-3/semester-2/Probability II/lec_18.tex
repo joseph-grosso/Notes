@@ -1,4 +1,4 @@
-\lecture{18}{Thu 13 Feb 2020 09:36}{}
+\lecture{18}{Thu 13 Feb 2020 09:36}{Special cases of the Gamma Distribution}
 
 Next, we will show that if $X_1 \sim Gamma\left( r_1, \lambda \right) $ and $X_2 \sim Gamma\left( r_2, \lambda \right) $ (note same $\lambda$), and $X_1$ and $X_2$ are independent, then $X_1 + X_2 \sim Gamma\left( r_1 + r_2 , \lambda \right) $.
 
@@ -10,7 +10,7 @@ Let
 The inverse is 
 \begin{align*}
 	X_1 &= UV \\
-	X_2 &= U\left( 1 - v \right) 
+	X_2 &= U\left( 1 - V \right) 
 .\end{align*}
 The support of $\left( U, V \right) ^{T}$ is 
 \[
@@ -54,7 +54,7 @@ We can conclude a couple things from this.
 				\[
 					X_1 ^{2} + \ldots + X_{n}^{2} \sim Gamma\left( \frac{n}{2}, \frac{1}{2} \right) 
 				,\] 
-				which is the $\chi ^{2}_{n}$ distribution. This is useful because the sum of squares is essentially the sample variance from a random sample. In fact, we can show that $\overline{X}$ and $S^2$ are independent if the $X_{1} , \ldots , X_{n}$ are Gaussian.
+				which is the $\chi ^{2}_{n}$ (chi squared) distribution. This is useful because the sum of squares is essentially the sample variance from a random sample. In fact, we can show that $\overline{X}$ and $S^2$ are independent if the $X_{1} , \ldots , X_{n}$ are Gaussian.
 		\end{enumerate}
 	\item The pdf for $V$ is the pdf of the Beta distribution with parameters $r_1 > 0$ and $r_2 > 0$. The support of this distribution is the interval $\left( 0,1 \right) $. A special case of this is when $r_1 = r_2 = 1$, which gives the Uniform$\left( 0, 1 \right)$ distribution.
 

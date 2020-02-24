@@ -1,0 +1,86 @@
+\lecture{19}{Mon 24 Feb 2020 08:35}{More Gamma and Midterm Review}
+
+\begin{note}
+	For the midterm study the change of variables formula.
+\end{note}
+
+Let $X_{1} , \ldots , X_{n}$ be independent standard normal random variables, N(0,1). Let $A$ be an $n \times n$ orthonormal matrix with first row  $\left( \frac{1}{\sqrt{n} }, \ldots , \frac{1}{\sqrt{n} } \right) $. 
+
+\section{Properties of Orthonormal Matrices}
+
+\begin{enumerate}
+	\item $A^{T}A = A A^{T} = I$, ie the transpose of an orthonormal matrix is the inverse of the orthonormal matrix.
+	\item $A$ does not change the length of a vector in $R ^{n}$. If $x \in  R ^{n}$, 
+		\begin{align*}
+			\|Ax\|^2 &= \left( Ax \right) ^{T}Ax \\
+			&= x^{T}A^{T}Ax \\
+			&= x^{T}x \\
+			&= \|x\|^2
+		.\end{align*}
+	\item $\text{det}\left( A \right) = 1 = \text{det}\left( A^{T} \right) $. Let $Y = AX$, where 
+		\begin{align*}
+			X &= \left( X_{1} , \ldots , X_{n} \right) ^{T} \\
+			Y &= \left( Y_{1} , \ldots , Y_{n} \right) ^{T} 
+		.\end{align*}
+		The joint pdf of $X$ is 
+		\begin{align*}
+			f_{X}\left( x \right) &= \prod_{i=1}^{n}\frac{1}{\sqrt{2\pi} }e ^{\frac{-x_{i}^2}{2}} \\
+					      &= \left( \frac{1}{\sqrt{2\pi} } \right)^{n}e ^{-\sum_{i=1}^{n} \frac{x_{i}^2}{2}}  \\
+&= \left( \frac{1}{\sqrt{2\pi} } \right)^{n}e ^{-\frac{1}{2}x^{T}x}  
+		\end{align*}
+		where $x = \left( x_{1} , \ldots , x_{n} \right) ^{T}$.
+
+		The joint pdf of $Y$ is found using the inverse transformation:
+		\begin{align*}
+			X &= A^{T}Y \\
+			J &= \text{det}\left( A^{T} \right)  = 1
+		.\end{align*}
+		Then the joint pdf of $Y$ is 
+		\begin{align*}
+			f_{X}\left( A^{T}Y \right) &= \left( \frac{1}{\sqrt{2\pi} } \right)^{n} e ^{\frac{-1}{2} \left( A^{T}y \right) ^{T}\left( A^{T}y \right) } \\
+			&= \left( \frac{1}{\sqrt{2\pi} } \right)^{n} e ^{\frac{-1}{2}  y^{T}A \left( A^{T}y \right) } \\
+			&= \left( \frac{1}{\sqrt{2\pi} } \right)^{n} e ^{\frac{-1}{2}  y^{T}y} \\
+		\end{align*}
+which is the same pdf as $X$.
+
+Therefore $Y_{1} , \ldots , Y_{n}$ are also independent standard normal random variables.
+
+Note that 
+ \begin{align*}
+	 Y_1 &= \frac{1}{\sqrt{n} }\left( X_1 + \ldots + X_{n} \right)  \\
+	 &= \sqrt{n} \overline{X}
+.\end{align*}
+where $\overline{X} = \frac{1}{n}\sum_{i=1}^{n} X_{i}$.
+
+Also, $\|X\|^2 = \|Y\|^2$, ie, 
+\begin{align*}
+	X_1^2 + \ldots + X_{n}^2 &= Y_1^2 + \ldots + Y_{n}^2 \\
+	\implies Y_2 ^2 + \ldots + Y_{n}^2 &=  X_1^2 + \ldots + X_{n}^2 - n\overline{X}^2\\
+					   &= \sum_{i=1}^{n} \left( X_{i} - \overline{X} \right) ^2 \\
+					   &= \left( n-1  \right) S^2
+.\end{align*}
+
+where $S^2 = \frac{1}{n-1}\sum_{i=1}^{n} \left( X_{i} - \overline{X} \right) ^2$ is the sample variance.
+
+So, $\overline{X}$ is a function of only $Y_1$, $S^2$ is a function of only $Y_{2} , \ldots , Y_{n}$, since $Y_1$ and $\left( Y_{2} , \ldots , Y_{n} \right)^{T} $ are independent so are $\overline{X}$ and $S^2$.
+
+Moreover, $\sum_{i=1}^{n} \left( X_{i} - \overline{X} \right) ^2$ has a $\chi ^2_{n-1}$ distribution (since this is the distribution of $Y_{2}^2 + \ldots + Y_{n}^2$). So 
+\[
+	\left( n-1 \right) S^2 \sim \chi ^2_{n-1}
+.\] and
+\[
+	\sqrt{n} \ \overline{X} = Y_1 \sim N\left( 0,1 \right) 
+.\] 
+
+\begin{note}
+	Midterm Stuff:
+
+	Thursday, in class, morning.
+
+	Can bring one 8.5 x 11 inch sheet of notes, written on both sides (handwritten or typed).
+
+	One simple calculator. 
+
+	3 questions, 10 marks each.
+\end{note}
+\end{enumerate}
