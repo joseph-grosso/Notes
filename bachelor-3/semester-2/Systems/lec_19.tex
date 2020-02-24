@@ -1,0 +1,81 @@
+\lecture{19}{Mon 24 Feb 2020 16:29}{CTSSS's as CTIOS's}
+
+Let $\Sigma = \left( X, U, Y, \tdomain, \U, \Y, f, h \right) $ be a CTSSS and let $\left( t_0, x_0 \right) \in \tdomain \times X$. Then we can define a CTIOS $\Sigma _{I / O}\left( t_0, x_0 \right)  =\left( U, \tdomain , \U, \Y, g\right)  $ by 
+\[
+	g\left( \mu \right) ^{\left( t \right) } = h\left( t, \Phi^{\Sigma}\left( t, t_0, x_0, \mu \right) , \mu\left( t \right)  \right) 
+.\] 
+where, we call 
+\tdomain\begin{align*}
+	\frac{d}{dt}\Phi^{\Sigma}\left( t, t_0, x_0, \mu \right) &= f\left( t, \Phi^{\Sigma}\left( t, t_0, x_0, \mu \right) , \mu\left( t \right)  \right)  \\
+	\Phi^{\Sigma}\left( t_0, t_0, x_0, \mu \right) &= x_0
+.\end{align*}
+\begin{note}
+	\begin{align*}
+%% put in the side equations he inserted here 
+	.\end{align*}
+\end{note}
+We assume that $f$ satisfies the previous conditions giving existence and uniqueness of trajectories. We can easily verify that $g$ has all the properties of a CTIOS, except possibly continuity. To verify continuity, we do two things.
+\begin{enumerate}
+	\item give properties of $h$, and 
+	\item select an appropriate set of outputs.
+\end{enumerate}
+
+We will consider various cases.
+\begin{enumerate}
+	\item $\Sigma $ has no additional assumptions about dependence on time or control, ie, the general case. Here we assume that 
+		 \begin{enumerate}
+			 \item $t \longmapsto h\left( t, x, u \right) $ is locally integrable, 
+			 \item $\left( x, u \right) \longmapsto h\left( t, x, u \right) $ is continuous, 
+			 \item for $\left( t_0 , x_0, u_0 \right) \in  \tdomain \times X \times  U$, there exists $p, r_1, r_2 \in \real_{>0}$ and $g \in  L'\left( \left[ t_0 - p, t_0 + p  \right] ; \real _{\ge 0} \right) $ such that 
+				  \[
+					  \|h\left( t, x, u \right) \| \le  g\left( t \right) 
+				 .\] 
+				 for $t \in \left[ t_0 - p, t_0 + p \right] $, $x \in  B\left( r_1, x_0 \right) $, $u \in  B\left( r_2, u_0 \right) \cap U$, 
+			 \item $\U \subseteq L^{\infty}_{loc}$ and $\Y \subseteq L^{1}_{loc}\left( \left( \tdomain \right) ; \real^{k} \right) $, and 
+			 \item $U$ is locally compact, eg, open or closed. 
+		\end{enumerate}
+	\item $\Sigma$ is output autonomous (ie, $h$ is independent of t). Here we assume the following:
+		\begin{enumerate}
+			\item $\left( x, u \right) \longmapsto h\left( x, u \right) $ is continuous, 
+			\item $U$ is locally compact, 
+			\item $\Y \subseteq L^{\infty}_{loc}\left( \left( \tdomain, \real^{k} \right)  \right) $
+		\end{enumerate}
+	\item $\Sigma$ is proper and output autonomous (ie,  $h$ depends only on x).
+		\begin{enumerate}
+			\item $x \longmapsto h\left( x \right) $ is continuous, 
+			\item $U$ is locally compact, and
+			\item $\Y \subseteq C^{0}\left( \left( \tdomain \right) , \real^{k} \right) $.
+		\end{enumerate}
+The remaining cases are to do with control-affine systems:
+\begin{align*}
+	f\left( t, x, u \right) &= f_0 \left( t, x \right)  + \sum_{a=1}^{m} u_{a}f_a \left( t, x \right)  \\
+	h\left( t, x , u \right) &= h_0 \left( t, x  \right) + \sum_{a=1}^{m} u_{a} h_a \left( t, x \right)  
+.\end{align*} 
+\item  The general control-affine case case. Here
+	\begin{enumerate}
+		\item $t \longmapsto h_a \left( t, x  \right) $ is locally integrable for $a \in  \left\{ 0, 1, \ldots , m \right\} $, 
+		\item $x \longmapsto h_{a}\left( t, x \right)$ is continuous for $a \in  \left\{ 0, 1, \ldots, m \right\} $, 
+		\item for $\left( t_0, x_0 \right) $ there exists $p, r \in \real_{>0}$ and $g_{a}\in  L^{1}\left( \left[ t_0 - p, t_0 + p \right] ; \real_{\ge 0} \right) $, $a \in  \left\{ 0, 1, \ldots , m \right\} $ such that 
+			\[
+				\|h_{a}\left( t, x \right) \|\le  g_{a}\left( t \right) 
+			.\] 
+			for $t \in \left[ t_0 - p, t_0 + p \right] $, $x \in B\left( r, x_0 \right) $, and 
+		\item $\Y \subseteq L^{1}_{loc}\left( \left( \tdomain \right) ; \real^{k} \right) $.
+	\end{enumerate}
+\item The output autonomous, control-affine case. 
+	\begin{enumerate}
+		\item $x \longmapsto h_{a}\left( x \right) $ is continuous for $a \in \left\{ 0, 1, \ldots , m \right\} $, and 
+		\item $\Y \subseteq L^{\infty}_{loc}\left( \left( \tdomain \right) ; \real^{k} \right) $. 
+	\end{enumerate}
+\item The autonomous control-affine. Here we take $\U \subseteq L^{1}_{loc}\left( \left( \tdomain \right) ; U \right) $. We assume 
+	\begin{enumerate}
+		\item $x \longmapsto h _{a}\left( x \right) $ is continuous, $a \in \left\{ 0, 1, \ldots, m \right\}$,  
+		\item $\Y \subseteq L^{1}_{loc}\left( \left( \tdomain \right) ; \real^{k} \right) $.
+	\end{enumerate}
+\item Proper autonomous. Here we have $\U \subseteq L^{1}_{loc}\left( \left( \tdomain \right) ; U \right) $. 
+	\begin{enumerate}
+		\item  $x \longmapsto h_0 \left( x \right) $ is continuous, and 
+		\item $\Y \subseteq C^{0}\left( \left( \tdomain \right) ; \real^{k} \right) $.
+	\end{enumerate}
+\end{enumerate}
+
