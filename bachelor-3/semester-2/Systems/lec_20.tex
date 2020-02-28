@@ -1,0 +1,40 @@
+\lecture{20}{Fri 28 Feb 2020 14:02}{Discrete Time State Space System - Needs to be finished!}
+\section{Discrete-time State Space Systems}
+\begin{definition}
+	A discrete-time state space system is $\Sigma = \left( X, U, \tdomain, f, h \right) $ where 
+	\begin{enumerate}
+		\item $X \subseteq \real^{n}$ is open (state space), 
+		\item $U \subseteq \real^{m}$ (input set), 
+		\item $\tdomain \subseteq \Z \left( \Delta \right) $ is a discrete-time domain (the time-domain), 
+		\item $\U \subseteq l_{loc}\left( \left( \tdomain \right) ; U \right)$ (the inputs), 
+		\item  $P : \tdomain \times  X \times U  \to \real ^{n}$ (the dynamics), and 
+		\item  $h : \tdomain \times  X \times  U \to \left( \real^{k} \right) ^{\left( \tdomain \right) }$ (the output map).
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	A controlled trajectory is $\left( \xi, \mu \right) $ where $\mu : \tdomain^{1} \to X$ ($\tdomain ^{1} \subseteq \tdomain $ a sub-time domain) is in $\U$ and $\xi : \tdomain ^{1} \to X$ satisfies 
+	\[
+		\xi\left( t + \Delta \right) = f\left( t, \xi\left( t \right) , \mu\left( t \right)  \right) 
+	.\] 
+\end{definition}
+
+\begin{definition}
+	A controlled output is $\left( \eta, \mu \right) $ where $\mu$ is as above, and 
+	\[
+		\eta\left( t \right) = h\left( t, \xi\left( t \right) , \mu\left( t \right)  \right) 
+	.\] 
+	for a controlled trajectory $\left( \xi, \mu \right) $. 
+\end{definition}
+
+\begin{notation}
+	Controlled trajectory is $C_{trag}\left( \Sigma \right) $ and controlled output is $C_{out}\left( \Sigma \right) $.
+\end{notation}
+
+The governing equations of the system are then
+\begin{align*}
+	\xi\left( t + \Delta \right) &= f\left( t, \xi\left( t \right) , \mu\left( t \right)  \right) \\
+	\eta\left( t \right) &= h\left( t, \xi\left( t \right) , \mu\left( t \right)  \right) 
+.\end{align*}
+
+

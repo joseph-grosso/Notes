@@ -1,0 +1,67 @@
+\lecture{21}{Fri 28 Feb 2020 14:31}{Discrete-time I/O Systems}
+
+To discuss input/output systems from spaces of discrete-time inputs and outputs, we need convergence in spaces of discrete-time signals. 
+
+\begin{definition}
+	Let $S\subseteq \real^{n}$, let $\tdomain \subseteq \Z\left( \Delta \right) $ be a discrete time-domain, and let $\cS\subseteq S^{\left( \tdomain  \right) }$ be a set of partially defined signals. A sequence $\left( f_{j} \right) _{j \in  \Z _{>0}}$ in $\cS $ converges if 
+	\begin{enumerate}
+		\item $dom\left( f_{j} \right) $ is the same for each $j \in \Z_{>0}$, 
+		\item the sequence $\left( f_{j} \right) _{j \in  \Z _{>0}}$ converges in $l_{loc}\left( dom\left( f_{j} \right) ; S \right) $ with respect to one (and, therefore, all) of the collections of seminorms $\|\cdot\|_{\$, D}$ where $\$ \subseteq dom\left( f_{j} \right) $, $p \in \left[ 1, \infty \right] $
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	A discrete-time input-output system (DTIOS) is $\Sigma = \left( U, \tdomain , \U, \Y, g \right) $ where 
+	\begin{enumerate}
+		\item $U \subseteq \real^{m}$ (input set), 
+		\item $\tdomain \subseteq \Z\left( \Delta \right) $ (time-domain), 
+		\item $\U \subseteq l_{loc}\left( \left( \tdomain  \right) ; U \right) $ (input space), 
+		\item $\Y\subseteq l_{loc}\left( \left( \tdomain  \right) ; \real^{k} \right) $ (output space), 
+		\item $g : \U \to \Y$ satisfies 
+			\begin{enumerate}
+				\item if $\$ \subseteq \tdomain $ is a sub-time-domain, then $g_{\$} = g | \U\left( \$ \right) $, where $\U \left( \$ \right) $ denotes inputs with domain \$, has the property that $g_{\$}\left( \mu \right) \in \Y\left( \$ \right) $, 
+				\item if $\$ ' \subseteq \$ \subseteq \tdomain $ then 
+					\[
+						g_{\$}\left( \mu \right) | \$ ' = g_{\$ '}\left( \mu | \$ ' \right) 
+					,\] and 
+				\item $g_{\$} : \U\left( \$ \right)  \to \Y\left( \$ \right) $ is continuous, ie, it maps convergent sequences to convergent sequences. 
+			\end{enumerate}
+	\end{enumerate}
+\end{definition}
+
+%% TODO: Fix the stupid dollar signs and put in a better math symbol
+
+\subsection{General time-system properties for DTIOS's}
+
+A DTIOS is a general time system. They get their own definition of causality and stationarity. 
+
+\begin{definition}
+	A DTIOS is causal if, for every $t \in  \tdomain $, 
+	\begin{align*}
+		\mu_{1} | (-\infty, t] \cap \tdomain &=  (-\infty, t] \cap \tdomain  \\
+		\implies g\left( \mu_1 \right) \left( t \right) &= g\left( \mu_2 \right) \left( t \right) 
+	.\end{align*}
+	Strong causality is when we replace $(-\infty, t]$ with $\left( -\infty, t \right) $.
+\end{definition}
+
+\begin{definition}
+	A DTIOS is stationary if $\U$ is invariant under shifts $\tau_{a}$, $a \in  \Z\left( \Delta \right) $, and if 
+	 \[
+		 \tau*_{a}g\left( \mu \right) = g\left( \tau*_{a}\mu \right) 
+	.\] 
+	A DTIOS is strongly stationary if it is stationary if, for every $a \in  \Z\left( \Delta \right) $, and for every $\mu \in \U$, there exists  $\mu' \in  \U$ such that $\tau*_{a} g\left( \mu \right) = g\left( \mu' \right) $. 
+\end{definition}
+
+	Because DTIOS's are very general, if one has one, one must check "by hand" if it has any of the above properties.
+
+	\begin{note}
+		It is very common to have $\U \subseteq l_{loc}\left( \tdomain ; U \right) $ and $\Y \subseteq l_{loc}\left( \tdomain ; \real ^{k} \right) $. In these cases, conditions 5(a) and 5(b) from the DRIOS definition are moot. 
+	\end{note}
+
+	\subsection{DTSSS's as DTIOS's}
+
+	Let $\Sigma = \left( X, U, \tdomain , \U, f, h \right) $ be a DTSSS and let $\left( t_0, x_0 \right) \in \tdomain  \times  X$. We define a DTIOS $\Sigma _{I / O}\left( t_0, x_0 \right) $ by 
+	\[
+		g\left( \mu \right) \left( t \right) = h\left( t, \Phi^{\Sigma}\left( t, t_0, x_0, \mu \right) , \mu\left( t \right)   \right) 
+	.\] 
+	This satisfies all of the properties of a DTIOS, except possibly, condition 5(c) about continuity. This is much more easily achieved than in the continuous-time case. For example, if $\Sigma $ is output autonomous and $f$ and $h$ are continuous functions of  $\left( x, u \right) $. 
