@@ -1,0 +1,102 @@
+\lecture{22}{Mon 02 Mar 2020 16:29}{Linearisation of CTSSS's}
+
+Let $\Sigma = \left( X, U, \tdomain , \U, f, h \right) $ be a CTSSS and let $\left( \xi_0, \mu_0 \right) \in  C_{traj}\left( \Sigma \right) $ with dom$\left( \mu_0 \right) = \tdomain '$. Call $\left( \xi_0 , \mu_0 \right) $ the reference trajectory, and we will linearise about this. Suppose we have a controlled trajectory $\left( \xi, \mu \right) $ that is "nearby" $\left( \xi_0, \mu_0 \right) $. Thus
+\begin{align*}
+	v\left( t \right) &= \xi\left( t \right) - \xi_0\left( t \right)  \\
+	w\left( t \right) &= \mu\left( t \right) - \mu_0\left( t \right) 
+\end{align*}
+
+are "small". 
+
+Denote by $\left( \eta_0 , \mu_0\right) $ the controlled output for $\left( \xi_0, \mu_0 \right) $. Write $\left( \eta, \mu \right) $ as the controlled ouput for $\left( \xi, \mu \right) $. Then $\eta = \eta_0 + \gamma$.
+
+We calculate:
+
+\begin{align*}
+	\dot{\xi} \left( t \right) &= f \left( t, \xi\left( t \right) , \mu\left( t \right)  \right)  \\
+	\eta\left( t \right) &= h \left( t, \xi\left( t \right) , \mu\left( t \right)  \right)  \\
+	\implies \dot{\xi} _{0}\left( t \right) + \dot{v}\left( t \right) &= f\left( t, \xi_0 \left( t \right)  + v\left( t \right) , \mu_0 \left( t \right) + w\left( t \right) \right)  \quad \left( * \right)  \\
+	\implies \eta_0 \left( t \right) + \gamma\left( t \right) &= h\left( t, \xi_0\left( t \right) + v\left( t \right) , \mu_0 \left( t \right) + w\left( t \right)  \right) 
+.\end{align*}
+
+We wish to taylor expand, and we need some notation for derivatives. For $t \in  \tdomain $, define 
+\begin{align*}
+	f_{t}: X \times  U &\longrightarrow \real^{n} \\
+	\left( x, u \right)  &\longmapsto f_{t}(\left( x, u \right) )
+.\end{align*}
+and 
+\begin{align*}
+n_{t}	: X \times U &\longrightarrow \real^{n} \\
+\left( x, u \right)  &\longmapsto h (x, u) 
+.\end{align*}	
+
+Assumptions: 
+\begin{enumerate}
+	\item $U$ is open, 
+	\item  $f_{t}$ and $h_t$ are continuously differentiable for $t \in  \tdomain $.
+\end{enumerate}
+
+Then denote by $D_{1}f_{t}\left( x, u \right) \in L\left( \real ^{n}; R^{n} \right) $ the Jacobian with respect to $x$. Explicitly if $f_{t}\left( x, u \right) = \left( f_{t, 1}\left( x, u \right) , \ldots, f\left( t, n  \right) \left( x, u \right)  \right)  $ then 
+\[
+	D_1 f_t\left( x, u \right) = \begin{bmatrix} \frac{\partial f_{t, 1}}{\partial x_1} \left( x, u \right) & \ldots & \frac{\partial f_{t, 1}}{\partial x_{n}} \left( x, u \right) \\
+	\vdots & & \vdots \\
+\frac{\partial f_{t, n }}{\partial x_1}\left( x, u \right)   & \ldots & \frac{\partial f_{t, n}}{\partial x_{n}} \left( x, u \right) \end{bmatrix} 
+.\] 
+
+Similarly we have $D_1 h_{t}\left( x, u \right) \in L\left( \real^{n }; \real^{k} \right) $ given by 
+
+\[
+	D_1 h_t\left( x, u \right) = \begin{bmatrix} 
+		\frac{\partial h_{t, 1}}{\partial x_1} \left( x, u \right) & \ldots & \frac{\partial h_{t, 1}}{\partial x_{k}} \left( x, u \right) \\
+	\vdots & & \vdots \\
+\frac{\partial h_{t, k }}{\partial x_1}\left( x, u \right)   & \ldots & \frac{\partial h_{t, k}}{\partial x_{k}} \left( x, u \right) \end{bmatrix} 
+.\] 
+
+Similarly, we have the Jacobians $D_2 f_{t}\left( x, u  \right) \in  L\left( \real^{m}; \real^{n} \right) $ and $D_{2}h _{t}\left( x, u \right) \in L\left( \real ^{m }; \real ^{k} \right) $ with respect to $u$. Then define 
+ \begin{align*}
+	 D_1 f_{t}\left( t, x, u \right) &= D_1 f_{t}\left( x, u \right)  \\
+	 D_1 h_{t}\left( t, x, u \right) &= D_1 h_{t}\left( x, u \right)  \\
+	 D_2 f_{t}\left( t, x, u \right) &= D_2 f_{t}\left( x, u \right)  \\
+	 D_2 h_{t}\left( t, x, u \right) &= D_2 h_{t}\left( x, u \right)  \\
+.\end{align*}
+
+Now, Taylor expanding $\left( * \right) $, we get (hots = higher order terms)
+\begin{align*}
+	\dot{\xi} _{0}\left( t \right) + \dot{v}\left( t \right) &= f\left( t, \xi_0 \left( t \right)  , \mu_0 \left( t \right)\right) + D_1 f\left( t, \xi_0 \left( t \right) , \mu_0 \left( t \right)  \right) v\left( t \right) + D_2 f\left( t, \xi_0\left( t \right) , \mu_0\left( t \right)  \right) w\left( t \right) + hots\\
+	\eta_0 \left( t \right) + \gamma\left( t \right) &= h\left( t, \xi_0\left( t \right) , \mu_0\left( t \right)  \right)  + D_1 h\left( t, \xi_0 \left( t \right) , \mu\left( t \right)  \right) v\left( t \right) + D_2 h\left( t, \xi_0\left( t \right) , \mu_0\left( t \right)  \right) w\left( t \right) + hots \\
+	\implies  \dot{v}\left( t \right) &=  D_1 f\left( t, \xi_0 \left( t \right) , \mu_0 \left( t \right)  \right) v\left( t \right) + D_2 f\left( t, \xi_0\left( t \right) , \mu_0\left( t \right)  \right) w\left( t \right) \\
+	\implies \gamma\left( t \right) &=  D_1 h\left( t, \xi_0 \left( t \right) , \mu\left( t \right)  \right) v\left( t \right) + D_2 h\left( t, \xi_0\left( t \right) , \mu_0\left( t \right)  \right) w\left( t \right) 
+.\end{align*}
+
+These are the "linearized equations". This is a time-varying linear system with input $w$, output $\gamma$, and state  $v$. Let us denote for brevity
+
+\begin{align*}
+	A_{\xi_0, \mu_0}: \tdomain ' &\longrightarrow L\left( \real^{n}; \real^{n} \right)  \\
+	t &\longmapsto D_1 f\left( t, \xi_0 \left( t \right) , \mu_0 \left( t \right)  \right)  
+.\end{align*}
+
+\begin{align*}
+	B_{\xi_0, \mu_0}: \tdomain ' &\longrightarrow L\left( \real^{m}; \real^{n} \right)  \\
+	t &\longmapsto D_2 f\left( t, \xi_0 \left( t \right) , \mu_0 \left( t \right)  \right)  
+.\end{align*}
+
+\begin{align*}
+	C_{\xi_0, \mu_0}: \tdomain ' &\longrightarrow L\left( \real^{n}; \real^{k} \right)  \\
+	t &\longmapsto D_1 h\left( t, \xi_0 \left( t \right) , \mu_0 \left( t \right)  \right)  
+.\end{align*}
+\begin{align*}
+	D_{\xi_0, \mu_0}: \tdomain ' &\longrightarrow L\left( \real^{m}; \real^{n} \right)  \\
+	t &\longmapsto D_2 h\left( t, \xi_0 \left( t \right) , \mu_0 \left( t \right)  \right)  
+.\end{align*}
+
+\begin{definition}
+	The linearization of $\Sigma = \left( X, U, \tdomain , \U , f, h \right) $ about $\left( \xi_0, \mu_0 \right) \in  C_{traj}\left( \Sigma \right) $ with $\left( \eta_0, \mu_0 \right) \in C_{out}\left( \Sigma \right) $ the controlled output is 
+	\begin{align*}
+		\Sigma _{L, \left( \xi_0, \mu_0 \right) }&= \left( \real^{n}, \real^{m}, \tdomain ', L^{\infty}_{loc}\left( \tdomain ' ; \real^{m} \right) , f_{L, \left( \xi_0, \mu_0 \right) }, h_{L, \left( \xi_0, \mu_0 \right) } \right) 
+	.\end{align*}
+	where 
+	\begin{align*}
+		f_{L, \left( \xi_0, \mu_0 \right) }\left( t, v, w \right) = A_{\left( \xi_0, \mu_0 \right) }\left( t \right) v + B_{\left(\xi_0, \mu_0\right)}\left( t \right) w \\
+		h_{L, \left( \xi_0, \mu_0 \right) }\left( t, v, w \right) = C_{\left( \xi_0, \mu_0 \right) }\left( t \right) v + D_{\left(\xi_0, \mu_0\right)}\left( t \right) w \\
+	.\end{align*}
+\end{definition}
