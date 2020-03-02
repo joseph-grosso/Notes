@@ -1,0 +1,103 @@
+\lecture{22}{Mon 02 Mar 2020 08:37}{Beta Distribution (sec. 7.5)}
+
+A random variable $X$ has a Beta distribution with parameters $\alpha > 0$, $\beta > 0$ and density
+
+\[
+	f_{X}\left( x \right) = \begin{cases}
+		\frac{1}{\beta \left( \alpha , \beta  \right) }x^{\alpha - 1}\left( 1-x \right) ^{\beta - 1} & 0 < x < 1 \\
+		0 & \text{otherwise}
+	\end{cases}
+.\] 
+where $\beta \left( \alpha , \beta \right) $ is the beta function defined as 
+\[
+	\beta \left( \alpha , \beta  \right) = \int_{0}^{1} x^{\alpha - 1}\left( 1 - x  \right) ^{\beta - 1}dx 
+.\] 
+
+We have seen that 
+\[
+	\beta \left( \alpha, \beta  \right) = \frac{\Gamma \left( \alpha \right) \Gamma\left( \beta \right) }{\Gamma \left( \alpha + \beta \right) }
+.\] 
+
+Also, if $X_{1} , \ldots , X_{n}$ are independent and they each have a gamma distribution Gamma$\left( r_i, \lambda  \right) $, then 
+\[
+	\frac{x_{i}}{x_1 + \ldots + x_{n}} \sim \text{Beta}\left( r_i , \sum_{j=1}^{n} r_j \right) 
+.\] 
+
+This is so since if we let 
+\begin{align*}
+	Y_1&= \sum_{j \neq i} X_{j} \\
+	Y_2 &= X_{i} 
+.\end{align*}
+Then
+\begin{align*}
+	Y_1 &\sim \text{Gamma}\left( \sum_{j \neq i}^{} r_{j}, \lambda \right) \\
+	Y_2 &\sim  \text{Gamma}\left( r_i , \lambda \right) 
+.\end{align*}
+and $Y_1$ and $Y_2$ are independent. Then 
+\[
+	\frac{Y_2}{Y_1 + Y_2} \sim \text{Beta}\left( r_i , \sum_{j \neq i}^{ } \left( r_j + r_i \right)  \right) 
+.\] 
+
+So we can view the Beta distribution as modelling the proportion of the total sum obtained from independent Gamma random variables (with the same 2nd parameter $\lambda$).
+
+\subsection{Special Cases}
+
+If $\alpha = 1$ and $\beta = 1$ then $X$ has a Uniform$\left( 0, 1 \right) $ distribution.
+
+\subsection{Moments}
+
+For a fixed positive integer $k$, we have 
+ \begin{align*}
+	 E \left[ X^{k} \right] &= \int x^{k}\frac{1}{B\left( \alpha , \beta \right) }x ^{\alpha - 1} \left( 1 - x \right) ^{\beta - 1}dx \\
+				&= \frac{B \left( k + \alpha , \beta \right) }{B\left( \alpha , \beta \right) }\int_{0 }^{1} \frac{1}{B\left( \alpha , \beta \right) }x ^{\alpha - 1} \left( 1 - x \right) ^{\beta - 1}  
+.\end{align*}
+
+Then integrated term here is the equation for the Beta$\left( k + \alpha, \beta \right) $ density. 
+
+\begin{align*}
+	&= \frac{B \left( k + \alpha , \beta \right) }{B\left( \alpha , \beta \right) }\\
+	&= \frac{\Gamma \left( k + \alpha \right) \Gamma\left( \beta \right) }{\Gamma \left( k + \alpha + \beta \right) } \frac{\Gamma\left( \alpha + \beta  \right) }{\Gamma\left( \alpha  \right) \Gamma\left( \beta \right) } \\
+	&= \frac{\left( k + \alpha - 1 \right) \ldots \alpha \Gamma \left( alpha \right) \Gamma\left( \alpha + \beta \right) } {\left( k + \alpha + \beta - 1 \right) \ldots \left( \alpha + \beta \right) \Gamma\left( \alpha + \beta  \right) \Gamma\left( \alpha \right) }
+.\end{align*}
+
+Therefore, 
+\begin{align*}
+k &= 1 : \quad E \left[ X \right]  = \frac{\alpha }{\alpha + \beta} \\
+k &= 2 : \quad E \left[ X^2 \right]  = \frac{\left( \alpha + 1 \right) \alpha }{\left( \alpha + \beta + 1 \right)  \left( \alpha + \beta \right) }
+.\end{align*}
+
+Then 
+\begin{align*}
+	Var \left( X \right) &= E \left[ X^2 \right]  - E\left[ X \right] ^2 \\
+			     &= \frac{\left( \alpha + 1 \right) \alpha \left( \alpha + \beta  \right) - \alpha ^2 \left( \alpha + \beta + 1 \right) }{\left( \alpha + \beta + 1 \right) \left( \alpha + \beta  \right) ^2} \\
+			     &= \frac{\alpha \beta }{\left( \alpha + \beta + 1 \right) \left( \alpha + \beta  \right) ^2} = Var\left( X \right)  
+.\end{align*}
+
+\begin{eg}
+	Let $X \sim \text{Uniform}\left( 0, 1 \right) $, ie, $\alpha = \beta = 1$. 
+	\begin{align*}
+		E\left[ X \right] &= \frac{1}{1 + 1} = \frac{1}{2} \\
+		\text{Var}\left( X \right) &= \frac{\left( 1 \right) \left( 1 \right) }{\left( 1 + 1 + 1 \right) \left( 1 + 1  \right) ^2} = \frac{1}{12}
+	.\end{align*}
+\end{eg}
+
+\subsection{Conditional Expectation} 
+
+Let $X$ be a random variable and $Y $ be a random vector. 
+
+\subsection{Conditional Distributions}
+
+If $X$ and $Y$ are both discrete then the conditional pmf of $X$ given $Y = y$ gives the conditional probabilities $P\left( X = x | Y = y  \right) $, denoted $p_{X,Y}\left( x , y \right) $. 
+
+We have 
+\begin{align*}
+	p_{X|Y}\left( x | y \right) &= \frac{P\left( X = x , Y = y \right) }{P\left( Y = y \right) } \\
+				    &= \frac{p_{X, Y}\left( x, y \right) }{p_{Y}\left( y \right) } 
+,\end{align*}
+
+where $p _{X, Y}$ and $p_{Y}$ are the joint pmf of $X$ and $Y$, and the marginal pdf of $Y$,  respectively. 
+
+Similarly, if $X$ and $Y$ are both continuous with joint pdf $f_{X, Y}\left( x, y \right) $ and marginal pdf $f_{Y}\left( y \right) $ for $Y$, then the conditional pdf of $X $ and $Y$, then the conditional pdf of $X$ given $Y = y$ is 
+\[
+	f_{X|Y}\left( x | y \right) = \frac{f_{X, Y}\left( x, y \right) }{f_{Y}\left( y \right) }
+.\] 
