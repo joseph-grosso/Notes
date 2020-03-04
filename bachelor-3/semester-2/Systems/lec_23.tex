@@ -1,0 +1,38 @@
+\lecture{23}{Wed 04 Mar 2020 15:28}{Linearisation of CTSSS's (cont'd)}
+
+We note that we can combine the equations for a controlled output $\left( \eta, \mu \right) $ with the equations for linearization about $\left( \eta, \mu \right) $
+\begin{align*}
+	\dot{\xi} \left( t \right) &= f \left( t, \xi\left( t \right) , \mu\left( t \right)  \right)  \\
+	\dot{\nu} \left( t \right)  &= D_1 f\left( t, \xi\left( t \right) , \mu\left( t \right)  \right) \cdot \nu\left( t \right)  + D_2 f\left( t, \xi\left( t \right) , \mu\left( t \right)  \right) \cdot \omega \\
+	\eta\left( t \right) &= h\left( t, \xi\left( t \right) , \mu\left( t \right)  \right)  \\
+	\gamma\left( t \right)  &=D_1 h\left( t, \xi\left( t \right) , \mu\left( t \right)  \right) \cdot \nu\left( t \right)  + D_2 h\left( t, \xi\left( t \right) , \mu\left( t \right)  \right) \cdot \omega \\
+.\end{align*}
+
+The first two equations are known as the state ODE's and the second two equations are known as output equations.
+
+This suggests a linearisation, not about a reference trajectory, but of the whole system. The state is $\left( \xi\left( t \right) ,\nu\left( t \right)  \right) $, the input is $\left( \mu\left( t \right) , \omega \left( t \right)  \right) $, the output is $\left( \eta\left( t \right) , \gamma\left( t \right)  \right) . $
+
+\begin{definition}
+	The linearisation of $\Sigma$ is 
+	\[
+		\Sigma_{L} = \left( X \times  \real^{n}, \mu \times \real^{m}, \tdomain , \U \times L^{\infty}_{loc}\left( \left( \tdomain  \right) ; \real^{m} \right) , f_L , h_l  \right) 
+	\] 
+	where 
+	\begin{align*} 
+		f_L: \tdomain \times \left( X \times  \real^{n} \right) \times \left( U \times \real^{m} \right)  &\longrightarrow \real^{n}\times \real^{n} \\
+		\left( t, \left( x, \nu \right) , \left( u, \omega \right)  \right)  &\longmapsto f_L(\left( t, \left( x, \nu \right) , \left( u, \omega \right)  \right) ) \\
+										     &= \left( f\left( t, x, u \right) , D_1 f\left( t, x , u  \right) \cdot \nu + D_2 f\left( t, x , u  \right) \cdot \omega  \right) \\ 
+		h_L: \tdomain \times \left( X \times  \real^{n} \right) \times \left( U \times \real^{m} \right)  &\longrightarrow \real^{k}\times \real^{k} \\
+		\left( t, \left( x, \nu \right) , \left( u, \omega \right)  \right)  &\longmapsto h_L(\left( t, \left( x, \nu \right) , \left( u, \omega \right)  \right) ) \\ 
+										     &= \left( h\left( t, x, u \right) , D_1 h\left( t, x , u  \right) \cdot \nu + D_2 f\left( t, x , u  \right) \cdot \omega  \right) 
+	.\end{align*}
+\end{definition}
+
+A controlled trajectory $\left( \left( \xi, \nu \right) , \left( \mu, \omega \right)  \right) $ giving rise to a controlled output $\left( \left( \eta, \gamma \right) , \left( \mu, \omega \right)  \right) $ should be thought of as first giving a controlled trajectory $\left( \xi, \mu \right) \in C_{traj}\left( \Sigma \right) $ which gives the controlled output $\left( \eta, \mu \right) \in C_{out}\left( \Sigma \right) $ and then, second, determining the linearization about $\left( \eta, \mu \right) $ as last time. Thus, $\Sigma_{L}$ contains $\Sigma_{L, \left( \xi, \mu \right) }$.
+
+\subsection{Linearisation of CTSSS's about equilibria}
+
+\begin{definition}
+	A controlled equilibrium for $\Sigma = \left( X, U, \tdomain , \U, f, h \right) $ is a pair $\left( x_0, u_0 \right) \in X \times  U$ such that 
+	
+\end{definition}
