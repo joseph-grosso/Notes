@@ -7,7 +7,6 @@ We note that we can combine the equations for a controlled output $\left( \eta, 
 	\eta\left( t \right) &= h\left( t, \xi\left( t \right) , \mu\left( t \right)  \right)  \\
 	\gamma\left( t \right)  &=D_1 h\left( t, \xi\left( t \right) , \mu\left( t \right)  \right) \cdot \nu\left( t \right)  + D_2 h\left( t, \xi\left( t \right) , \mu\left( t \right)  \right) \cdot \omega \\
 .\end{align*}
-
 The first two equations are known as the state ODE's and the second two equations are known as output equations.
 
 This suggests a linearisation, not about a reference trajectory, but of the whole system. The state is $\left( \xi\left( t \right) ,\nu\left( t \right)  \right) $, the input is $\left( \mu\left( t \right) , \omega \left( t \right)  \right) $, the output is $\left( \eta\left( t \right) , \gamma\left( t \right)  \right) . $
@@ -33,6 +32,47 @@ A controlled trajectory $\left( \left( \xi, \nu \right) , \left( \mu, \omega \ri
 \subsection{Linearisation of CTSSS's about equilibria}
 
 \begin{definition}
-	A controlled equilibrium for $\Sigma = \left( X, U, \tdomain , \U, f, h \right) $ is a pair $\left( x_0, u_0 \right) \in X \times  U$ such that 
+	A controlled equilibrium for $\Sigma = \left( X, U, \tdomain , \U, f, h \right) $ is a pair $\left( x_0, u_0 \right) \in X \times  U$ such that $f\left( t, x_1, u_0 \right) = 0$ for all $t \in  \tdomain $. 
+\end{definition}
+
+\begin{note}
+	$\left( x_0, u_0 \right) $ is a controlled equilibrium if and only if $\left( \xi, \mu \right) $ wt $\xi\left( t \right) = x_0$ and $\mu\left( t \right) = u_0$ is a controlled trajectory. 
+	\begin{proof}
+		Suppose that $\left( x_0, u_0 \right) $ is a controlled equilibrium. Then $f\left( t, x_0, u_0 \right) = 0$. Now consider $\left( \xi, \mu \right) $ as above. Then $\dot{\xi} \left( t \right) = 0$. Then 
+		\begin{align*}
+			\dot{\xi}\left( t \right) = 0 &= f\left( t, x_0, u_0 \right) = f\left( t, \xi\left( t \right) , \mu\left( t \right)  \right) \\
+			\implies \left( \xi, \mu \right) \in C_{traj}\left( \Sigma \right) 
+		.\end{align*}
+		Now, with $\left( \xi, \mu \right) $ as above, note that 
+		 \[
+			 0 = \dot{\xi}\left( t \right) = f\left( t, \xi\left( t \right) , \mu\left( t \right)  \right) = f\left( t, x_0, u_0 \right) 
+		.\] 
+	\end{proof}
+	Thus, since $t \longmapsto \left( x_0, u_0 \right) $ is a controlled trajectory, we can linearise about it.
+\end{note}
+
+\begin{definition}
+	Let $\left( x_0, u_0 \right) $ be a controlled equilibrium for $\Sigma = \left( X, U, \tdomain , \U, f , h  \right) $. The linearisation of $\Sigma$ about $\left( x_0, u_0 \right) $ is 
+	\begin{align*}
+		\Sigma _{L, \left( x_0, u_0 \right) } &= \left( \real^{n}, \real^{m}, \tdomain , L^{\infty}_{loc}\left( \tdomain ; \real^{m} \right) , f_{L, \left( x_0, u_0 \right) }, h_{L, \left( x_0, u_0 \right) } \right)  
+	.\end{align*}
+	with
+	\begin{align*}
+		f_{L, \left( x_0, u_0 \right) }\left( t, \nu, \omega \right) &= D_1 f\left( t, x_0, u_0 \right) \cdot \nu + D_2 f\left( t, x_0, u_0 \right)  \cdot \omega \\
+		h_{L, \left( x_0, u_0 \right) }\left( t, \nu, \omega \right) &= D_1 h\left( t, x_0, u_0 \right) \cdot \nu + D_2 h\left( t, x_0, u_0 \right)  \cdot \omega
+	.\end{align*}
+	For autonomous systems, we can define 
+	\begin{align*}
+		A_{\left( x_0, u_0 \right) } &= D_1 f\left( x_0, u_0 \right)  \\
+		B_{\left( x_0, u_0 \right) } &= D_2 f\left( x_0, u_0 \right)  \\
+		C_{\left( x_0, u_0 \right) } &= D_1 h\left( x_0, u_0 \right)  \\
+		l_{\left( x_0, u_0 \right) } &= D_2 h\left( x_0, u_0 \right) 
+	.\end{align*}
+	Then controlled outputs for the linearisation satisfy
+	\begin{align*}
+		\dot{\nu} \left( t \right) &= A_{\left( x_0, u_0 \right) }\nu \left( t \right) + B_{\left( x_0, u_0 \right) }\omega \left( t \right) \\
+		\gamma\left( t \right) &= C_{\left( x_0, u_0 \right) }\nu\left( t \right) + D_{\left( x_0, u_0 \right) }\omega\left( t \right) 
+	.\end{align*}
+	This is an LTI system.
 	
 \end{definition}
