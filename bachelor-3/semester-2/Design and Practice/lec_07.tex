@@ -1,0 +1,36 @@
+\lecture{7}{Tue 10 Mar 2020 14:38}{332 Lab 9}
+
+Is it true the there is a choice for $T_{D}$ for which the closed loop system is IBIBO stable by the Nyquist or Hurwitz Criterion? Is it true that, no matter what choice one makes for $T_D$, the closed-loop system will by IBIBO stable? Can you spot the features on your Bode or Nyquist plot which help you answer this question? How do these play in the design of the controller?
+
+Since we have no poles on the RHP, we do not need encirclements of -1 to be BIBO stable. For $T_D = 1$ it is BIBO stable. Using the bode plot, we see that we have a gain margin of infinity. This implies that from our Nyquist plot, our line will never cross the negative real access, hence will not encircle the point $-1 + 0i$. Therefore, the system is stable. 
+
+Testing stability for a $T_D$ value of 0.001, we see that our Bode plot has a gain margin $<\infty$, implying the Nyquist plot crosses the negative real axis, hence encircles the point $-1 + 0i$. Because in the Bode and phase plot, the values reach -180, hence we have a gain margin $<\infty$. That feature implies that it loops around -1. For our Bode plot for $T_D = 1$, the phase angle never reaches 180, hence we have a gain margin of $\infty$. This implies that our Nyquist plot will not loop around the negative real axis and make it BIBO stable.
+
+Based upon the considerations in the previous step, choose a value for $T_D$ which meets the design objectives.
+
+Also choose $K$ to give the crossover frequency. 
+
+> Let's make sure to put in all those values in our report.
+
+\section{Executing the design}
+
+The group first inputted the values for $K$, $T_D$ and $T_I$ that were found to be unstable in the section before (1, 0.001 and 0.01, respectively). This resulted in the following graph:
+
+%% TODO: Add unstable inputs graph (both motor angle and velocity)
+
+
+Next, our group used the values that lead to the system being BIBO stable in the previous section. Here, we used a $T_D$ value of 1, $T_I$ value 10 and $K$ value 1. 
+
+%%TODO: Add stable input graph (both motor angle and velocity)
+
+Although these values showed BIBO stability through our Bode and Nyquist analysis, unfortunately the motor did not follow the expected trajectory. 
+
+Finally, we tested our "stable" system with a sinusoidal input. Since our constant input system with our "good" values for $T_D$, $T_I$, and K did not follow the expected trajectory, we did not expect our sinusoidal graph to perform better. 
+
+
+%%TODO: Add stable graph with sinusoidal input (both motor and velocity)
+
+Next, we tested the system with a different ratio between $T_D$ and $T_I$. We changed this ratio to $T_D = 7T_I$. The resulting output is shown below:
+
+%%TODO: Add different ratio graphs here (both angle and velocity)
+
