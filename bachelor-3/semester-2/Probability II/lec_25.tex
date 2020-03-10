@@ -1,0 +1,118 @@
+\lecture{25}{Tue 10 Mar 2020 10:36}{}
+
+If $X$ and $Y$ are independent then $Cov\left( X, Y \right) = 0$, since 
+\begin{align*}
+	Cov\left( X, Y \right) &= E\left[ XY \right] - E\left[ X \right] E\left[ Y \right]  \\
+	&= E\left[ X \right] E\left[ Y \right] - E\left[ X \right]E\left[ Y \right] = 0  
+.\end{align*}
+
+The converse is not true (see previous example).
+
+\subsection{Linearity properties of covariance}
+
+If $X_{1} , \ldots , X_{n}$ and $Y_{1} , \ldots , Y_{n}$ are random variables. Let 
+\begin{align*}
+	X &= a_1 X_1 + \ldots + a_n X_n \\
+	Y &= b_1 Y_1 + \ldots + b_{m} Y_{m} 
+\end{align*}
+
+where $a_{1} , \ldots , a_{n}$, $b_{1} , \ldots , b_{m}$ are constants. 
+
+Then 
+\begin{align*}
+	Cov\left( X, Y \right) &= Cov\left( \sum_{i=1}^{n} a_i x_i , \sum_{j=1}^{m} b_{j}y_{j} \right)  \\
+	&= E\left[ \sum_{i=1}^{n} a_i x_i , \sum_{j=1}^{m} b_{j}y_{j} \right]  - E\left[ \sum_{i=1}^{n} a_i x_i  \right] E\left[  \sum_{j=1}^{m} b_{j}y_{j} \right]  \\
+	&= E\left[ \sum_{i=1}^{n} \sum_{j=1}^{m} a_i x_i b_{j}y_{j} \right] - \sum_{i=1}^{n} a_{i}E\left[ X_{i} \right] \sum_{j=1}^{m} b_{j}E\left[ Y_{j} \right]  \\
+	&= \sum_{i=1}^{n} \sum_{j=1}^{m} a_i  b_{j} E\left[ X_{i}Y_{j} \right]  -  \sum_{i=1}^{n} a_{i}\sum_{j=1}^{m} b_{j}E\left[ Y_{j} \right]E\left[ X_{i} \right] \\
+	&=  \sum_{i=1}^{n} \sum_{j=1}^{m} a_i  b_{j}  \left( E\left[ X_{i}Y_{i} \right]  - E\left[ X_i \right] E \left[ Y_j \right]  \right) \\
+	&= \sum_{i=1}^{n} \sum_{j=1}^{m} a_i  b_{j}\ Cov \left( X_i, Y_j \right) 
+.\end{align*}
+
+\begin{eg}
+	Let $X = a_1 X_1 + \ldots + a_n X_n$, then 
+	\begin{align*}
+		Var\left( X \right) &=  Cov\left( X, X \right)  \\
+				    &= Cov\left( \sum_{i=1}^{n} a_i X_i , \sum_{j=1}^{n} a_{j}X_{j} \right)  \\
+				    &= \sum_{i=1}^{n} \sum_{j=1}^{n} a_i a_j Cov\left( X_{i}, X_j \right)  \\
+				    &= \sum_{i=1}^{n} a_{i}^{2}Cov\left( X_i , X_i  \right) + 2\sum \sum_{I < j}^{} a_i a_j Cov \left( X_i, X_j \right)  \\
+				    &= \sum_{i=1}^{n} a_i ^2 Var \left( X_i \right)  + 2 \sum \sum_{i < j}a_i a_j Cov\left( X_i, X_j \right) 
+	.\end{align*}
+\end{eg}
+
+\subsection{Correlation}
+
+Note: Covariance is not a standardized measure. If $Cov\left( X, Y \right) = 2$, then $Cov\left( 10X, 10Y \right) = 100\ Cov\left( X, Y \right) = 200 $. But the linear dependence between $X$ and $Y$ and between $10X$ and $10 Y $ should be the same. Therefore, we should standardize covariance. 
+
+\begin{definition}
+	For 2 random variables $X$ and $Y$, their correlation coefficient is 
+	\[
+		\rho\left( X, Y \right) = \frac{Cor\left( X, Y \right) }{\sqrt{Var\left( X \right) Var\left( Y \right) } }
+	.\] 
+	The correlation coefficient satisfies $-1 \le  \rho\left( X, Y \right) \le  1$. This follows from the Cauchy-Schwartz inequality. For 2 random variables $X$ and $Y$, the Cauchy-Schwartz inequality says 
+	\[
+		E\left[ XY \right] ^2 \le  E\left[ X^2  \right] E\left[ Y^2 \right] 
+	.\]
+	\begin{proof}
+		Consider $\left( X - \lambda Y \right) ^2$. We have 
+		\begin{align*}
+			0 &\le E\left[ \left( X - \lambda Y  \right) ^2 \right] 
+			&= E\left[ X^2 - 2\lambda XY + \lambda^2 Y^2 \right]  \\
+			&= E\left[ X^2 \right] - 2\lambda E\left[ XY \right] + \lambda^2 E\left[ Y^2 \right] 
+		.\end{align*}
+		Minimize with respect to $\lambda$ : 
+		\begin{align*}
+			-2 E\left[ XY \right] + 2 \lambda E\left[ Y^2 \right] &= 0 \\
+			\implies \lambda &= \frac{E\left[ XY \right] }{E\left[ Y^2 \right] } 
+		.\end{align*}
+		Plug in this $\lambda$ : 
+		\begin{align*}
+			E\left[ X^2 \right] - 2 \frac{E\left[ XY \right] }{E\left[ Y^2 \right] }E\left[ XY \right]  + \frac{E\left[ XY \right] ^2}{E\left[ Y^2 \right] ^2}E\left[ Y^2 \right] &= E\left[ X^2 \right] - \frac{E\left[ XY \right] ^2}{E\left[ Y^2 \right] } \\
+																								 &\ge 0 \\
+		.\end{align*}
+		This implies 
+		\begin{align*}
+			E\left[ XY \right] ^2 &\le E\left[ X^2 \right] E\left[ Y^2 \right] 
+		.\end{align*}
+		So,
+		\begin{align*}
+			E\left[ \left( X - E\left[ X \right]  \right)\left( Y - E\left[ Y \right]  \right) ^2  \right]  &\le E\left[ \left( X - E\left[ X \right]  \right) ^2 \right] E\left[ \left( Y - E\left[ Y \right]  \right) ^2 \right] \\
+			\implies Cov\left( X, Y \right) ^2 &\le Var \left( X \right) Var\left( Y \right) \\
+			\implies -\sqrt{Var\left( X \right) Var\left( Y \right) } &\le  Cov\left( X, Y \right) \le  \sqrt{Var\left( X \right) Var\left( Y \right) } \\
+			\implies -1 &\le  \rho\left( X, Y \right) \le 1
+		.\end{align*}
+	\end{proof}
+\end{definition}
+\begin{note}
+	$Cov\left( X, Y \right)  = 0 < = > \rho\left( X, Y \right)  = 0$. However, $\rho\left( X, Y \right) $ does not show the linearity properties of covariance. 
+\end{note}
+
+\begin{theorem}
+	$\rho\left( X, Y \right) = \pm 1 $ if and only if $Y = aX + b$ for some constants $a \not = 0$ and $b$.
+	\begin{proof}
+		Suppose $Y = aX + b$. Then 
+		\begin{align*}
+			Cov\left( X, Y \right)  &=  Cov\left( X, aX + B \right)  \\
+						&= a\ Cov\left( X, X \right) + Cov\left( X, b \right)  \\
+						&= a \ Var\left( X \right)  \\
+			Var\left( Y \right) &= Var\left( aX + b \right)  \\
+					    &= a^2 Var\left( X \right)  
+		.\end{align*}
+		Then
+		\[
+			\rho\left( X, Y \right) = \frac{a \ Var\left( X \right) }{\sqrt{Var\left( X \right) a^2 Var\left( X \right) } } = \frac{a}{\left| a \right| } = \pm 1
+		.\] 
+		Now, suppose that $\rho\left( X, Y \right) = +1 $. 
+		\begin{align*}
+			\sigma_Y &=  \sqrt{Var\left( Y \right) }  \\
+			\sigma_X &= \sqrt{Var\left( X \right) }  
+		.\end{align*}
+		Then, 
+		\begin{align*}
+			Var\left( \frac{X}{\sigma_X} - \frac{Y}{\sigma_Y} \right) &= Var\left( \frac{X}{\sigma_X} \right) + Var\left( \frac{Y}{\sigma_Y} \right)  - 2\ Cov\left( \frac{X}{\sigma_X} , \frac{Y}{\sigma_Y} \right)  \\
+			&= 1 + 1 - 2 = 0 \\ 
+			\implies \frac{X}{\sigma_{X}} - \frac{Y}{\sigma_Y} &=  C 
+		,\end{align*}
+		where  $c$ is a constant.
+
+	\end{proof}
+\end{theorem}
