@@ -1,0 +1,101 @@
+\lecture{26}{Wed 11 Mar 2020 15:22}{}
+Last time: The LCTSSS.
+\begin{align*}
+        \Sigma &= \left( X, U, Y, \tdomain , \U, A, B , C, D \right) \\
+                \dot{\xi}\left( t \right) &=  A\left( t \right) \xi\left(     t \right)  + B\left( t \right) \mu\left( t \right)  \\
+		\eta\left( t \right) &= C\left( t \right) \xi\left( t \right)  + D\left( t \right) \mu\left( t \right) 
+.\end{align*}
+
+Initial condition $x_0$ at $t_0$ : 
+\[
+	\eta\left( t \right) = C\left( t \right) \Phi_A \left( t, t_0 \right)  \left( x_0 \right) + \int_{t_0}^{t} C\left( t \right) \Phi _A \left( t, \tau \right) B\left( \tau \right) \mu\left( \tau \right) d \tau
+.\] 
+Constant coefficients $t_0 = 0$: 
+\[
+	\eta\left( t \right) = C\cdot e^{At}\left( x_0 \right) + \int_{0}^{t} C \cdot  e^{A\left( t - \tau \right) } B \mu\left( \tau  \right) d \tau + D\cdot \mu\left( t \right) 
+.\] 
+\subsection{Impulse transmission map}
+
+\begin{definition}
+	Let $\sigma$ be an LCTSSS. 
+	\begin{enumerate}
+		\item The proper impulse transmission map is 
+			\begin{align*}
+				pitm_\Sigma: \tdomain \times \tdomain  &\longrightarrow L\left( U, Y \right)  \\
+				\left( t, \tau \right)  &\longmapsto pitm_\Sigma(\left( t, \tau \right) ) = 1_{ \left( t - \tau \right)\ge 0}C\left( t \right) \cdot \Phi_A \left( t, \tau \right) \cdot B\left( \tau \right) 
+			.\end{align*}
+		\item One can define the impulse transmission map, but we will not.
+	\end{enumerate}
+	Obviously, the output for an input $\mu$ and initial condition $x_0 $ at $t_0$ is 
+	\[
+		\eta\left( t \right) = C\left( t \right) \cdot \Phi_A \left( t, t_0 \right) \left( x_0 \right)  + \int_{t_0}^{t} pitm _{\Sigma}\left( t, \tau \right) \mu\left( \tau \right) d \tau + D\left( t \right) \mu\left( t \right)  
+	.\] 
+\end{definition}
+In the constant coefficient case, we can use the additional structure: 
+\begin{definition}
+	Let $\Sigma$ be an LCTSSS with constant coefficients. 
+	\begin{enumerate}
+		\item The proper impulse response is 
+\begin{align*}
+				pir_\Sigma:\real  &\longrightarrow L\left( U, Y \right)  \\
+				t  &\longmapsto pir_\Sigma\left( t \right)  = 1_{  t  \ge 0}C\left( t \right) \cdot e ^{At}  B 
+			.\end{align*}
+		\item The impulse response is the $L\left( U, Y \right) $-valued distribution given by 
+			\[
+				ir_{\Sigma }\left( u \right) = \theta_{pir_{\Sigma}}\left( u \right)  + D\left( u \otimes \delta \right) 
+			.\] 
+	\end{enumerate}
+	\begin{note}
+		Recall that if we solve the distributional differential equation 
+		\[
+			\theta ^{\left( 1 \right) } = A\theta + B\left( u \otimes \delta \right) 
+		.\] 
+		is the distribution corresponding to the function $t \longmapsto 1 _{\ge  0}\left( t \right) e^{At}\cdot B\left( u \right) $. Then the output is $\eta\left( t \right) = 1 _{\ge  0}\left( t \right) C\cdot e^{At}\cdot B\left( u \right)  + D\left( u \otimes \delta  \right) $
+	\end{note}
+	\emph{Punchline: }The proper impulse response is a function. Moreover, it is a function that is a solution of a distributional ODE, namely the ODE 
+	\[
+		\theta^{\left( 1 \right) } = A\cdot \theta + B\left( u \otimes \delta \right) , \quad u \otimes \delta = \text{input } \mu
+	.\] 
+	If $D \neq_0$, then the term $D\cdot \mu$ in the output is a distribution. Therefore, the output for the input $\mu= u \otimes \delta $ will be a distribution. Indeed, it will be the distribution 
+	\[
+		\theta _{pir_{\Sigma}}\left( u \right) + D\left( u \otimes \delta \right) 
+	.\] 
+	When $D = 0$, $ir_{\Sigma} \theta _{pir_{\Sigma}}$.
+\end{definition}
+
+Note that the output associated to the input $\mu$ with initial condition $x_0$ at $t=0 $:
+\[
+	\eta\left( t \right) = C\cdot e^{At}\left( x_0 \right) + \int_{0 }^{t} pir_\Sigma \left( t - \tau \right) \mu\left( \tau \right) d \tau + D\cdot \mu\left( t \right) 
+.\] 
+It is clear that the integral in the above term is a convolution. 
+
+We will visit these notions of impulse transmission maps and impulse responses when we talk about\ldots
+
+\section{Linear continuous- time input/output systems}
+
+To use linearity, we need to assume that $\U$ and $\Y$ are such that linearity from $\U$ to $\Y$ makes sense.Recall that if $\U \subseteq L_{loc}^{1}\left( \left( \tdomain  \right) ; U \right) $then we denoted, for $\cS \subseteq \tdomain $ 
+\[
+	\U\left( \cS  \right) = \left\{ \mu \in  \U | dom\left( \mu \right) = \cS  \right\} 
+.\] 
+\begin{definition}
+	An LCTIOS is 
+	\[
+		\Sigma = \left( U, Y, \tdomain , \U, \Y, G \right) 
+	.\] 
+	where 
+	\begin{enumerate}
+		\item $U$ is a finite dimensional \real- vector space (input set), 
+		\item  $Y$ is a finite dimensional \real- vector space (output set), 
+		\item $\U$ is such that, for every $\cS \subseteq \tdomain $, $\U\left( \cS  \right) $ is a subspace of $U^{\cS }$, 
+		\item $\Y$ is such that, for every $\cS  \subseteq \tdomain $, $\Y\left( \cS  \right) $ is a subspace of $Y^{\cS }$, 
+		\item 
+			\begin{enumerate}
+				\item for $\cS \subseteq \tdomain $, if $g_{\cS }= g | \U\left( \cS  \right) $, then $g_{\cS }\left( \mu \right) \in \Y\left( \cS  \right) $, 
+				\item if $\cS ' \subseteq \cS \subseteq \tdomain $, then 
+					\[
+						g_{\cS '}\left( \mu | \cS ' \right) = g_{\cS }\left( \mu \right) | \cS '
+					,\] 
+				\item for $\cS \subseteq \tdomain $, $g_{\cS }: \U\left( \cS  \right)  \longmapsto \Y\left( \cS  \right) $ is a continuous linear mapping.  
+			\end{enumerate}
+	\end{enumerate}
+\end{definition}
