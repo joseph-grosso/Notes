@@ -1,0 +1,133 @@
+\lecture{27}{Fri 13 Mar 2020 14:30}{Integral Kernel Systems (IKS's)}
+
+\section{Integral Kernel Systems (IKS's)}
+
+The basic idea:
+\begin{align*}
+	g_K \left( \mu \right) \left( t \right) &= \int_{\tdomain }^{ } K\left( t, \tau \right) \mu\left( \tau \right) d \tau  
+.\end{align*}
+In this case, $K = $ 'the kernel'. This should remind you of the definition of the impulse response.
+
+ \begin{definition}
+	 Let $U, Y$ be finite-dimensional \real-vector spaces, and let $\tdomain  \subseteq \real$ be a continuous time-domain. 
+	 \begin{enumerate}
+	 	\item A kernel is a mapping 
+			\[
+				K : \tdomain  \times  \tdomain  \to L\left( U; Y \right) 
+			.\]
+			We denote 
+			\begin{align*}
+				K_t: \tdomain  &\longrightarrow L\left( U; Y \right)  \\
+				\tau &\longmapsto K\left( t, \tau \right) 
+			.\end{align*}
+		\item If $\U \subseteq U^{T}$, then $K$ is compatible with $\U$ if $\tau \longmapsto K _{t}\left( \tau \right) \mu\left( \tau \right)  $ is in $L^{1}\left( \tdomain ; Y \right) $ for every $\mu \in  \U$. 
+		\item if $K$ is compatible with $\U \subseteq U^{\tdomain }$, then the integral operator associated with $k$ is 
+			\[
+			g_K : \U \to Y^{\tdomain }
+			\] 
+			defined by 
+			\[
+				g_K \left( \mu \right) \left( t \right) = \int_{\tdomain }^{ } K \left( t, \tau \right) \mu\left( \tau \right) d \tau 
+			.\] 
+	 \end{enumerate}
+\end{definition}
+
+\begin{definition}
+	An integral kernel system is 
+	\[
+		\Sigma = \left( U, Y, \tdomain , \U, \Y, K \right) 
+	\] 
+	where 
+	\begin{enumerate}
+		\item $U$ and $Y$ are finite-dimensional $\real$-vector subspaces, 
+		\item $\U$ is a subspace of $C^{0}\left( \tdomain ; U \right) $ or $L^{p}_{loc}\left( \tdomain ; U \right) $, 
+		\item  $\Y$ is a subspace of $C^{0}\left( \tdomain ; Y  \right) $ or $L^{p}_{loc}\left( \tdomain ; U \right) $, 
+		\item $K $ is a kernel that is compatible with $\U$ and is such that $g_K$ is continuous mapping into $\Y$. 
+	\end{enumerate}
+\end{definition}
+
+We need properties on $K$, $\U$, and $\Y$ to ensure continuity. 
+\begin{theorem}
+	Let $U$, $Y$ be finite-dimensional \real-vector spaces, let $\tdomain \subseteq \real$ be a continuous time-domain. Then $\Sigma = \left( U, Y, \tdomain , \U, \Y, K \right) $ is an integral kernel system (ie, $g_K $ is continuous) if 
+	\begin{enumerate}
+		\item
+			\begin{enumerate}
+				\item $\U \subseteq L^{1}\left( \tdomain ; U \right) $, 
+				\item $\Y \subseteq L^{\infty}\left( \tdomain ; U \right) $, 
+				\item for each $t \in  \tdomain $, $K_t \in L^{1}\left( \tdomain ; L\left( U; Y \right)  \right) $, and $t \longmapsto \|K_t\|_1$ is in $L^{\infty}\left( \tdomain ; L\left( U; Y \right) \right) $.
+			\end{enumerate}
+		\item 
+			\begin{enumerate}
+				\item $\U \subseteq L^{\infty}\left( \tdomain ; U \right) $, 
+				\item $\Y\subseteq L^{1}\left( \tdomain ; Y \right) $, 
+				\item for each $t \in  \tdomain $, $K_t \in  L^{\infty}\left( \tdomain ; L\left( U; Y \right)  \right) $ and $t \longmapsto \|K_t \|_\infty$ is in $L^{1}\left( \tdomain ; L\left( U; Y \right)  \right) $. 
+			\end{enumerate}
+		\item 
+			\begin{enumerate}
+				\item $\U \subseteq L^{p}\left( \tdomain ; U \right) $, $\Y\subseteq L^{p}\left( \tdomain ; Y \right) $ for any $p \in \left[ 1, \infty \right] $, 
+				\item for each $t \in  \tdomain $, $K_t \in  L^{1}\left( \tdomain ; L\left( U; Y \right)  \right) $ and $t \longmapsto \| K_t\|_1$ is in $L^{\infty}\left( \tdomain ; L\left( U; Y \right)  \right) $, and 
+				\item for each $t \in  \tdomain $, $K_t \in  L^{\infty}\left( \tdomain ; L\left( U, Y \right)  \right) $ and $t \in \| K_t\|_\infty$ is in $L^{1}\left( \tdomain ; L\left( U; Y \right)  \right) $.
+			\end{enumerate}
+	\end{enumerate}
+\end{theorem}
+
+\subsection{System theoretic properties of integral kernel systems}
+
+In the definition of causality for IKS's, 
+\begin{align*}
+	g_K \left( \mu \right) \left( t \right) &= \int_{\tdomain }^{ } K\left( t, \tau \right) \mu\left( \tau \right) d \tau  
+\end{align*}
+should only depend on $\mu\left( \tau \right) $ for $\tau \le  t$.
+
+\begin{definition}[Causality of IKS]
+	A kernel $K$ is causal if $K\left( t, \tau \right) = 0$ for $\tau > t$.
+\end{definition}
+\begin{theorem}
+	If $\Sigma$ is an integral kernel system with a causal kernel $K$, then $g_K$ is strongly causal.
+\end{theorem}
+
+\begin{definition}[Stationarity of IKS] 
+	This will come later. For now, $K\left( t, \tau \right) = k \left( t - \tau \right) $.
+\end{definition}
+
+If we use a causal kernel, then we can allow for more general inputs and outputs than the $L^{p}$-spaces in the theorem above.
+
+\begin{theorem}
+	Let  $U$ and $Y$ be finite-dimensional \real-vector space, let $\tdomain \subseteq \real$ be a continuous time-domain and let $K$ be a causal integral kernel. Then 
+	\[
+	\Sigma = \left( U, Y, \tdomain , \U, \Y, K \right)
+	\] 
+	is an integral kernel system in the following cases. 
+	\begin{enumerate}
+		\item 
+			\begin{enumerate}
+				\item $\U \subseteq L^{1}_{loc}\left( \tdomain ; U \right) $ and there exists $t_0 \in  \tdomain $ such that 
+					\[
+						inf\ supp\left( \mu \right) \ge t_0
+					\] 
+					for all $\mu \in \U$,
+				\item $\Y \subseteq L^{\infty}_{loc}\left( \tdomain ; Y \right) $, 
+				\item for $t \in  \tdomain $, $K_t \in  L^{1}_{loc}\left( \tdomain ; L\left( U; Y \right)  \right) $, and $t \longmapsto \|K_t\|_{\cS , 1}$ is in $L^{\infty}_{loc}\left( \tdomain ; L\left( U; Y \right)  \right) $ for every compact $\cS \subseteq \tdomain $. 
+			\end{enumerate}
+		\item 
+			\begin{enumerate}
+				\item $\U \subseteq L^{\infty}_{loc}\left( \tdomain ; Y \right) $ and there exists $t_0 \in  \tdomain $ such that 
+					\[
+						inf\ supp\left( \mu \right) \ge t_0
+					\] 
+					for all $\mu \in \U$,
+				\item $\Y \subseteq L^{1}_{loc}\left( \tdomain ; Y \right) $, 
+				\item for every $t \in  \tdomain $, $K_t \in  L^{\infty}_{loc}\left( \tdomain ; L\left( U; Y \right)  \right) $, and $t \longmapsto \|K_t\|_{\cS , \infty}$ is in $L^{1}_{loc}\left( \tdomain ; L\left( U; Y \right)  \right) $ for every compact $\cS \subseteq \tdomain $. 
+			\end{enumerate}
+		\item 
+			\begin{enumerate}
+				\item $\U \subseteq L^{p}_{loc}\left( \tdomain ; U \right) $ and there exists $t_0 \in  \tdomain $ such that 
+					\[
+						inf\ supp\left( \mu \right) \ge t_0
+					\] 
+					for $\mu \in  \U$, 
+				\item $\Y \subseteq L^{p }_{loc}\left( \tdomain ; Y \right) $, 
+				\item 1c and 2c required.
+			\end{enumerate}
+	\end{enumerate}
+\end{theorem}
