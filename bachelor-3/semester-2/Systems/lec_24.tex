@@ -1,9 +1,33 @@
 \lecture{24}{Fri 06 Mar 2020 15:22}{Lorem Ipsum}
 
 Last time: The LCTSSS. 
-
 \begin{align*}
 	\Sigma &= \left( X, U, Y, \tdomain , \U, A, B , C, D \right) \\
-		\dot{\eta}\left( t \right) &=  A\left( t \right) \eta\left( t \right)  + B\left( t \right) \mu\left( t \right)  \\
-
+		\dot{\eta}\left( t \right) &=  A\left( t \right) \eta\left( t \right)  + B\left( t \right) \mu\left( t \right)  
 .\end{align*}
+
+\subsection{Linearization of CTIOS}
+
+This is too complicated, since $g : L^{p} \to L^{q}$, and since both are $\infty$-dimensional, it is it is difficult to talk about derivatives. 
+
+\subsection{Linearization of DTSSS}
+
+Let $\Sigma$ be a DTSSS, $\left( \xi_0, \mu_0 \right) $ be a reference trajectory. Let 
+\begin{align*}
+	\nu &= \xi  - \xi_0,\\
+	\omega &= \mu - \mu_0, \\
+	\gamma &= \eta - \eta_0 
+.\end{align*}
+Therefore, 
+\begin{align*}
+	\xi_0 \left( t + \Delta	 \right)  + \nu \left( t_0 + \Delta \right) &= f\left( t , \xi_0 + \nu, \mu + \omega \right)  \\
+	\eta_0\left( t \right)  + \gamma \left( t \right) &= h\left( t, \xi_0 + \nu , \mu + \omega \right)  
+.\end{align*}
+The Taylor expansion of $f$ and $h $, keeping first order terms, is 
+\begin{align*}
+	\nu\left( t + \Delta \right) &= D_1 f\left( t, \xi_0, \mu_0 \right) \nu + D_2 f\left( t, \xi_0 ,\mu_0 \right) \omega \\
+	\gamma\left( t  \right) &= D_1 h\left( t, \xi_0, \mu_0 \right) \nu + D_2 h\left( t, \xi_0, \mu_0 \right) \omega 
+.\end{align*}
+This is a new system $\Sigma_{L\left( \xi_0, \mu_0 \right) }$, $\nu$ state, $\omega$ input, $\gamma$ output.
+
+We can linearize the system (same as CTSSS's): $\Sigma_L$ is a new system with state $\xi$, $\nu$, output $\eta$, $\gamma$, input $\mu$, $\omega$.
